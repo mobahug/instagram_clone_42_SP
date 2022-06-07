@@ -15,7 +15,7 @@
 	<div class="navbar is-inline-flex is-transparent">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="homePage.php">
-				<img src="./resources/instagram-text-logo-83656.png" width="112" height="28" alt="InstagramClone">
+				<img src="./resources/logo2.png" width="85" height="28" alt="InstagramClone">
 			</a>
 		</div>
 		<?php
@@ -66,8 +66,7 @@
 								<form action="notification.php" method="POST">
 									<input class="button is-light" type="submit" name="on" value="On">
 									<input class="button is-light" type="submit" name="off" value="Off">
-								</form>
-						';
+								</form>';
 						$id = $_SESSION['id'];
 						$sql2 = "SELECT * FROM `user` WHERE `id`=?";
 						$result = $conn->prepare($sql2);
@@ -90,7 +89,7 @@
 								{
 									echo "<p class='has-text-danger has-background-danger-light'>Notification is OFF</p>";
 								}
-						
+
 								echo '
 								<br>
 								<div>
@@ -118,7 +117,7 @@
 											echo "<p class='has-text-danger has-background-danger-light'>Wrong user!</p>";
 										}
 									}
-	
+
 								echo '
 									<form action="new-username.php" method="POST">
 										<input class="input" type="text" name="new_user" placeholder="New Username">
@@ -127,7 +126,7 @@
 									</form>
 								</div>
 								';
-	
+
 								echo '
 								<br>
 								<div>

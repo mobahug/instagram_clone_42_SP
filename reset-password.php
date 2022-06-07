@@ -8,7 +8,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Instagram Clone</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-	<link rel="stylesheet" href="mystyles.scss">
 	<title>Reset-Password</title>
 </head>
 <body>
@@ -19,7 +18,7 @@
 				<div class="columns is-centered">
 					<div class="column is-5-tablet is-4-desktop is-3-widescreen">
 						<div class="box">
-							<img class="image " src ="./resources/instagram-text-logo-83656.png" >
+							<img class="image " src ="./resources/logo2.png" >
 
 							<form action="reset-request.inc.php" method="post">
 								<div class="field">

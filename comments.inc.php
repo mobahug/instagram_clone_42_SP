@@ -23,7 +23,7 @@ function setComments($conn)
 		$date = $_POST['date'];
 		$message = $_POST['message'];
 		$imgid = $_POST['imgid'];
-		
+
 
 		$headers = 'From: gabocza12@gmail.com' . "\r\n" .
 					'Reply-To: gabocza12@gmail.com' . "\r\n" .
@@ -33,9 +33,9 @@ function setComments($conn)
 
 		$result = $conn->prepare($sql);
 		$result->execute(array($uid, $imgid, $date, $message));
-		
-		
-		
+
+
+
 		//$sql2 = "SELECT * FROM `user` WHERE `id`='$uid'";
 		$sql2 = "SELECT user.id AS userid, user.email AS email, notification_status FROM user "
 		."INNER JOIN galleryimages ON user.id = galleryimages.userid "
@@ -56,7 +56,7 @@ function setComments($conn)
 			}
 		}
 		header("Location: homePage.php");
-		
+
 	}
 }
 
@@ -64,6 +64,7 @@ function setComments($conn)
 
 function getComments($conn, $imgid)
 {
+	//check out later
 	$sql = "SELECT * FROM comments WHERE imgid=".$imgid." ORDER BY date DESC";
 	$result = $conn->query($sql);
 
@@ -95,7 +96,7 @@ function getComments($conn, $imgid)
 											<p class='subtitle is-6'>".$row['date']."</p>
 											<p class='subtitle is-6'>".htmlspecialchars(nl2br($row['message']))."</p>
 										</div>
-									
+
 									";
 			if (isset($_SESSION['id']))
 			{

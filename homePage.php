@@ -1,7 +1,7 @@
 <?php
 	require_once 'comments.inc.php';
 	require_once 'gallery-upload.inc.php';
-	
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,13 +12,13 @@
 	<title>InstagramClone Profile</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="navbar is-inline-flex is-transparent">
 		<div class="navbar-brand">
 			<a class="navbar-item">
-				<img src="./resources/instagram-text-logo-83656.png" width="112" height="28" alt="InstagramClone">
+				<img src="./resources/logo2.png" width="85" height="28" alt="InstagramClone">
 			</a>
 		</div>
 		<div class="navbar-item is-flex-touch">
@@ -51,7 +51,7 @@
 	<div>
 		<!-- PHP/HTML for upload picture -->
 		<?php
-			$sql = "SELECT * FROM `galleryimages` 
+			$sql = "SELECT * FROM `galleryimages`
 					INNER JOIN user ON galleryimages.userid = user.id
 					ORDER BY `upload_date` DESC";
 			$result = $conn->prepare($sql);
@@ -73,7 +73,7 @@
 										<div class="media">
 											<div class="media-left">
 												<figure class="image is-48x48">
-													<img class="is-rounded" src="./profile_images/'.$row['profilePicture'].'" alt="Placeholder image">
+													<img class="is-rounded image is-48x48" src="./profile_images/'.$row['profilePicture'].'" alt="Placeholder image">
 												</figure>
 											</div>
 											<div class="media-content">
@@ -86,7 +86,7 @@
 									</div>
 									<div class="card-image">
 										<figure class="image is-1by1">
-											<img src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
+											<img class="curve" src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
 										</figure>
 									</div>
 									<div class="card-content">
@@ -124,7 +124,7 @@
 						</div>';
 					if (isset($_SESSION['id']))
 					{
-						
+
 						echo	"
 								<div class='columns body-columns'>
 									<div class='column is-half is-offset-one-quarter'>

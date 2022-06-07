@@ -17,7 +17,7 @@
 	<div class="navbar is-inline-flex is-transparent">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="homePage.php">
-				<img src="./resources/instagram-text-logo-83656.png" width="112" height="28" alt="InstagramClone">
+				<img src="./resources/logo2.png" width="85" height="28" alt="InstagramClone">
 			</a>
 		</div>
 		<?php
@@ -76,7 +76,7 @@
 							<div class="level">
 								<div class="level-item has-text-centered">
 									<figure class="image is-128x128">
-										<img class="is-rounded" src="./profile_images/'.$row['profilePicture'].'">
+										<img class="is-rounded image is-128x128" src="./profile_images/'.$row['profilePicture'].'">
 									</figure>
 								</div>
 								<div class="level-item has-text-centered">
@@ -104,7 +104,7 @@
 				}
 			}
 		}
-		
+
 	?>
 	<div>
 		<div>

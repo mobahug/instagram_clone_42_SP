@@ -39,6 +39,7 @@ create the landing page just like on Instagram
 	added that user can check other users profilePage from clicking name or comment click path - DONE
 	pagination is sucessfully implemented - DONE
 	make new profile picture - DONE
+	added own stickers and logos - DONE
 
 
 after logged in can have access to:

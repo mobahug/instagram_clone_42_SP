@@ -6,7 +6,7 @@
 	background-size: cover;
 }
 
-#test 
+#test
 {
 	width: 10px;
 	height: 10px;
@@ -59,9 +59,12 @@
 	display: flex;
 }
 .is-text-overflow {
-	white-space: nowrap; 
-	width: 50px; 
+	white-space: nowrap;
+	width: 50px;
 	overflow: hidden;
-	text-overflow: "----"; 
+	text-overflow: "----";
 	border: 1px solid #000000;
+}
+.curve {
+	border-radius: 1%;
 }

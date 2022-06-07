@@ -18,7 +18,7 @@
 				<div class="columns is-centered">
 					<div class="column is-5-tablet is-4-desktop is-3-widescreen">
 						<div class="box">
-							<img class="image " src ="./resources/instagram-text-logo-83656.png" >
+							<img class="image " src ="./resources/logo2.png" >
 							<?php
 								$selector = $_GET['selector'];
 								$validator = $_GET['validator'];

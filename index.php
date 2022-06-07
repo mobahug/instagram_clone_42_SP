@@ -16,7 +16,7 @@
 	<div class="navbar is-inline-flex is-transparent">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="homePage.php">
-				<img src="./resources/instagram-text-logo-83656.png" width="112" height="28" alt="InstagramClone">
+				<img src="./resources/logo2.png" width="85" height="28" alt="InstagramClone">
 			</a>
 		</div>
 		<div class="navbar-menu"></div>
@@ -39,7 +39,7 @@
 			?>
 		</div>
 	</div>
-		<section class="hero is-primary is-fullheight">
+		<section class="hero is-fullheight">
 			<div class="hero-body">
 				<div class="container">
 					<div class="columns is-centered">
@@ -56,7 +56,7 @@
 									}
 								}
 							?>
-							<img src ="./resources/instagram-text-logo-83656.png" >
+							<img src ="./resources/logo2.png" >
 							<div class="box">
 								<?php
 									if (isset($_GET['loginfailed']))
@@ -119,7 +119,7 @@
 								<br>
 								<div class="control">
 									<div class="columns is-centered">
-										<button type="submit" class="button is-primary is-fullwidth" id='btn' name="submit" value="OK">Sign Up</button>	
+										<button type="submit" class="button is-primary is-fullwidth" id='btn' name="submit" value="OK">Sign Up</button>
 									</div>
 								</div>
 								<br>
@@ -142,7 +142,7 @@
 								<div class="modal-content">
 									<div class='box'>
 										<section class="section">
-											<img class="image " src ="./resources/instagram-text-logo-83656.png" >
+											<img class="image " src ="./resources/logo2.png" >
 											<div class="columns is-centered">
 												<form action="index.php?action=register" method="post">
 													<div class="field">
@@ -206,7 +206,7 @@
 									<!-- pagination div -->
 					<div class="">
 						<?php
-							$sql = "SELECT * FROM `galleryimages` 
+							$sql = "SELECT * FROM `galleryimages`
 									INNER JOIN user ON galleryimages.userid = user.id
 									ORDER BY `upload_date` DESC";
 							$result = $conn->prepare($sql);
@@ -264,9 +264,9 @@
 									while ($img_counter < 7)
 									{
 										if ($img_counter % 2 == 0)
-											echo "<img class='img".$img_counter."' src='./resources/instagram-text-logo-83656.png' style='display: none;'>";
+											echo "<img class='img".$img_counter."' src='./resources/logo2.png' style='display: none;'>";
 										else
-											echo "<img class='img".$img_counter."' src='./resources/instagram-text-logo-83656.png' style='display: none;'>";
+											echo "<img class='img".$img_counter."' src='./resources/logo2.png' style='display: none;'>";
 										$img_counter++;
 									}
 									echo "</div>";
@@ -278,7 +278,7 @@
 						<?php
 							for ($k = 1; $k < ($block + 1); $k++)
 							{
-								
+
 								if ($k == 1)
 								{
 									echo '
@@ -289,7 +289,7 @@
 								else
 								{
 									echo '
-									
+
 										<a id="button'.$k.'" class="pagination-link href="#" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>
 									</div>
 										';

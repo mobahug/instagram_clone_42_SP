@@ -10,14 +10,14 @@
 	<title>InstagramClone Profile</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<!-- NAVIGATION BAR -->
 	<div class="navbar is-inline-flex is-transparent">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="homePage.php">
-				<img src="./resources/instagram-text-logo-83656.png" width="112" height="28" alt="InstagramClone">
+				<img src="./resources/logo2.png" width="85" height="28" alt="InstagramClone">
 			</a>
 		</div>
 		<?php
@@ -53,7 +53,7 @@
 		?>
 	</div>
 	<?php
-		
+
 		if (isset($_SESSION['id']))
 		{
 			$id = $_SESSION['id'];
@@ -78,7 +78,7 @@
 							<div class="level">
 								<div class="level-item has-text-centered">
 									<figure class="image is-128x128">
-										<img class="is-rounded" src="./profile_images/'.$row['profilePicture'].'">
+										<img class="is-rounded image is-128x128" src="./profile_images/'.$row['profilePicture'].'">
 									</figure>
 								</div>
 								<div class="level-item has-text-centered">
@@ -111,7 +111,7 @@
 		if (isset($_SESSION['id']))
 		{
 			echo '
-			
+
 			<div class="columns body-columns">
 				<div class="column is-half is-offset-one-quarter">
 					<div class="level">
@@ -218,7 +218,7 @@
 										<div class="card">
 											<div class="card-image">
 												<figure class="image is-1by1">
-													<img src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
+													<img class="curve" src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
 												</figure>
 											</div>
 										<div class="level">
@@ -267,7 +267,7 @@
 	let final_stamp_upload = document.querySelector("#stamp2");
 
 	let stamp_auth = false;
-	
+
 	function stampPath(element) {
 		final_stamp.value = element.src;
 		final_stamp_upload.value = element.src;
