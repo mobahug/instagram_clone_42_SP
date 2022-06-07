@@ -1,0 +1,83 @@
+Instagram look like page
+
+create the landing page just like on Instagram
+
+	registration log in enough
+
+	user registration - DONE
+	user login - DONE
+	user logout - DONE
+	user delete - DONE
+	user profile - DONE
+	user comment other picture - DONE
+	user delete it's own comment - DONE
+	user edit it's own comment - DONE
+	new shared image attached comment section - DONE
+	comment section can hide as well as comment - DONE (half way cuz comments not hide all)
+	email verification - DONE
+	upload pictures to profile page and homepage and save them to database - DONE
+	we got now email to gmail too - DONE
+	on profile pictures we have different content on different users - DONE
+	hompage have different comments on different posts - DONE
+	Can take picture with camera - DONE
+	forget passwords option - DONE
+	take picture with built in camera - DONE
+	put onto it stickers -  DONE
+	save them to the database - DONE
+	username can t be too long - DONE
+	notification switch button - DONE
+	upload picture with stickers functionality - DONE
+	camera pictures now ordered by creation of timein descending order - DONE
+	secured that only those can do things on the website who are logged in - DONE
+	site content showing but for guest not available - DONE
+	delete picture option only for owner of the picture user - DONE
+	merged camera and gallery SQL tables so now there is only one - DONE
+	removed sessions to avoid warning - DONE
+	be able to 1 click logout from camera page too, camera could be moved from popup window to hide window - DONE
+	modify user/email feature - DONE
+	additional owner name added to profilePage - DONE
+	added that user can check other users profilePage from clicking name or comment click path - DONE
+	pagination is sucessfully implemented - DONE
+	make new profile picture - DONE
+
+
+after logged in can have access to:
+
+
+			like other users picture,
+
+			we still have to modify the homePage to become the indexPage
+			and for the current index page give a login name
+
+
+		***********BUGG TO SOLVE WITH PROPER INNER JOIN tables*************
+
+
+			if another user don t have profilepicture (lets say deleting)
+
+			his/her name will change to that one who has profile picture
+
+		************BUG********
+
+		only 1 profile picture can be not more
+		(with LIMIT could solve the output issue)
+		There is still issue about to upload and store in the folder the profile picture
+
+		also during registration now if there is something wrong, its still saving into the database the email stuff
+
+
+php/etc/php.ini
+
+OPCache from 1 to 0
+
+comment out
+
+ SMTP = localhost
+
+; smtp_port = 25
+
+comment
+
+in sendmail_path = "env -i /usr/sbin/sendmail -t -i"
+
+restart server
