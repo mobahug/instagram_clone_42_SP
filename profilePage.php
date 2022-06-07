@@ -58,9 +58,8 @@
 		{
 			$id = $_SESSION['id'];
 			//$sql = "SELECT * FROM `user` WHERE `id`=".$id.";";
-			$sql = "SELECT * FROM `profileimages` 
-					INNER JOIN user ON profileimages.profileUserId = user.id
-					WHERE user.id=?
+			$sql = "SELECT * FROM `user`
+					WHERE `id`=?
 					LIMIT 1;";		//THIS HAVE TO CHECK OUT LATER!!!!
 			$result = $conn->prepare($sql);
 			$result->execute(array($id));
@@ -79,7 +78,7 @@
 							<div class="level">
 								<div class="level-item has-text-centered">
 									<figure class="image is-128x128">
-										<img class="is-rounded" src="./profile_images/'.$row['profilePath'].'">
+										<img class="is-rounded" src="./profile_images/'.$row['profilePicture'].'">
 									</figure>
 								</div>
 								<div class="level-item has-text-centered">
@@ -161,7 +160,10 @@
 					</div>
 				</div>
 			</div>';
-		}?>
+		}
+	else
+		header("Location: index.php?nicetry");
+	?>
 
 	<div>
 		<?php
@@ -270,7 +272,6 @@
 		final_stamp.value = element.src;
 		final_stamp_upload.value = element.src;
 		stamp_auth = true;
-
 	}
 
 	camera_button.addEventListener('click', async function() {

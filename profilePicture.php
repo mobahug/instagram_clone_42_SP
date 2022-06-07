@@ -36,46 +36,65 @@ if (isset($_POST['submitProfile']))
 				$imageFullName = $newFileName . "." . uniqid("", true) . "." . $fileActualExt;		//uniqueid() true add more character after the file name
 				$fileDestination = "./profile_images/" . $imageFullName;
 				
-				
-					$sql = "SELECT * FROM `profileimages`;";
-					$result = $conn->query($sql);
+				$id = $_SESSION['id'];
+				//$sql = "SELECT * FROM `user` WHERE `id`=".$id.";";
+				$oldsql = "SELECT * FROM `user`
+						WHERE `id`=?
+						LIMIT 1;";		//THIS HAVE TO CHECK OUT LATER!!!!
+				$oldresult = $conn->prepare($oldsql);
+				$oldresult->execute(array($id));
+				if (!$oldresult)
+				{
+					echo "SQL statement failed!";
+				}
+				else
+				{
+					$rows = $oldresult->fetchAll();
+					foreach ($rows as $row)
+					{
+						if ($row['profilePicture'] != "/128x128.png")
+							unlink("profile_images/" . $row['profilePicture']);
+					}
+				}
+				$sql = "SELECT * FROM `user`;";
+				$result = $conn->query($sql);
+				if (!$result)
+				{
+					echo "SQL statement failed";
+				}
+				else
+				{
+					$username = $_SESSION['id'];
+					$sql2 = "UPDATE `user` SET `profilePicture`=? WHERE `id`=?;";
+					$result2 = $conn->prepare($sql2);
 					if (!$result)
 					{
 						echo "SQL statement failed";
 					}
 					else
 					{
-						$username = $_SESSION['id'];
-						$sql2 = "INSERT INTO `profileimages` (`profileUserId`, `profilePath`) VALUES (?, ?);";
-						$result2 = $conn->prepare($sql2);
-						if (!$result)
-						{
-							echo "SQL statement failed";
-						}
-						else
-						{
-							$result2->execute(array($username, $imageFullName));
-							move_uploaded_file($fileTempName, $fileDestination);
-							header("Location: settings.php");
-						}
+						$result2->execute(array($imageFullName, $username));
+						move_uploaded_file($fileTempName, $fileDestination);
+						header("Location: settings.php?user=new_profilepicture_uploaded");
 					}
+				}
 			}
 			else
 			{
 				echo "File size too big";
-				exit();
+				header("Location: settings.php?user=errorsize");
 			}
 		}
 		else
 		{
 			echo "You had an error!";
-			exit();
+			header("Location: settings.php?user=perror");
 		}
 	}
 	else
 	{
 		echo "You need to uppload a proper filetype!";
-		exit();
+		header("Location: settings.php?user=notproperfile");
 	}
 }
 ?>

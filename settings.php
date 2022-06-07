@@ -69,129 +69,169 @@
 								</form>
 						';
 						$id = $_SESSION['id'];
-						$sql2 = "SELECT * FROM `user` WHERE `id`='$id'";
-						$stmt = $conn->query($sql2);
-						$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-						if ($result[0]['notification_status'] == 1)
+						$sql2 = "SELECT * FROM `user` WHERE `id`=?";
+						$result = $conn->prepare($sql2);
+						$result->execute(array($id));
+						if (!$result)
 						{
-							echo "<p class='has-text-success has-background-success-light'>Notification is ON!</p>";
+							echo "SQL statement failed!";
 						}
-						if ($result[0]['notification_status'] == 0)
+						else
 						{
-							echo "<p class='has-text-danger has-background-danger-light'>Notification is OFF</p>";
-						}
-					}
-						echo '
-						<br>
-						<div>
-							<p>Change username</p>';
-							if (isset($_GET['username']))
+							$rows = $result->fetchAll();
+							foreach ($rows as $row)
 							{
-								if ($_GET['username'] == "modified")
-								{
-									echo "<p class='has-text-success has-background-success-light'>Sucessfully updated username!</p>";
-								}
-								if ($_GET['username'] == "error")
-								{
-									echo "<p class='has-text-danger has-background-danger-light'>Username already in use!</p>";
-								}
-							}
 
-						echo '
-							<form action="new-username.php" method="POST">
-								<input class="input" type="text" name="new_user" placeholder="New Username">
-								<br><br>
-								<input class="button is-primary" type="submit" name="newUserSubmit">
-							</form>
-						</div>
-						';
-
-						echo '
-						<br><br>
-						<div>
-							<p>Change email</p>';
-							if (isset($_GET['email']))
-							{
-								if ($_GET['email'] == "modified")
+								if ($row['notification_status'] == 1)
 								{
-									echo "<p class='has-text-success has-background-success-light'>Sucessfully updated email!</p>";
+									echo "<p class='has-text-success has-background-success-light'>Notification is ON!</p>";
 								}
-								if ($_GET['email'] == "error")
+								if ($row['notification_status'] == 0)
 								{
-									echo "<p class='has-text-danger has-background-danger-light'>Email already in use!</p>";
+									echo "<p class='has-text-danger has-background-danger-light'>Notification is OFF</p>";
 								}
-							}
-						echo '
-							<form action="new-email.php" method="POST">
-								<input class="input" type="text" name="new_email" placeholder="New Email">
-								<br><br>
-								<input class="button is-primary" type="submit" name="newEmailSubmit">
-							</form>
-							<br>
-							<form action="profilePicture.php" method="POST" enctype="multipart/form-data">
-								<input class="input" type="text" name="filename" placeholder="File name . . .">
-								<input class="input" type="file" name="file">
-								<button class="button" type="submit" name="submitProfile">Upload</button>
-							</form>
+						
+								echo '
+								<br>
+								<div>
+									<p>Change username</p>';
+									if (isset($_GET['username']))
+									{
+										if ($_GET['username'] == "modified")
+										{
+											echo "<p class='has-text-success has-background-success-light'>Sucessfully updated username!</p>";
+										}
+										if ($_GET['username'] == "error")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Username already in use!</p>";
+										}
+										if ($_GET['username'] == "toolong_username")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Max 15 character long username!</p>";
+										}
+										if ($_GET['username'] == "tooless")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Min 1 character username!</p>";
+										}
+										if ($_GET['username'] == "wrong_user")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Wrong user!</p>";
+										}
+									}
+	
+								echo '
+									<form action="new-username.php" method="POST">
+										<input class="input" type="text" name="new_user" placeholder="New Username">
+										<br>
+										<input class="button is-primary" type="submit" name="newUserSubmit">
+									</form>
+								</div>
+								';
+	
+								echo '
+								<br>
+								<div>
+									<p>Change email</p>';
+									if (isset($_GET['email']))
+									{
+										if ($_GET['email'] == "modified")
+										{
+											echo "<p class='has-text-success has-background-success-light'>Sucessfully updated email!</p>";
+										}
+										if ($_GET['email'] == "error")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Email already in use!</p>";
+										}
+										if ($_GET['email'] == "toolong_format")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Max 42 character long email!</p>";
+										}
+										if ($_GET['email'] == "tooshort_format")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Too short email adress!</p>";
+										}
+										if ($_GET['email'] == "wrong_email")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Wrong email!</p>";
+										}
+									}
+								echo '
+									<form action="new-email.php" method="POST">
+										<input class="input" type="text" name="new_email" placeholder="New Email">
+										<br>
+										<input class="button is-primary" type="submit" name="newEmailSubmit">
+									</form>
+									<br>';
+									if (isset($_GET['user']))
+									{
+										if ($_GET['user'] == "new_profilepicture_uploaded")
+										{
+											echo "<p class='has-text-success has-background-success-light'>New profile picture sucessfully updated!</p>";
+										}
+										if ($_GET['user'] == "errorsize")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>File size is too big!</p>";
+										}
+										if ($_GET['user'] == "perror")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>You had an error!</p>";
+										}
+										if ($_GET['user'] == "notproperfile")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>You need to uppload a proper filetype!</p>";
+										}
+									}
+								echo '<p>Upload new profile icture</p>
+									<form action="profilePicture.php" method="POST" enctype="multipart/form-data">
+										<input class="input" type="text" name="filename" placeholder="Profile Picture name">
+										<input class="input" type="file" name="file">
+										<button class="button" type="submit" name="submitProfile">Upload</button>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>';
-			?>
-		<?php
-			$username = $_SESSION['id'];
-			$sql = "SELECT * FROM profileimages WHERE profileUserId=? limit 1";
-			$result = $conn->prepare($sql);
-			$result->execute(array($username));
-			if (!$result)
-			{
-				echo "SQL statement failed!";
-			}
-			else
-			{
-				$rows = $result->fetchAll();
-				foreach ($rows as $row)
-				{
-					//outputting image
-					echo '
-						<div class="columns body-columns">
-							<div class="column is-half is-offset-one-quarter">
-								<div class="card">
-									<div class="card-image">
-										<figure class="image is-1by1">
-											<img src="./profile_images/'.$row["profilePath"].'">
-										</figure>
-									</div>
-								<div class="level">
-									<div class="level-left">
-										<form class="form-control" method="POST" action="deleteProfilePicture.php">
-											<input type="hidden" name="profilePath" value="'.$row["profilePath"].'">
-											<button class="button is-hovered" type="submit" name="deleteProfileImage">
-												<i class="material-icons">delete</i>
-											</button>
-										</form>
-									</div>
-								</div>
-								</div>
+				<div class="columns body-columns">
+					<div class="column is-half is-offset-one-quarter">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-1by1">
+									<img src="profile_images/'.$row["profilePicture"].'">
+								</figure>
+							</div>
+						<div class="level">
+							<div class="level-left">
+								<form class="form-control" method="POST" action="deleteProfilePicture.php">
+									<input type="hidden" name="profilePath" value="'.$row["profilePicture"].'">
+									<button class="button is-hovered" type="submit" name="deleteProfileImage">
+										<i class="material-icons">delete</i>
+									</button>
+								</form>
 							</div>
 						</div>
-						<div class="columns body-columns">
-							<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
-								<footer class="footer">
-									<div class="container is-fluid">
-										<div class="content has-text-centered">
-											<p>
-												<strong>InstagramClone</strong> by ghorvath
-											</p>
-										</div>
-									</div>
-								</footer>
+						</div>
+					</div>
+				</div>
+				<div class="columns body-columns">
+					<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+						<footer class="footer">
+							<div class="container is-fluid">
+								<div class="content has-text-centered">
+									<p>
+										<strong>InstagramClone</strong> by ghorvath
+									</p>
+								</div>
 							</div>
-						</div>';
-				}
-			}
+						</footer>
+					</div>
+				</div>';
+							}
+						}
+					}
+					else
+						header("Location: index.php?nicetry");
 		?>
 </body>
 </html>

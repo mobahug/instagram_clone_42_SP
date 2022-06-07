@@ -66,6 +66,9 @@ after logged in can have access to:
 		also during registration now if there is something wrong, its still saving into the database the email stuff
 
 
+		FINISH LATER USERUPDATE UI BUGFIX!!!
+
+
 php/etc/php.ini
 
 OPCache from 1 to 0

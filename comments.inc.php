@@ -209,6 +209,7 @@ function register($conn)
 		$status = 0;
 		$activationCode = md5($email.time());
 		$notification_status = 1;
+		$defaultImage = "/128x128.png";
 
 		$headers = 'From: gabocza12@gmail.com' . "\r\n" .
 					'Reply-To: gabocza12@gmail.com' . "\r\n" .
@@ -250,35 +251,35 @@ function register($conn)
 
 			if (!$uppercase)
 			{
-				echo "Contains at least one uppercase letter!" . PHP_EOL;
-				header('Refresh: 1.8; ./index.php?user=uppercase');
+				//echo "Contains at least one uppercase letter!" . PHP_EOL;
+				header('Refresh: 0.1; ./index.php?user=uppercase');
 			}
 			else if (!$lowercase)
 			{
-				echo "Contains at least one lowercase letter!" . PHP_EOL;
-				header('Refresh: 1.8; ./index.php?user=lowercase');
+				//echo "Contains at least one lowercase letter!" . PHP_EOL;
+				header('Refresh: 0.1; ./index.php?user=lowercase');
 			}
 			else if (!$number)
 			{
-				echo "Need at least one number!" . PHP_EOL;
-				header('Refresh: 1.8; ./index.php?user=number');
+				//echo "Need at least one number!" . PHP_EOL;
+				header('Refresh: 0.1; ./index.php?user=number');
 			}
 			else if (!$specialChars)
 			{
-				echo "Need at least one special character!" . PHP_EOL;
-				header('Refresh: 1.8; ./index.php?user=special');
+				//echo "Need at least one special character!" . PHP_EOL;
+				header('Refresh: 0.1; ./index.php?user=special');
 			}
 			else if (strlen($password) < 8)
 			{
-				echo "Passwords min.: 8 characters long!" . PHP_EOL;
-				header('Refresh: 1.8; ./index.php?user=tooshort');
+				//echo "Passwords min.: 8 characters long!" . PHP_EOL;
+				header('Refresh: 0.1; ./index.php?user=tooshort');
 			}
 			else
 			{
 				$password = hash('whirlpool', $_POST['password']);
-				$sql = "INSERT INTO `user` (`uid`, `password`, `email`, `activation_code`, `status`, `notification_status`) VALUES (?, ?, ?, ?, ?, ?)";
+				$sql = "INSERT INTO `user` (`uid`, `password`, `email`, `activation_code`, `status`, `notification_status`, `profilePicture`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 				$result = $conn->prepare($sql);
-				$result->execute(array($uid, $password, $email, $activationCode, $status, $notification_status));
+				$result->execute(array($uid, $password, $email, $activationCode, $status, $notification_status, $defaultImage));
 				//file_put_contents($dir . "/password.csv", serialize($user));
 				echo "OK\n";
 				mail($email, "E-mail Verification", "Please verify your account " . PHP_EOL .

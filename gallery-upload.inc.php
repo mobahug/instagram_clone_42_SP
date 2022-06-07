@@ -81,8 +81,10 @@ if (isset($_POST['submitImage']))
 				{
 					$stamp = imagecreatefrompng($stamp_path);
 					$resizedStamp = imagescale( $stamp, 200, 200 );
-
-					$img = imagecreatefromjpeg($fileDestination);
+					if ($fileActualExt == "png")
+						$img = imagecreatefrompng($fileDestination);
+					else
+						$img = imagecreatefromjpeg($fileDestination);
 					
 					$margin_r = 10;
 					$margin_b = 10;

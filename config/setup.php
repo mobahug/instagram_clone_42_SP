@@ -40,7 +40,8 @@
 			email varchar(128) not null,
 			activation_code varchar(512) not null,
 			status int(11) not null,
-			notification_status int(11) not null
+			notification_status int(11) not null,
+			profilePicture varchar(128) not null
 		);";
 
 		$conn->exec($sql_users);
@@ -66,14 +67,6 @@
 		);";
 
 		$conn->exec($sql_forget_pwd);
-
-		$sql_profile = "CREATE TABLE IF NOT EXISTS profileImages (
-			profileId int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-			profileUserId int(11) NOT NULL,
-			profilePath LONGTEXT NOT NULL
-		);";
-
-		$conn->exec($sql_profile);
 	}
 
 	catch(PDOException $e)
