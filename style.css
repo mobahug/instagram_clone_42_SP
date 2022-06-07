@@ -55,7 +55,7 @@
 	width: 760px;
 }
 
-.is-text-overflow-parent {
+/* .is-text-overflow-parent {
 	display: flex;
 }
 .is-text-overflow {
@@ -64,7 +64,7 @@
 	overflow: hidden;
 	text-overflow: "----";
 	border: 1px solid #000000;
-}
+} */
 .curve {
 	border-radius: 1%;
 }
