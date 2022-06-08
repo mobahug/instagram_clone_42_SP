@@ -44,3 +44,13 @@
 	width: 75%;
 	padding: 10px;
 }
+
+.button-signin {
+	background-color: rgb(218, 247, 166 );
+	border-style: none;
+}
+
+.button-forget {
+	background-color: rgb(244, 187, 68);
+	border-style: none;
+}

@@ -173,7 +173,7 @@
 				<div class="container is-fluid">
 					<div class="content has-text-centered">
 						<p>
-							<strong>InstagramClone</strong> by ghorvath
+							<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
 						</p>
 					</div>
 				</div>

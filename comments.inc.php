@@ -219,8 +219,7 @@ function register($conn)
 		//checks for existing users
 		if (strlen($uid) > 16)
 		{
-			echo "User name too long!" . PHP_EOL;
-			header('Refresh: 1.8; ./index.php');
+			header('Refresh: 0.1; ./index.php?user=too_long_username');
 			return false;
 		}
 		$sql = "SELECT * FROM `user` WHERE `uid`=?";
@@ -228,8 +227,7 @@ function register($conn)
 		$result->execute(array($uid));
 		if ($result && $result->fetchColumn())
 		{
-			echo "User already exist!" . PHP_EOL;
-			header('Refresh: 1.8; ./index.php?user=exsist');
+			header('Refresh: 0.1; ./index.php?user=exsist');
 		}
 		//checks for used email
 		$sql2 = "SELECT * FROM `user` WHERE `email`=?";
@@ -237,8 +235,7 @@ function register($conn)
 		$result2->execute(array($email));
 		if ($result2 && $result2->fetchColumn())
 		{
-			echo "Email already in use!" . PHP_EOL;
-			header('Refresh: 1.8; ./index.php?user=emailexsist');
+			header('Refresh: 0.1; ./index.php?user=emailexsist');
 		}
 		else
 		{
@@ -252,27 +249,22 @@ function register($conn)
 
 			if (!$uppercase)
 			{
-				//echo "Contains at least one uppercase letter!" . PHP_EOL;
 				header('Refresh: 0.1; ./index.php?user=uppercase');
 			}
 			else if (!$lowercase)
 			{
-				//echo "Contains at least one lowercase letter!" . PHP_EOL;
 				header('Refresh: 0.1; ./index.php?user=lowercase');
 			}
 			else if (!$number)
 			{
-				//echo "Need at least one number!" . PHP_EOL;
 				header('Refresh: 0.1; ./index.php?user=number');
 			}
 			else if (!$specialChars)
 			{
-				//echo "Need at least one special character!" . PHP_EOL;
 				header('Refresh: 0.1; ./index.php?user=special');
 			}
 			else if (strlen($password) < 8)
 			{
-				//echo "Passwords min.: 8 characters long!" . PHP_EOL;
 				header('Refresh: 0.1; ./index.php?user=tooshort');
 			}
 			else
@@ -288,7 +280,7 @@ function register($conn)
 		}
 	}
 	else
-		echo "ERROR\n";
+		header('Refresh: 0.1; ./index.php?registration=failed');
 }
 
 function getLogin($conn)

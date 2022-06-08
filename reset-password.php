@@ -8,11 +8,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Instagram Clone</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+	<link rel="stylesheet" href="style.css">
 	<title>Reset-Password</title>
 </head>
 <body>
 
-	<section class="hero is-primary is-fullheight">
+	<section class="hero is-fullheight">
 		<div class="hero-body">
 			<div class="container">
 				<div class="columns is-centered">
@@ -37,13 +38,13 @@
 									</div>
 								</div>
 								<div class="has-text-centered">
-									<input class="button input is-primary" type="submit" name="reset-request-submit" />
+									<input class="button input button-signin" type="submit" name="reset-request-submit" />
 								</div>
 							</form>
 							<br>
 							<div class="has-text-centered">
-								<button type="submit" class="button is-hovered is-fullwidth" name="loginSubmit">
-									<a href="index.php">Back</a>
+								<button type="submit" class="button is-light is-fullwidth " name="loginSubmit">
+									<a href="index.php" class="has-text-black">Back</a>
 								</button>
 							</div>
 						</div>

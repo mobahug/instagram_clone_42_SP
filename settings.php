@@ -10,6 +10,7 @@
 	<title>InstagramClone Profile</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
 </head>
 <body>
 	<div class="navbar is-inline-flex is-transparent">
@@ -58,10 +59,10 @@
 					{
 						echo '
 						<div class="box has-text-centered">
-							<button class="button">
-								<a href="settings.php?action=delete">Delete Account</a>
+							<button class="button button-forget is-fullwidth">
+								<a class="has-text-black" href="settings.php?action=delete">Delete Account</a>
 							</button>
-							<br><br>
+							<br>
 							<div class="field">
 								<form action="notification.php" method="POST">
 									<input class="button is-light" type="submit" name="on" value="On">
@@ -93,7 +94,7 @@
 								echo '
 								<br>
 								<div>
-									<p>Change username</p>';
+									<label class="label">Change username</label>';
 									if (isset($_GET['username']))
 									{
 										if ($_GET['username'] == "modified")
@@ -122,7 +123,7 @@
 									<form action="new-username.php" method="POST">
 										<input class="input" type="text" name="new_user" placeholder="New Username">
 										<br>
-										<input class="button is-primary" type="submit" name="newUserSubmit">
+										<input class="button button-signin is-fullwidth" type="submit" name="newUserSubmit">
 									</form>
 								</div>
 								';
@@ -130,7 +131,7 @@
 								echo '
 								<br>
 								<div>
-									<p>Change email</p>';
+									<label class="label">Change email</label>';
 									if (isset($_GET['email']))
 									{
 										if ($_GET['email'] == "modified")
@@ -158,7 +159,7 @@
 									<form action="new-email.php" method="POST">
 										<input class="input" type="text" name="new_email" placeholder="New Email">
 										<br>
-										<input class="button is-primary" type="submit" name="newEmailSubmit">
+										<input class="button button-signin is-fullwidth" type="submit" name="newEmailSubmit">
 									</form>
 									<br>';
 									if (isset($_GET['user']))
@@ -180,11 +181,11 @@
 											echo "<p class='has-text-danger has-background-danger-light'>You need to uppload a proper filetype!</p>";
 										}
 									}
-								echo '<p>Upload new profile icture</p>
+								echo '<label class="label">Upload new profile picture</label>
 									<form action="profilePicture.php" method="POST" enctype="multipart/form-data">
-										<input class="input" type="text" name="filename" placeholder="Profile Picture name">
+										<input class="input" type="text" name="filename" placeholder="Profile Picture Name">
 										<input class="input" type="file" name="file">
-										<button class="button" type="submit" name="submitProfile">Upload</button>
+										<button class="button button-signin is-fullwidth" type="submit" name="submitProfile">Upload</button>
 									</form>
 								</div>
 							</div>
@@ -214,12 +215,12 @@
 					</div>
 				</div>
 				<div class="columns body-columns">
-					<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+					<div class="column is-half is-offset-one-quarter">
 						<footer class="footer">
 							<div class="container is-fluid">
 								<div class="content has-text-centered">
 									<p>
-										<strong>InstagramClone</strong> by ghorvath
+										<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
 									</p>
 								</div>
 							</div>

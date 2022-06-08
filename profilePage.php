@@ -140,7 +140,7 @@
 								<canvas class="output" id="canvas" width="320" height="320" value="canvas"></canvas>
 
 								<form class="fotoform" action="add_webcam.php" method="POST" enctype="multipart/form-data">
-									<input class="button is-light" type="submit" name="add" value="4.Add">
+									<input class="button button-signin" type="submit" name="add" value="4.Add">
 									<input type="hidden" id="web_photo" name="new_pic" value="">
 									<input type="hidden" id="stamp" name="stamp" value="">
 									<input type="hidden" name="camera_date" value="'.date('Y-m-d H:i:s').'">
@@ -175,6 +175,7 @@
 						<div class='column is-half is-offset-one-quarter'>
 							<div class='card'>
 								<div class='box gallery-upload'>
+									<label class='label has-text-centered'>Upload new picture</label>
 									<form action='gallery-upload.inc.php' method='POST' enctype='multipart/form-data'>
 										<input class='input' type='text' name='filename' placeholder='File name . . .'>
 										<input class='input' type='text' name='filetitle' placeholder='Image title . . .'>
@@ -182,7 +183,7 @@
 										<input class='input' type='file' name='file'>
 										<input type='hidden' id='stamp2' name='stamp' value=''>
 										<input type='hidden' name='upload_date' value='".date('Y-m-d H:i:s')."'>
-										<button class='button' type='submit' name='submitImage'>Upload</button>
+										<button class='button button-signin is-fullwidth' type='submit' name='submitImage'>Upload</button>
 									</form>
 									<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp6.png' width='200' height='200'></button>
 									<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp5.png' width='200' height='200'></button>
@@ -247,7 +248,7 @@
 				<div class="container is-fluid">
 					<div class="content has-text-centered">
 						<p>
-							<strong>InstagramClone</strong> by ghorvath
+							<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
 						</p>
 					</div>
 				</div>

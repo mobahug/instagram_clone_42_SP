@@ -48,15 +48,6 @@
 								<!--
 										FORM
 												-->
-							<?php
-								if (isset($_GET['newpwd']))
-								{
-									if ($_GET['newpwd'] == "passwordupdated")
-									{
-										echo "<p class='has-text-success has-background-success-light'>Password has been reseted</p>";
-									}
-								}
-							?>
 							<img src ="./resources/logo2.png" >
 							<div class="box">
 								<?php
@@ -94,12 +85,27 @@
 										{
 											echo "<p class='has-text-danger has-background-danger-light'>Passwords min.: 8 characters long!</p>";
 										}
+										if ($_GET['user'] == "too_long_username")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>User name is too long!</p>";
+										}
 									}
 									if (isset($_GET['registration']))
 									{
 										if ($_GET['registration'] == "success")
 										{
 											echo "<p class='has-text-success has-background-success-light'>Success! Chek your email!</p>";
+										}
+										if ($_GET['registration'] == "failed")
+										{
+											echo "<p class='has-text-danger has-background-danger-light'>Something went wrong!</p>";
+										}
+									}
+									if (isset($_GET['newpwd']))
+									{
+										if ($_GET['newpwd'] == "passwordupdated")
+										{
+											echo "<p class='has-text-success has-background-success-light'>Password has been reseted</p>";
 										}
 									}
 								?>
@@ -119,7 +125,7 @@
 									<br>
 									<div class="control">
 										<div class="columns is-centered">
-											<button type="submit" class="button is-link is-fullwidth" name="loginSubmit">Log In</button>
+											<button type="submit" class="button is-light is-fullwidth" name="loginSubmit">Log In</button>
 										</div>
 									</div>
 								</form>
@@ -127,14 +133,14 @@
 								<br>
 								<div class="control">
 									<div class="columns is-centered">
-										<button type="submit" class="button is-primary is-fullwidth" id='btn' name="submit" value="OK">Sign Up</button>
+										<button type="submit" class="button is-fullwidth button-signin" id='btn' name="submit" value="OK">Sign Up</button>
 									</div>
 								</div>
 								<br>
 								<br>
 								<div class="control">
 									<div class="columns is-centered">
-										<a class="button is-danger is-link is-fullwidth" href="reset-password.php">
+										<a class="button button-forget is-fullwidth" href="reset-password.php">
 											<p>Forget your password?</p>
 										</a>
 									</div>
@@ -175,7 +181,7 @@
 													</div>
 
 													<div class=" has-text-centered">
-														<input class="button input is-primary" type="submit" name="submit" value="OK" />
+														<input class="button input button-signin" type="submit" name="submit" value="OK" />
 													</div>
 												</form>
 											</div>
@@ -309,6 +315,19 @@
 				</div>
 			</div>
 		</section>
+		<div class="columns body-columns">
+					<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+						<footer class="footer">
+							<div class="container is-fluid">
+								<div class="content has-text-centered">
+									<p>
+										<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
+									</p>
+								</div>
+							</div>
+						</footer>
+					</div>
+				</div>
 	<script>
 		function showPages(id, numberOfPages)
 		{
