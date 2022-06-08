@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Instagram Clone</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body >
 <!--
@@ -94,6 +95,13 @@
 											echo "<p class='has-text-danger has-background-danger-light'>Passwords min.: 8 characters long!</p>";
 										}
 									}
+									if (isset($_GET['registration']))
+									{
+										if ($_GET['registration'] == "success")
+										{
+											echo "<p class='has-text-success has-background-success-light'>Success! Chek your email!</p>";
+										}
+									}
 								?>
 								<form action="index.php?action=login" method="post">
 									<div class="field">
@@ -139,11 +147,11 @@
 						<div>
 							<div class="modal">
 								<div class="modal-background"></div>
-								<div class="modal-content">
-									<div class='box'>
-										<section class="section">
-											<img class="image " src ="./resources/logo2.png" >
-											<div class="columns is-centered">
+								<div class="is-clipped modal-content center">
+									<div class="columns body-columns">
+										<div class="column is-half is-offset-one-quarter">
+											<div class='box'>
+												<img class="image " src ="./resources/logo2.png" >
 												<form action="index.php?action=register" method="post">
 													<div class="field">
 														<label class="label">Email</label>
@@ -171,13 +179,13 @@
 													</div>
 												</form>
 											</div>
-										</section>
+										</div>
+										<button class="is-overlay modal-close is-large" aria-label="close">Model</button>
 									</div>
 								</div>
-										<!--
+								<!--
 										Close button
 												-->
-								<button class="modal-close is-large" aria-label="close">Model</button>
 								<script>
 									// Bulma does not have JavaScript included,
 									// hence custom JavaScript has to be

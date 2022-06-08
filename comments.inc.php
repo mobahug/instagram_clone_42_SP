@@ -281,8 +281,7 @@ function register($conn)
 				$sql = "INSERT INTO `user` (`uid`, `password`, `email`, `activation_code`, `status`, `notification_status`, `profilePicture`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 				$result = $conn->prepare($sql);
 				$result->execute(array($uid, $password, $email, $activationCode, $status, $notification_status, $defaultImage));
-				//file_put_contents($dir . "/password.csv", serialize($user));
-				echo "OK\n";
+				header('Refresh: 0.1; ./index.php?registration=success');
 				mail($email, "E-mail Verification", "Please verify your account " . PHP_EOL .
 				"http://localhost:8080/IIII/activation_code.php?code=$activationCode", $headers);
 			}
