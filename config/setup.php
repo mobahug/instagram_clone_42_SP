@@ -53,7 +53,8 @@
 			descGallery LONGTEXT NOT NULL,
 			imgFullNameGallery LONGTEXT NOT NULL,
 			orderGallery LONGTEXT NOT NULL,
-			upload_date datetime NOT NULL
+			upload_date datetime NOT NULL,
+			liked int(11) NOT NULL
 		);";
 
 		$conn->exec($sql_gallery);

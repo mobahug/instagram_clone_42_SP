@@ -41,6 +41,7 @@ create the landing page just like on Instagram
 	make new profile picture - DONE
 	added own stickers and logos - DONE
 	buttons polished + mobile UI - DONE
+	bugfixed profile picture feature and added default pic - DONE
 
 
 after logged in can have access to:
@@ -51,25 +52,15 @@ after logged in can have access to:
 			we still have to modify the homePage to become the indexPage
 			and for the current index page give a login name
 
-
-		***********BUGG TO SOLVE WITH PROPER INNER JOIN tables*************
-
-
-			if another user don t have profilepicture (lets say deleting)
-
-			his/her name will change to that one who has profile picture
-
-		************BUG********
-
-		only 1 profile picture can be not more
-		(with LIMIT could solve the output issue)
-		There is still issue about to upload and store in the folder the profile picture
-
-		also during registration now if there is something wrong, its still saving into the database the email stuff
-
-
-		FINISH LATER USERUPDATE UI BUGFIX!!!
-
+			modified files for liked column in gallerimages table
+			{
+				setup.php
+				add_webcam.php
+				gallery-upload.inc.php
+				homepage.php
+				index.php
+				like.php - created
+			}
 
 php/etc/php.ini
 

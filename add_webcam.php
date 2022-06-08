@@ -6,6 +6,7 @@
 		$webcam_photo = $_POST['new_pic'];
 		$stamp_path = $_POST['stamp'];
 		$username = $_SESSION['id'];
+		$liked = 0;
 
 		$date = $_POST['camera_date'];
 	
@@ -17,9 +18,9 @@
 		$file = "./user_uploads/" . $photo_name;
 		$success = file_put_contents($file, $data);
 
-		$result = $conn->prepare("INSERT INTO `galleryimages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`)
-									VALUES (?, ?, ?, ?, ?, ?)");
-		$result->execute(array($username, "Title", "Description", $photo_name, "1", $date));
+		$result = $conn->prepare("INSERT INTO `galleryimages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`, `liked`)
+									VALUES (?, ?, ?, ?, ?, ?, ?)");
+		$result->execute(array($username, "Title", "Description", $photo_name, "1", $date, $liked));
 
 		$stamp = imagecreatefrompng($stamp_path);
 		$resizedStamp = imagescale( $stamp, 200, 200 );

@@ -258,15 +258,13 @@
 														</div>
 													</div>
 												</div>
-											</div>
-											';
+											</div>';
 									$img_counter++;
 									if ($img_counter > 6)
 									{
 										echo '
 											</div>
-										</div>
-								';
+										</div>';
 										/* break ; */
 										$img_counter = 1;
 										$block++;
@@ -297,16 +295,13 @@
 								{
 									echo '
 									<div>
-										<a id="button'.$k.'" class="pagination-link is-current" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>
-									';
+										<a id="button'.$k.'" class="pagination-link is-current" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>';
 								}
 								else
 								{
 									echo '
-
 										<a id="button'.$k.'" class="pagination-link href="#" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>
-									</div>
-										';
+									</div>';
 								}
 							}
 						?>

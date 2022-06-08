@@ -95,6 +95,11 @@
 												<div class="level-item has-text-centered">
 													<a href="">
 														<i class="material-icons">favorite_border</i>
+														<form method="POST" action="like.php">
+															<input type="hidden" name="liked" value="'.$_SESSION['id'].'">
+															<input type="hidden" name="img_path" value="'.$row['imgFullNameGallery'].'">
+															<input type="hidden" name="userid" value="'.$row['userid'].'">
+														</form>
 													</a>
 												</div>
 												<div class="level-item has-text-centered">
