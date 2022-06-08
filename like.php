@@ -1,5 +1,5 @@
 <?php
-	require_once 'comments.inc.php';
+/* 	require_once 'comments.inc.php';
 
 	if (isset($_POST['liked']) && isset($_POST['userid']))
 	{
@@ -9,5 +9,5 @@
 		$sql = "UPDATE `galleryimages` SET `liked`=1 WHERE userid=?";
 		$result = $conn->prepare($sql);
 		$result
-	}
+	} */
 ?>
