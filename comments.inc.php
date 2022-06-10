@@ -135,7 +135,7 @@ function getComments($conn, $imgid)
 			}
 
 			echo "
-									
+
 								</div>
 							</div>
 						</div>

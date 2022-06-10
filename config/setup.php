@@ -74,7 +74,7 @@
 			img TEXT NOT NULL
 		);";
 
-		$conn->exec($sql_forget_pwd);
+		$conn->exec($sql_like);
 	}
 
 	catch(PDOException $e)

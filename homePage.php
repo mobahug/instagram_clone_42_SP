@@ -182,7 +182,6 @@
 					}
 					getComments($conn, $row['idGallery']);
 					echo '
-									
 								</div>
 							</div>
 						</div>
