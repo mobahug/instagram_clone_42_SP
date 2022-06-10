@@ -42,25 +42,14 @@ create the landing page just like on Instagram
 	added own stickers and logos - DONE
 	buttons polished + mobile UI - DONE
 	bugfixed profile picture feature and added default pic - DONE
+	like system implemented and polished - DONE
+	summarising likes on profile - DONE
+	all comments can hide now(bugfixed)- DONE
 
 
 after logged in can have access to:
 
-
-			like other users picture,
-
-			we still have to modify the homePage to become the indexPage
-			and for the current index page give a login name
-
-			modified files for liked column in gallerimages table
-			{
-				setup.php
-				add_webcam.php
-				gallery-upload.inc.php
-				homepage.php
-				index.php
-				like.php - created
-			}
+	comment section still have to fix
 
 php/etc/php.ini
 

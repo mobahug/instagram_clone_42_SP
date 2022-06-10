@@ -104,16 +104,22 @@
 									<div class="card-content">
 										<div class="level is-mobile">
 											<div class="level-left">
-												<div class="level-item has-text-centered">
+												<div class="level-item has-text-centered">';
+												if (isset($_SESSION['id']))
+												{
+													echo '
 													<a href="like.php?likeButton=1&imgId='.$row['idGallery'].'">
-														<i class="material-icons">favorite_border</i>
-													</a>
-												</div>
+														<i class="has-text-grey-dark material-icons">favorite_border</i>
+													</a>';
+												}
+												else
+													echo 'You need to be logged in to like!';
+												echo '</div>
 												<div class="level-item has-text-centered">
 													<div>
-														<a href="">
-															<i class="material-icons">chat_bubble_outline</i>
-														</a>
+														<button class="button is-white" onclick="showcamera('.$row['idGallery'].')">
+															<i class="has-text-grey-dark material-icons">chat_bubble_outline</i>
+														</button>
 													</div>
 												</div>
 											</div>
@@ -138,6 +144,7 @@
 					{
 
 						echo	"
+							<div id='camera".$row['idGallery']."' style='display:none'>
 								<div class='columns body-columns'>
 									<div class='column is-half is-offset-one-quarter'>
 										<div class='card'>
@@ -155,13 +162,12 @@
 													<p>You are logged in!</p>
 												</div>
 											</div>
-										</div>
-									</div>
-								</div>";
+										</div>";
 					}
 					else
 					{
 						echo "
+							<div id='camera".$row['idGallery']."' style='display:none'>
 								<div class='columns body-columns'>
 									<div class='column is-half is-offset-one-quarter'>
 										<div class='card'>
@@ -175,6 +181,12 @@
 								</div>";
 					}
 					getComments($conn, $row['idGallery']);
+					echo '
+									
+								</div>
+							</div>
+						</div>
+					</div>';
 				}
 			}
 		?>
@@ -193,4 +205,14 @@
 		</div>
 	</div>
 </body>
+<script>
+function showcamera(id){
+	let comment = document.getElementById('camera'+id);
+	if (comment.style.display == 'block'){
+		comment.style.display = 'none';
+	} else {
+		comment.style.display = 'block';
+	}
+}
+</script>
 </html>

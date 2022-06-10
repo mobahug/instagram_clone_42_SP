@@ -1,7 +1,7 @@
 <?php
 	require_once 'comments.inc.php';
 
-	if (isset($_GET['likeButton']))
+	if (isset($_GET['likeButton']) && isset($_SESSION['id']))
 	{
 		$imgId = $_GET['imgId'];
 		
@@ -26,4 +26,6 @@
 			header("Location: homePage.php?disliked=".$liker);
 		}
 	}
+	else
+		header("Location: homePage.php?guest=error");
 ?>

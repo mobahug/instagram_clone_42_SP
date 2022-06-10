@@ -102,7 +102,8 @@ function getComments($conn, $imgid)
 			{
 				if ($_SESSION['id'] == $row2[0]['id'])
 				{
-					echo "<div class='level'>
+					echo "
+						<div class='level'>
 							<div class='level-left'>
 								<form class='form-control' method='POST' action='homePage.php?action=deleteComments'>
 									<input type='hidden' name='cid' value='".$row['cid']."'>
@@ -134,8 +135,7 @@ function getComments($conn, $imgid)
 			}
 
 			echo "
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>
