@@ -51,6 +51,11 @@ after logged in can have access to:
 
 	comment section still have to fix
 
+	if i remove half-quarter from get comment section
+	will fix the problem while user logged in
+
+	if logged out comment will be too long
+
 php/etc/php.ini
 
 OPCache from 1 to 0
