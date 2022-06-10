@@ -51,9 +51,21 @@
 	<div>
 		<!-- PHP/HTML for upload picture -->
 		<?php
-			$sql = "SELECT * FROM `galleryimages`
+			/* $sql = "SELECT * FROM `galleryimages`
 					INNER JOIN user ON galleryimages.userid = user.id
-					ORDER BY `upload_date` DESC";
+					ORDER BY `upload_date` DESC"; */
+			$sql = "SELECT COUNT(`like`.`img`) AS `likeCount`, user.id AS 'id', user.uid AS 'uid',
+					user.profilePicture AS profilePicture,
+					galleryimages.userid AS userid,
+					galleryimages.imgFullNameGallery AS imgFullNameGallery, galleryimages.titleGallery AS titleGallery,
+					galleryimages.descGallery AS descGallery,
+					galleryimages.upload_date AS upload_date,
+					galleryimages.idGallery AS idGallery
+					FROM `galleryimages`
+					LEFT JOIN `like` ON galleryimages.idGallery = `like`.`img`
+					INNER JOIN user ON galleryimages.userid = user.id
+					GROUP BY `galleryimages`.`idGallery`
+					ORDER BY `upload_date` DESC;";
 			$result = $conn->prepare($sql);
 			$result->execute();
 			if (!$result)
@@ -93,13 +105,8 @@
 										<div class="level is-mobile">
 											<div class="level-left">
 												<div class="level-item has-text-centered">
-													<a href="">
+													<a href="like.php?likeButton=1&imgId='.$row['idGallery'].'">
 														<i class="material-icons">favorite_border</i>
-														<form method="POST" action="like.php">
-															<input type="hidden" name="liked" value="'.$_SESSION['id'].'">
-															<input type="hidden" name="img_path" value="'.$row['imgFullNameGallery'].'">
-															<input type="hidden" name="userid" value="'.$row['userid'].'">
-														</form>
 													</a>
 												</div>
 												<div class="level-item has-text-centered">
@@ -113,7 +120,7 @@
 										</div>
 										<div class="content">
 											<p>
-												<strong>32 Likes</strong>
+												<strong>'.$row['likeCount'].' Likes</strong>
 											</p>
 											<p class="title is-5">'.$row["titleGallery"].'</p>
 											<p class="subtitle is-6">'.$row["descGallery"].'</p>

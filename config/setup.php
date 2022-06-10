@@ -53,8 +53,7 @@
 			descGallery LONGTEXT NOT NULL,
 			imgFullNameGallery LONGTEXT NOT NULL,
 			orderGallery LONGTEXT NOT NULL,
-			upload_date datetime NOT NULL,
-			liked int(11) NOT NULL
+			upload_date datetime NOT NULL
 		);";
 
 		$conn->exec($sql_gallery);
@@ -65,6 +64,14 @@
 			pwdResetSelector TEXT NOT NULL,
 			pwdResetToken LONGTEXT NOT NULL,
 			pwdResetExpires TEXT NOT NULL
+		);";
+
+		$conn->exec($sql_forget_pwd);
+
+		$sql_like = "CREATE TABLE IF NOT EXISTS `like` (
+			id int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+			user int(11) NOT NULL,
+			img TEXT NOT NULL
 		);";
 
 		$conn->exec($sql_forget_pwd);

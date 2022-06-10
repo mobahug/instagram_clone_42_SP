@@ -58,9 +58,13 @@
 		{
 			$id = $_SESSION['id'];
 			//$sql = "SELECT * FROM `user` WHERE `id`=".$id.";";
-			$sql = "SELECT * FROM `user`
-					WHERE `id`=?
-					LIMIT 1;";		//THIS HAVE TO CHECK OUT LATER!!!!
+			$sql = "SELECT COUNT(`like`.`img`) AS `likeCount`, user.uid AS 'uid',
+					user.profilePicture
+					FROM `galleryimages`
+					LEFT JOIN `like` ON galleryimages.idGallery = `like`.`img`
+					INNER JOIN user ON galleryimages.userid = user.id
+					WHERE user.id=?
+					ORDER BY `upload_date` DESC;";		//THIS HAVE TO CHECK OUT LATER!!!!
 			$result = $conn->prepare($sql);
 			$result->execute(array($id));
 			if (!$result)
@@ -89,14 +93,8 @@
 								</div>
 								<div class="level-item has-text-centered">
 									<div>
-										<p class="heading">Following</p>
-										<p class="title">123</p>
-									</div>
-								</div>
-								<div class="level-item has-text-centered">
-									<div>
-										<p class="heading">Followers</p>
-										<p class="title">456K</p>
+										<p class="heading">Likes</p>
+										<p class="title">'.$row['likeCount'].'</p>
 									</div>
 								</div>
 							</div>

@@ -64,7 +64,7 @@ if (isset($_POST['submitImage']))
 						$upload_date = $_POST['upload_date'];
 						$liked = 0;
 						
-						$sql2 = "INSERT INTO `galleryimages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`, `liked`) VALUES (?, ?, ?, ?, ?, ?, ?);";
+						$sql2 = "INSERT INTO `galleryimages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`) VALUES (?, ?, ?, ?, ?, ?);";
 						$result2 = $conn->prepare($sql2);
 						if (!$result)
 						{
@@ -72,7 +72,7 @@ if (isset($_POST['submitImage']))
 						}
 						else
 						{
-							$result2->execute(array($username, $imageTitle, $imageDesc, $imageFullName, $setImageOrder, $upload_date, $liked));
+							$result2->execute(array($username, $imageTitle, $imageDesc, $imageFullName, $setImageOrder, $upload_date));
 							move_uploaded_file($fileTempName, $fileDestination);
 							header("Location: profilePage.php");
 						}
