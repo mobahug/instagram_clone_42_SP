@@ -107,10 +107,20 @@
 												<div class="level-item has-text-centered">';
 												if (isset($_SESSION['id']))
 												{
-													echo '
-													<a href="like.php?likeButton=1&imgId='.$row['idGallery'].'">
-														<i class="has-text-grey-dark material-icons">favorite_border</i>
-													</a>';
+													if ($row['likeCount'] == 1)
+													{
+														echo '
+														<a onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.$row['idGallery'].'">
+															<i name="dislike" id="'.$row['idGallery'].'-heart" class="has-text-danger material-icons">favorite_border</i>
+														</a>';
+													}
+													else
+													{
+														echo '
+														<a name="like" onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.$row['idGallery'].'">
+															<i name="like" id="'.$row['idGallery'].'-heart" class="has-text-grey-dark material-icons">favorite_border</i>
+														</a>';
+													}
 												}
 												else
 													echo 'You need to be logged in to like!';
@@ -205,13 +215,40 @@
 	</div>
 </body>
 <script>
-function showcamera(id){
-	let comment = document.getElementById('camera'+id);
-	if (comment.style.display == 'block'){
-		comment.style.display = 'none';
-	} else {
-		comment.style.display = 'block';
+	function showcamera(id)
+	{
+		let comment = document.getElementById('camera'+id);
+		if (comment.style.display == 'block'){
+			comment.style.display = 'none';
+		} else {
+			comment.style.display = 'block';
+		}
 	}
-}
+
+	function ajaxLike(imageId)
+	{
+		
+		let xml = new XMLHttpRequest();
+		let imageHeart = document.getElementById(imageId+'-heart');
+		let status = imageHeart.name;
+
+		xml.open('get', 'like.php', true);
+		xml.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+		if (status == 'like')
+		{
+			xml.send('like=1&image_heart='+imageId+'&heart_status=like');
+			//imageHeart.src = '../media/icons/icons8-heart-inline-red.png';
+			imageHeart.name = 'dislike';
+		}
+
+		if (status == 'dislike')
+		{
+			xml.send('like=1&image_heart='+imageId+'&heart_status=dislike');
+			//imageHeart.src = '../media/icons/icons8-heart-outline.png';
+			imageHeart.name = 'like';
+		}
+	}
+	
 </script>
 </html>
