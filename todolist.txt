@@ -56,6 +56,8 @@ after logged in can have access to:
 
 	if logged out comment will be too long
 
+	like button not fully work as color not color
+
 php/etc/php.ini
 
 OPCache from 1 to 0
