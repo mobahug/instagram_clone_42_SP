@@ -90,10 +90,10 @@ function getComments($conn, $imgid)
 								<div class='content'
 									<div class='is-text-overflow-parent'>
 										<div class='is-text-overflow'>
-											<a href='clicked-user-page.php?user=".$row2[0]['id']."'>
-												<p class='title is-5'>".$row2[0]['uid']."</p>
+											<a href='clicked-user-page.php?user=".htmlspecialchars($row2[0]['id'])."'>
+												<p class='title is-5'>".htmlspecialchars($row2[0]['uid'])."</p>
 											</a>
-											<p class='subtitle is-6'>".$row['date']."</p>
+											<p class='subtitle is-6'>".htmlspecialchars($row['date'])."</p>
 											<p class='subtitle is-6'>".htmlspecialchars(nl2br($row['message']))."</p>
 										</div>
 
@@ -106,16 +106,16 @@ function getComments($conn, $imgid)
 						<div class='level'>
 							<div class='level-left'>
 								<form class='form-control' method='POST' action='homePage.php?action=deleteComments'>
-									<input type='hidden' name='cid' value='".$row['cid']."'>
+									<input type='hidden' name='cid' value='".htmlspecialchars($row['cid'])."'>
 									<button class='button is-hovered' type='submit' name='commentDelete'>Delete</button>
 								</form>
 							</div>
 							<div class='level-right'>
 								<form class='form-control' method='POST' action='editcomment.php'>
-									<input type='hidden' name='cid' value='".$row['cid']."'>
-									<input type='hidden' name='uid' value='".$row['uid']."'>
-									<input type='hidden' name='date' value='".$row['date']."'>
-									<input type='hidden' name='message' value='".$row['message']."'>
+									<input type='hidden' name='cid' value='".htmlspecialchars($row['cid'])."'>
+									<input type='hidden' name='uid' value='".htmlspecialchars($row['uid'])."'>
+									<input type='hidden' name='date' value='".htmlspecialchars($row['date'])."'>
+									<input type='hidden' name='message' value='".htmlspecialchars($row['message'])."'>
 									<button class='button is-hovered'>Edit</button>
 								</form>
 							</div>
