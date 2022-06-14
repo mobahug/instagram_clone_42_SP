@@ -238,13 +238,13 @@
 									/* display pagination first page always */
 									if ($img_counter == 1 && $block == 1)
 									{
-										echo '<div style="display: block;" id="page'.$block.'">
+										echo '<div style="display: block;" id="page'.htmlspecialchars($block).'">
 												<div class="columns is-multiline is-centered">';
 									}
 									/* trigger pagination other pages */
 									else if ($img_counter == 1 && $block > 1)
 									{
-										echo '<div style="display: none;" id="page'.$block.'">
+										echo '<div style="display: none;" id="page'.htmlspecialchars($block).'">
 												<div class="columns is-multiline is-centered">';
 									}
 									echo	'
@@ -253,7 +253,7 @@
 													<div class="card-image">
 														<div class="box">
 															<figure class="image is-128x90">
-																<img id="img'.$img_counter.'" src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
+																<img id="img'.htmlspecialchars($img_counter).'" src="./user_uploads/'.htmlspecialchars($row["imgFullNameGallery"]).'" alt="'.htmlspecialchars($row['titleGallery']).'">
 															</figure>
 														</div>
 													</div>
