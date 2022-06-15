@@ -17,7 +17,7 @@ date_default_timezone_set('Europe/Helsinki');
 
 function setComments($conn)
 {
-	if (isset($_POST['commentSubmit']))
+	if (isset($_POST['commentSubmit']) && !empty($_POST['message']))
 	{
 		$uid = $_POST['uid'];
 		$date = $_POST['date'];
@@ -55,9 +55,10 @@ function setComments($conn)
 				mail($row[0]['email'], "Comment Notification", "Somebody commented to your picture " . PHP_EOL . $headers);
 			}
 		}
-		header("Location: homePage.php");
-
+		//header("Location: homePage.php");
 	}
+	else
+		header("Location: homePage.php?comment=error_field");
 }
 
 /* getting from database the informations */
@@ -87,37 +88,53 @@ function getComments($conn, $imgid)
 					<div class='column is-half is-offset-one-quarter'>
 						<div class='card'>
 							<div class='card-content'>
-								<div class='content'
-									<div class='is-text-overflow-parent'>
-										<div class='is-text-overflow'>
-											<a href='clicked-user-page.php?user=".htmlspecialchars($row2[0]['id'])."'>
-												<p class='title is-5'>".htmlspecialchars($row2[0]['uid'])."</p>
-											</a>
-											<p class='subtitle is-6'>".htmlspecialchars($row['date'])."</p>
-											<p class='subtitle is-6'>".nl2br($row['message'])."</p>
-										</div>";
+								<div class='is-text-overflow-parent'>
+									<div class='is-text-overflow'>
+										<div class='header'>
+											<div class='media'>
+												<div class='media-left'>
+													<figure class='pt-2 image is-32x32'>
+														<img class='is-rounded image is-32x32' src='./profile_images/".htmlspecialchars($row2[0]["profilePicture"])."' alt='Placeholder image'>
+													</figure>
+												</div>
+												<div class='media-content'>
+													<a href='clicked-user-page.php?user=".htmlspecialchars($row2[0]['id'])."'>
+														<p class='title is-5'>".htmlspecialchars($row2[0]['uid'])."</p>
+													</a>
+													<p class='subtitle is-6'>".htmlspecialchars($row['date'])."</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+								<div class='mt-4 content'>
+									<p class='subtitle is-6'>".nl2br($row['message'])."</p>
+								</div>";
 			if (isset($_SESSION['id']))
 			{
 				if ($_SESSION['id'] == $row2[0]['id'])
 				{
 					echo "
-						<div class='level'>
-							<div class='level-left'>
-								<form class='form-control' method='POST' action='homePage.php?action=deleteComments'>
-									<input type='hidden' name='cid' value='".htmlspecialchars($row['cid'])."'>
-									<button class='button is-hovered' type='submit' name='commentDelete'>Delete</button>
-								</form>
-							</div>
-							<div class='level-right'>
-								<form class='form-control' method='POST' action='editcomment.php'>
-									<input type='hidden' name='cid' value='".htmlspecialchars($row['cid'])."'>
-									<input type='hidden' name='uid' value='".htmlspecialchars($row['uid'])."'>
-									<input type='hidden' name='date' value='".htmlspecialchars($row['date'])."'>
-									<input type='hidden' name='message' value='".htmlspecialchars($row['message'])."'>
-									<button class='button is-hovered'>Edit</button>
-								</form>
-							</div>
-						</div>";
+					<div class='card-footer'>
+						<div class='container'>
+							<form class='form-control' method='POST' action='homePage.php?action=deleteComments'>
+								<input type='hidden' name='cid' value='".htmlspecialchars($row['cid'])."'>
+								<div class='field'>
+									<button class='is-pulled-left button is-hovered' type='submit' name='commentDelete'>Delete</button>
+								</div>
+							</form>
+							<form class='form-control' method='POST' action='editcomment.php'>
+								<input type='hidden' name='cid' value='".htmlspecialchars($row['cid'])."'>
+								<input type='hidden' name='uid' value='".htmlspecialchars($row['uid'])."'>
+								<input type='hidden' name='date' value='".htmlspecialchars($row['date'])."'>
+								<input type='hidden' name='message' value='".htmlspecialchars($row['message'])."'>
+								<div class='field'>
+									<button class='is-pulled-right button is-hovered'>Edit</button>
+								</div>
+							</form>
+						</div>
+					</div>";
 				}
 				/*else
 				{
@@ -132,9 +149,7 @@ function getComments($conn, $imgid)
 				echo "<p class='message is-danger'>You need to be logged in to reply!</p>";
 			}
 
-			echo "
-
-								</div>
+			echo "			
 							</div>
 						</div>
 					</div>

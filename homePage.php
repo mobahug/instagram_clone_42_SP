@@ -81,7 +81,7 @@
 				<div class="is-fullheight">
 					<div class="container">
 						<div class="columns body-columns">
-							<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+							<div class="column is-half is-offset-one-quarter">
 								<div class="card">
 									<div class="header">
 										<div class="media">
@@ -160,7 +160,7 @@
 						echo	"
 							<div id='camera".htmlspecialchars($row['idGallery'])."' style='display:none'>
 								<div class='columns body-columns'>
-									<div class='column is-half is-offset-one-quarter'>
+									<div class='column'>
 										<div class='card'>
 											<div class='card-content'>
 												<div class='content'>
