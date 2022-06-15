@@ -142,9 +142,11 @@
 											</p>
 											<p class="title is-5">'.htmlspecialchars($row["titleGallery"]).'</p>
 											<p class="subtitle is-6">'.htmlspecialchars($row["descGallery"]).'</p>
-											<a>@bulmaio</a>.
-											<a href="#">#css</a>
-											<a href="#">#responsive</a>
+											<a>@mangofruit</a>
+											<a href="#">#mango</a>
+											<a href="#">#socialmedia</a>
+											<a href="#">#platform</a>
+											<a href="#">#fromskretch</a>
 											<br>
 											<p class="subtitle is-6">'.htmlspecialchars($row['upload_date']).'</p>
 										</div>
