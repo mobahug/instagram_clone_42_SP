@@ -17,7 +17,7 @@
 		$file = "./user_uploads/" . $photo_name;
 		$success = file_put_contents($file, $data);
 
-		$result = $conn->prepare("INSERT INTO `galleryimages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`)
+		$result = $conn->prepare("INSERT INTO `galleryImages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`)
 									VALUES (?, ?, ?, ?, ?, ?)");
 		$result->execute(array($username, "Title", "Description", $photo_name, "1", $date));
 

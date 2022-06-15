@@ -8,7 +8,7 @@
 		$image = stripslashes($_POST['gallery_path']);		//prevent that user delete other user image
 															//by copy pasting the picture name on inspect mode
 
-		$sql = "DELETE FROM galleryimages WHERE imgFullNameGallery=? AND userid=?";
+		$sql = "DELETE FROM galleryImages WHERE imgFullNameGallery=? AND userid=?";
 		$result = $conn->prepare($sql);
 		$result->execute(array($image, $_SESSION['id']));
 		if ($result->rowCount())

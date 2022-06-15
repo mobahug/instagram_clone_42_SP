@@ -60,9 +60,9 @@
 			//$sql = "SELECT * FROM `user` WHERE `id`=".$id.";";
 			$sql = "SELECT COUNT(`like`.`img`) AS `likeCount`, user.uid AS 'uid',
 					user.profilePicture
-					FROM `galleryimages`
-					LEFT JOIN `like` ON galleryimages.idGallery = `like`.`img`
-					INNER JOIN user ON galleryimages.userid = user.id
+					FROM `galleryImages`
+					LEFT JOIN `like` ON galleryImages.idGallery = `like`.`img`
+					INNER JOIN user ON galleryImages.userid = user.id
 					WHERE user.id=?
 					ORDER BY `upload_date` DESC;";		//THIS HAVE TO CHECK OUT LATER!!!!
 			$result = $conn->prepare($sql);
@@ -82,19 +82,19 @@
 							<div class="level">
 								<div class="level-item has-text-centered">
 									<figure class="image is-128x128">
-										<img class="is-rounded image is-128x128" src="./profile_images/'.$row['profilePicture'].'">
+										<img class="is-rounded image is-128x128" src="./profile_images/'.htmlspecialchars($row['profilePicture']).'">
 									</figure>
 								</div>
 								<div class="level-item has-text-centered">
 									<div>
 										<p class="heading">Username</p>
-										<p class="title">'.$row['uid'].'</p>
+										<p class="title">'.htmlspecialchars($row['uid']).'</p>
 									</div>
 								</div>
 								<div class="level-item has-text-centered">
 									<div>
 										<p class="heading">Likes</p>
-										<p class="title">'.$row['likeCount'].'</p>
+										<p class="title">'.htmlspecialchars($row['likeCount']).'</p>
 									</div>
 								</div>
 							</div>
@@ -198,7 +198,7 @@
 			<div>
 				<?php
 					$userid = $_SESSION['id'];
-					$sql = "SELECT * FROM galleryimages WHERE userid=? ORDER BY upload_date DESC";
+					$sql = "SELECT * FROM galleryImages WHERE userid=? ORDER BY upload_date DESC";
 					$result = $conn->prepare($sql);
 					$result->execute(array($userid));
 					if (!$result)
@@ -217,13 +217,13 @@
 										<div class="card">
 											<div class="card-image">
 												<figure class="image is-1by1">
-													<img class="curve" src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
+													<img class="curve" src="./user_uploads/'.htmlspecialchars($row["imgFullNameGallery"]).'" alt="'.htmlspecialchars($row['titleGallery']).'">
 												</figure>
 											</div>
 										<div class="level">
 											<div class="level-left">
 												<form class="form-control" method="POST" action="deleteUploadImage.php">
-													<input type="hidden" name="gallery_path" value="'.$row["imgFullNameGallery"].'">
+													<input type="hidden" name="gallery_path" value="'.htmlspecialchars($row["imgFullNameGallery"]).'">
 													<button class="button is-hovered" type="submit" name="deleteUploadImage">
 														<i class="material-icons">delete</i>
 													</button>

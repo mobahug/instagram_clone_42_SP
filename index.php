@@ -220,8 +220,8 @@
 									<!-- pagination div -->
 					<div class="">
 						<?php
-							$sql = "SELECT * FROM `galleryimages`
-									INNER JOIN user ON galleryimages.userid = user.id
+							$sql = "SELECT * FROM `galleryImages`
+									INNER JOIN user ON galleryImages.userid = user.id
 									ORDER BY `upload_date` DESC";
 							$result = $conn->prepare($sql);
 							$result->execute();
@@ -253,7 +253,7 @@
 													<div class="card-image">
 														<div class="box">
 															<figure class="image is-128x90">
-																<img id="img'.$img_counter.'" src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
+																<img id="img'.htmlspecialchars($img_counter).'" src="./user_uploads/'.htmlspecialchars($row["imgFullNameGallery"]).'" alt="'.htmlspecialchars($row['titleGallery']).'">
 															</figure>
 														</div>
 													</div>
@@ -276,9 +276,9 @@
 									while ($img_counter < 7)
 									{
 										if ($img_counter % 2 == 0)
-											echo "<img class='img".$img_counter."' src='./resources/logo2.png' style='display: none;'>";
+											echo "<img class='img".htmlspecialchars($img_counter)."' src='./resources/logo2.png' style='display: none;'>";
 										else
-											echo "<img class='img".$img_counter."' src='./resources/logo2.png' style='display: none;'>";
+											echo "<img class='img".htmlspecialchars($img_counter)."' src='./resources/logo2.png' style='display: none;'>";
 										$img_counter++;
 									}
 									echo "</div>";

@@ -36,8 +36,8 @@
 									{
 										echo '
 											<form action="reset-password.inc.php" method="post">
-												<input type="hidden" name="selector" value="'.$selector.'">
-												<input type="hidden" name="validator" value="'.$validator.'">
+												<input type="hidden" name="selector" value="'.htmlspecialchars($selector).'">
+												<input type="hidden" name="validator" value="'.htmlspecialchars($validator).'">
 												<input class="input" type="password" name="pwd" placeholder="Enter a new password!">
 												<br><br>
 												<input class="input" type="password" name="pwd-repeat" placeholder="Enter again new password!">

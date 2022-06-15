@@ -49,7 +49,7 @@ if (isset($_POST['submitImage']))
 				}
 				else
 				{
-					$sql = "SELECT * FROM `galleryimages`;";
+					$sql = "SELECT * FROM `galleryImages`;";
 					$result = $conn->query($sql);
 					if (!$result)
 					{
@@ -64,7 +64,7 @@ if (isset($_POST['submitImage']))
 						$upload_date = $_POST['upload_date'];
 						$liked = 0;
 						
-						$sql2 = "INSERT INTO `galleryimages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`) VALUES (?, ?, ?, ?, ?, ?);";
+						$sql2 = "INSERT INTO `galleryImages` (`userid`, `titleGallery`, `descGallery`, `imgFullNameGallery`, `orderGallery`, `upload_date`) VALUES (?, ?, ?, ?, ?, ?);";
 						$result2 = $conn->prepare($sql2);
 						if (!$result)
 						{

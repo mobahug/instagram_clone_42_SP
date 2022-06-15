@@ -56,15 +56,15 @@
 					ORDER BY `upload_date` DESC"; */
 			$sql = "SELECT COUNT(`like`.`img`) AS `likeCount`, user.id AS 'id', user.uid AS 'uid',
 					user.profilePicture AS profilePicture,
-					galleryimages.userid AS userid,
-					galleryimages.imgFullNameGallery AS imgFullNameGallery, galleryimages.titleGallery AS titleGallery,
-					galleryimages.descGallery AS descGallery,
-					galleryimages.upload_date AS upload_date,
-					galleryimages.idGallery AS idGallery
-					FROM `galleryimages`
-					LEFT JOIN `like` ON galleryimages.idGallery = `like`.`img`
-					INNER JOIN user ON galleryimages.userid = user.id
-					GROUP BY `galleryimages`.`idGallery`
+					galleryImages.userid AS userid,
+					galleryImages.imgFullNameGallery AS imgFullNameGallery, galleryImages.titleGallery AS titleGallery,
+					galleryImages.descGallery AS descGallery,
+					galleryImages.upload_date AS upload_date,
+					galleryImages.idGallery AS idGallery
+					FROM `galleryImages`
+					LEFT JOIN `like` ON galleryImages.idGallery = `like`.`img`
+					INNER JOIN user ON galleryImages.userid = user.id
+					GROUP BY `galleryImages`.`idGallery`
 					ORDER BY `upload_date` DESC;";
 			$result = $conn->prepare($sql);
 			$result->execute();
@@ -85,20 +85,20 @@
 										<div class="media">
 											<div class="media-left">
 												<figure class="image is-48x48">
-													<img class="is-rounded image is-48x48" src="./profile_images/'.$row['profilePicture'].'" alt="Placeholder image">
+													<img class="is-rounded image is-48x48" src="./profile_images/'.htmlspecialchars($row['profilePicture']).'" alt="Placeholder image">
 												</figure>
 											</div>
 											<div class="media-content">
-												<a href="clicked-user-page.php?user='.$row['id'].'">
-													<p class="title is-4">'.$row['uid'].'</p>
+												<a href="clicked-user-page.php?user='.htmlspecialchars($row['id']).'">
+													<p class="title is-4">'.htmlspecialchars($row['uid']).'</p>
 												</a>
-												<p class="subtitle is-6">@'.$row['uid'].'</p>
+												<p class="subtitle is-6">@'.htmlspecialchars($row['uid']).'</p>
 											</div>
 										</div>
 									</div>
 									<div class="card-image">
 										<figure class="image is-1by1">
-											<img class="curve" src="./user_uploads/'.$row["imgFullNameGallery"].'" alt="'.$row['titleGallery'].'">
+											<img class="curve" src="./user_uploads/'.htmlspecialchars($row["imgFullNameGallery"]).'" alt="'.htmlspecialchars($row['titleGallery']).'">
 										</figure>
 									</div>
 									<div class="card-content">
@@ -110,15 +110,15 @@
 													if ($row['likeCount'] == 1)
 													{
 														echo '
-														<a onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.$row['idGallery'].'">
-															<i name="dislike" id="'.$row['idGallery'].'-heart" class="has-text-danger material-icons">favorite_border</i>
+														<a onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.htmlspecialchars($row['idGallery']).'">
+															<i name="dislike" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-danger material-icons">favorite_border</i>
 														</a>';
 													}
 													else
 													{
 														echo '
-														<a name="like" onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.$row['idGallery'].'">
-															<i name="like" id="'.$row['idGallery'].'-heart" class="has-text-grey-dark material-icons">favorite_border</i>
+														<a name="like" onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.htmlspecialchars($row['idGallery']).'">
+															<i name="like" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-grey-dark material-icons">favorite_border</i>
 														</a>';
 													}
 												}
@@ -127,7 +127,7 @@
 												echo '</div>
 												<div class="level-item has-text-centered">
 													<div>
-														<button class="button is-white" onclick="showcamera('.$row['idGallery'].')">
+														<button class="button is-white" onclick="showcamera('.htmlspecialchars($row['idGallery']).')">
 															<i class="has-text-grey-dark material-icons">chat_bubble_outline</i>
 														</button>
 													</div>
@@ -136,15 +136,15 @@
 										</div>
 										<div class="content">
 											<p>
-												<strong>'.$row['likeCount'].' Likes</strong>
+												<strong>'.htmlspecialchars($row['likeCount']).' Likes</strong>
 											</p>
-											<p class="title is-5">'.$row["titleGallery"].'</p>
-											<p class="subtitle is-6">'.$row["descGallery"].'</p>
+											<p class="title is-5">'.htmlspecialchars($row["titleGallery"]).'</p>
+											<p class="subtitle is-6">'.htmlspecialchars($row["descGallery"]).'</p>
 											<a>@bulmaio</a>.
 											<a href="#">#css</a>
 											<a href="#">#responsive</a>
 											<br>
-											<p class="subtitle is-6">'.$row['upload_date'].'</p>
+											<p class="subtitle is-6">'.htmlspecialchars($row['upload_date']).'</p>
 										</div>
 									</div>
 								</div>
@@ -154,7 +154,7 @@
 					{
 
 						echo	"
-							<div id='camera".$row['idGallery']."' style='display:none'>
+							<div id='camera".htmlspecialchars($row['idGallery'])."' style='display:none'>
 								<div class='columns body-columns'>
 									<div class='column is-half is-offset-one-quarter'>
 										<div class='card'>
@@ -163,7 +163,7 @@
 													<form class='box' method='POST' action='homePage.php?action=setComments'>
 														<input type='hidden' name='uid' value='".$_SESSION['id']."'>
 														<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-														<input type='hidden' name='imgid' value='".$row['idGallery']."'>
+														<input type='hidden' name='imgid' value='".htmlspecialchars($row['idGallery'])."'>
 														<textarea class='textarea' placeholder='Add a comment . . .' name='message'></textarea><br>
 														<button class='button is-hovered' type='submit' name='commentSubmit'>Comment</button>
 													</form>
@@ -177,7 +177,7 @@
 					else
 					{
 						echo "
-							<div id='camera".$row['idGallery']."' style='display:none'>
+							<div id='camera".htmlspecialchars($row['idGallery'])."' style='display:none'>
 								<div class='columns body-columns'>
 									<div class='column is-half is-offset-one-quarter'>
 										<div class='card'>

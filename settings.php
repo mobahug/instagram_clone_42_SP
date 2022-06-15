@@ -198,13 +198,13 @@
 						<div class="card">
 							<div class="card-image">
 								<figure class="image is-1by1">
-									<img src="profile_images/'.$row["profilePicture"].'">
+									<img src="profile_images/'.htmlspecialchars($row["profilePicture"]).'">
 								</figure>
 							</div>
 						<div class="level">
 							<div class="level-left">
 								<form class="form-control" method="POST" action="deleteProfilePicture.php">
-									<input type="hidden" name="profilePath" value="'.$row["profilePicture"].'">
+									<input type="hidden" name="profilePath" value="'.htmlspecialchars($row["profilePicture"]).'">
 									<button class="button is-hovered" type="submit" name="deleteProfileImage">
 										<i class="material-icons">delete</i>
 									</button>
