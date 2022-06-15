@@ -65,7 +65,7 @@ function setComments($conn)
 function getComments($conn, $imgid)
 {
 	//check out later
-	$sql = "SELECT * FROM comments WHERE imgid=".$imgid." ORDER BY date DESC";
+	$sql = "SELECT * FROM comments WHERE imgid=".$imgid." ORDER BY date ASC";
 	$result = $conn->query($sql);
 
 	/* write out all the earlier comments with text username and date */
@@ -94,10 +94,8 @@ function getComments($conn, $imgid)
 												<p class='title is-5'>".htmlspecialchars($row2[0]['uid'])."</p>
 											</a>
 											<p class='subtitle is-6'>".htmlspecialchars($row['date'])."</p>
-											<p class='subtitle is-6'>".htmlspecialchars(nl2br($row['message']))."</p>
-										</div>
-
-									";
+											<p class='subtitle is-6'>".nl2br($row['message'])."</p>
+										</div>";
 			if (isset($_SESSION['id']))
 			{
 				if ($_SESSION['id'] == $row2[0]['id'])

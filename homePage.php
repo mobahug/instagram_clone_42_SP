@@ -78,6 +78,8 @@
 				foreach ($rows as $row)
 				{
 					echo '
+				<div class="is-fullheight">
+					<div class="container">
 						<div class="columns body-columns">
 							<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
 								<div class="card">
@@ -195,7 +197,9 @@
 								</div>
 							</div>
 						</div>
-					</div>';
+					</div>
+				</div>
+			</div>';
 				}
 			}
 		?>
