@@ -169,7 +169,7 @@
 														<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
 														<input type='hidden' name='imgid' value='".htmlspecialchars($row['idGallery'])."'>
 														<textarea class='textarea' placeholder='Add a comment . . .' name='message'></textarea><br>
-														<button class='button is-hovered' type='submit' name='commentSubmit'>Comment</button>
+														<button class='button is-hovered' type='submit' name='commentSubmit' onclick='loadXMLDoc()'>Comment</button>
 													</form>
 												</div>
 												<div class='message is-success'>
@@ -238,7 +238,7 @@
 		let imageHeart = document.getElementById(imageId+'-heart');
 		let status = imageHeart.name;
 
-		xml.open('get', 'like.php', true);
+		xml.open('GET', 'like.php', true);
 		xml.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
 		if (status == 'like')
@@ -254,17 +254,16 @@
 		}
 	}
 		//check out this later for like comment button purposes
-		/*function loadXMLDoc() {
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("demo").innerHTML =
-			this.responseText;
-			}
-		};
-		xhttp.open("GET", "xmlhttp_info.txt", true);
-		xhttp.send();
-		}*/
+		function loadXMLDoc() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("demo").innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("POST", "comment.inc.php", true);
+			xhttp.send();
+		}
 
 </script>
 </html>
