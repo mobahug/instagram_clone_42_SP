@@ -46,6 +46,7 @@ create the landing page just like on Instagram
 	summarising likes on profile - DONE
 	all comments can hide now(bugfixed)- DONE
 	scaled down mango feed if user on full screen - DONE
+	in comment section added commenters profile picture - DONE
 
 
 after logged in can have access to:
