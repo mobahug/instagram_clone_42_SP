@@ -227,7 +227,7 @@
 
 	function ajaxLike(imageId)
 	{
-		
+
 		let xml = new XMLHttpRequest();
 		let imageHeart = document.getElementById(imageId+'-heart');
 		let status = imageHeart.name;
@@ -238,17 +238,27 @@
 		if (status == 'like')
 		{
 			xml.send('like=1&image_heart='+imageId+'&heart_status=like');
-			//imageHeart.src = '../media/icons/icons8-heart-inline-red.png';
 			imageHeart.name = 'dislike';
 		}
 
 		if (status == 'dislike')
 		{
 			xml.send('like=1&image_heart='+imageId+'&heart_status=dislike');
-			//imageHeart.src = '../media/icons/icons8-heart-outline.png';
 			imageHeart.name = 'like';
 		}
 	}
-	
+		//check out this later for like comment button purposes
+		/*function loadXMLDoc() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("demo").innerHTML =
+			this.responseText;
+			}
+		};
+		xhttp.open("GET", "xmlhttp_info.txt", true);
+		xhttp.send();
+		}*/
+
 </script>
 </html>

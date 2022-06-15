@@ -238,13 +238,13 @@
 									/* display pagination first page always */
 									if ($img_counter == 1 && $block == 1)
 									{
-										echo '<div style="display: block;" id="page'.$block.'">
+										echo '<div style="display: block;" id="page'.htmlspecialchars($block).'">
 												<div class="columns is-multiline is-centered">';
 									}
 									/* trigger pagination other pages */
 									else if ($img_counter == 1 && $block > 1)
 									{
-										echo '<div style="display: none;" id="page'.$block.'">
+										echo '<div style="display: none;" id="page'.htmlspecialchars($block).'">
 												<div class="columns is-multiline is-centered">';
 									}
 									echo	'
