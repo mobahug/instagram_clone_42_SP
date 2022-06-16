@@ -59,6 +59,11 @@ after logged in can have access to:
 
 	if logged out comment will be too long
 
+	AJAX if i can make it still
+
+	passwords change logged in user settings
+	another more sticker on camera
+
 php/etc/php.ini
 
 OPCache from 1 to 0
