@@ -47,6 +47,7 @@ create the landing page just like on Instagram
 	all comments can hide now(bugfixed)- DONE
 	scaled down mango feed if user on full screen - DONE
 	in comment section added commenters profile picture - DONE
+	like feature bugfixed - DONE
 
 
 after logged in can have access to:
@@ -57,8 +58,6 @@ after logged in can have access to:
 	will fix the problem while user logged in
 
 	if logged out comment will be too long
-
-	like button not fully work as color not color
 
 php/etc/php.ini
 

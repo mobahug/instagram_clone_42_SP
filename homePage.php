@@ -75,8 +75,15 @@
 			else
 			{
 				$rows = $result->fetchAll();
+
 				foreach ($rows as $row)
 				{
+					//print_r($row);
+					$image_id = $row['idGallery'];
+					$sql1 = "SELECT user FROM `like` WHERE img='$image_id'";
+					$result1 = $conn->prepare($sql1);
+					$result1->execute();
+					$rows1 = $result1->fetchAll();
 					echo '
 				<div class="is-fullheight">
 					<div class="container">
@@ -107,20 +114,26 @@
 										<div class="level is-mobile">
 											<div class="level-left">
 												<div class="level-item has-text-centered">';
+												$liked = 0;
 												if (isset($_SESSION['id']))
 												{
-													if ($row['likeCount'] == 1)
+													foreach($rows1 as $row1)
+													{
+														if ($row1['user'] == $_SESSION['id'])
+															$liked = 1;
+													}
+													if ($liked == 1)
 													{
 														echo '
-														<a onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.htmlspecialchars($row['idGallery']).'">
-															<i name="dislike" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-danger material-icons">favorite_border</i>
+														<a href="like.php?likeButton=1&imgId='.htmlspecialchars($row['idGallery']).'">
+															<i onclick="ajaxLike('.$row['idGallery'].')" name="dislike" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-danger material-icons">favorite_border</i>
 														</a>';
 													}
 													else
 													{
 														echo '
-														<a name="like" onclick="ajaxLike('.$_SESSION['id'].')" href="like.php?likeButton=1&imgId='.htmlspecialchars($row['idGallery']).'">
-															<i name="like" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-grey-dark material-icons">favorite_border</i>
+														<a name="like" href="like.php?likeButton=1&imgId='.htmlspecialchars($row['idGallery']).'">
+															<i onclick="ajaxLike('.$row['idGallery'].')" name="like" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-grey-dark material-icons">favorite_border</i>
 														</a>';
 													}
 												}
@@ -164,12 +177,12 @@
 										<div class='card'>
 											<div class='card-content'>
 												<div class='content'>
-													<form class='box' method='POST' action='homePage.php?action=setComments'>
-														<input type='hidden' name='uid' value='".$_SESSION['id']."'>
-														<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-														<input type='hidden' name='imgid' value='".htmlspecialchars($row['idGallery'])."'>
+													<form id='postForm' class='box' method='POST' action='homePage.php?action=setComments'>
+														<input type='hidden' id='uid' name='uid' value='".$_SESSION['id']."'>
+														<input type='hidden' id='date' name='date' value='".date('Y-m-d H:i:s')."'>
+														<input type='hidden' id='imgid' name='imgid' value='".htmlspecialchars($row['idGallery'])."'>
 														<textarea class='textarea' placeholder='Add a comment . . .' name='message'></textarea><br>
-														<button class='button is-hovered' type='submit' name='commentSubmit' onclick='loadXMLDoc()'>Comment</button>
+														<input class='button is-hovered' type='submit' name='commentSubmit' value='Comment'></input>
 													</form>
 												</div>
 												<div class='message is-success'>
@@ -231,39 +244,48 @@
 		}
 	}
 
-	function ajaxLike(imageId)
-	{
-
+	function ajaxLike(imageId){
+		
 		let xml = new XMLHttpRequest();
 		let imageHeart = document.getElementById(imageId+'-heart');
 		let status = imageHeart.name;
 
-		xml.open('GET', 'like.php', true);
+		xml.open('post', 'like.php', true);
 		xml.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 
-		if (status == 'like')
-		{
+		if (status == 'like'){
 			xml.send('like=1&image_heart='+imageId+'&heart_status=like');
 			imageHeart.name = 'dislike';
 		}
 
-		if (status == 'dislike')
-		{
+		if (status == 'dislike'){
 			xml.send('like=1&image_heart='+imageId+'&heart_status=dislike');
 			imageHeart.name = 'like';
 		}
 	}
-		//check out this later for like comment button purposes
-		function loadXMLDoc() {
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("demo").innerHTML = this.responseText;
-				}
-			};
-			xhttp.open("POST", "comment.inc.php", true);
-			xhttp.send();
-		}
 
+
+
+/* 	document.getElementById('postForm').addEventListener('submit', postName);
+	function postName(e) {
+		e.preventDefault();
+
+		var uid = document.getElementById('uid').value;
+		var date = document.getElementById('date').value;
+		var imgid = document.getElementById('imgid').value;
+
+		var params = "name="+uid + "name="+date + "name="+imgid;
+		
+		var xhr = new XMLHttpRequest();
+
+		xhr.open('POST', 'homePage.php?action=setComments', true);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+
+		xhr.onload = function() {
+			console.log(this.responseText);
+			
+		}
+		xhr.send(params);
+	} */
 </script>
 </html>
