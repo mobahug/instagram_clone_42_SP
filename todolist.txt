@@ -48,6 +48,7 @@ create the landing page just like on Instagram
 	scaled down mango feed if user on full screen - DONE
 	in comment section added commenters profile picture - DONE
 	like feature bugfixed - DONE
+	passwords change logged in user settings - DONE
 
 
 after logged in can have access to:
@@ -61,7 +62,6 @@ after logged in can have access to:
 
 	AJAX if i can make it still
 
-	passwords change logged in user settings
 	another more sticker on camera
 
 php/etc/php.ini

@@ -127,8 +127,56 @@
 												<br>
 												<input class="button button-signin is-fullwidth" type="submit" name="newUserSubmit">
 											</form>
-										</div>
-										';
+										</div>';
+										
+										echo '
+										<br>
+										<div>
+											<label class="label">Change password</label>';
+
+											if (isset($_GET['password']))
+											{
+												if ($_GET['password'] == "exsist")
+												{
+													echo "<p class='has-text-danger has-background-danger-light'>Password already in use!</p>";
+												}
+												if ($_GET['password'] == "uppercase")
+												{
+													echo "<p class='has-text-danger has-background-danger-light'>Password: Contains at least one uppercase letter!</p>";
+												}
+												if ($_GET['password'] == "lowercase")
+												{
+													echo "<p class='has-text-danger has-background-danger-light'>Password: Contains at least one lowercase letter!</p>";
+												}
+												if ($_GET['password'] == "number")
+												{
+													echo "<p class='has-text-danger has-background-danger-light'>Password: Need at least one number!</p>";
+												}
+												if ($_GET['password'] == "special")
+												{
+													echo "<p class='has-text-danger has-background-danger-light'>Password: Need at least one special character!</p>";
+												}
+												if ($_GET['password'] == "tooshort")
+												{
+													echo "<p class='has-text-danger has-background-danger-light'>Passwords min.: 8 characters long!</p>";
+												}
+												if ($_GET['password'] == "toolong")
+												{
+													echo "<p class='has-text-danger has-background-danger-light'>Password is too long!</p>";
+												}
+												if ($_GET['password'] == "success")
+												{
+													echo "<p class='has-text-success has-background-success-light'>Password sucessfully updated!</p>";
+												}
+											}
+
+										echo '
+											<form action="change-password.php" method="POST">
+												<input class="input" type="password" name="change-password" placeholder="New password ">
+												<br>
+												<input class="button button-signin is-fullwidth" type="submit" name="changePasswordSubmit">
+											</form>
+										</div>';
 
 										echo '
 										<br>

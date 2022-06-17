@@ -67,19 +67,19 @@
 										}
 										if ($_GET['user'] == "uppercase")
 										{
-											echo "<p class='has-text-danger has-background-danger-light'>Contains at least one uppercase letter!</p>";
+											echo "<p class='has-text-danger has-background-danger-light'>Password: Contains at least one uppercase letter!</p>";
 										}
 										if ($_GET['user'] == "lowercase")
 										{
-											echo "<p class='has-text-danger has-background-danger-light'>Contains at least one lowercase letter!</p>";
+											echo "<p class='has-text-danger has-background-danger-light'>Password: Contains at least one lowercase letter!</p>";
 										}
 										if ($_GET['user'] == "number")
 										{
-											echo "<p class='has-text-danger has-background-danger-light'>Need at least one number!</p>";
+											echo "<p class='has-text-danger has-background-danger-light'>Password: Need at least one number!</p>";
 										}
 										if ($_GET['user'] == "special")
 										{
-											echo "<p class='has-text-danger has-background-danger-light'>Need at least one special character!</p>";
+											echo "<p class='has-text-danger has-background-danger-light'>Password: Need at least one special character!</p>";
 										}
 										if ($_GET['user'] == "tooshort")
 										{
@@ -87,7 +87,7 @@
 										}
 										if ($_GET['user'] == "too_long_username")
 										{
-											echo "<p class='has-text-danger has-background-danger-light'>User name is too long!</p>";
+											echo "<p class='has-text-danger has-background-danger-light'>Username is too long!</p>";
 										}
 									}
 									if (isset($_GET['registration']))
