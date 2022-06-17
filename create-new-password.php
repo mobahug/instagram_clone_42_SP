@@ -28,7 +28,7 @@
 
 								if (empty($selector) || empty($validator))
 								{
-									echo "Coul not validate your request";
+									header("Location: index.php?nicetry");
 								}
 								else
 								{

@@ -252,7 +252,7 @@
 												<div class="card">
 													<div class="card-image">
 														<div class="box">
-															<figure class="image is-128x90">
+															<figure class="image is-1by1">
 																<img id="img'.htmlspecialchars($img_counter).'" src="./user_uploads/'.htmlspecialchars($row["imgFullNameGallery"]).'" alt="'.htmlspecialchars($row['titleGallery']).'">
 															</figure>
 														</div>

@@ -84,7 +84,7 @@ function getComments($conn, $imgid)
 		{
 			//header('Content-type: text/plain');
 			echo "
-				<div id='txtHint'class='columns body-columns'>
+				<div class='columns body-columns'>
 					<div class='column is-half is-offset-one-quarter'>
 						<div class='card'>
 							<div class='card-content'>
@@ -109,7 +109,7 @@ function getComments($conn, $imgid)
 								</div>
 							
 								<div class='mt-4 content'>
-									<p class='subtitle is-6'>".htmlspecialchars(nl2br($row['message']))."</p>
+									<p class='subtitle is-6'>".nl2br($row['message'])."</p>
 								</div>";
 			if (isset($_SESSION['id']))
 			{
@@ -241,7 +241,6 @@ function register($conn)
 		if ($result && $result->fetchColumn())
 		{
 			header('Refresh: 0.1; ./index.php?user=exsist');
-			return false;
 		}
 		//checks for used email
 		$sql2 = "SELECT * FROM `user` WHERE `email`=?";
@@ -250,7 +249,6 @@ function register($conn)
 		if ($result2 && $result2->fetchColumn())
 		{
 			header('Refresh: 0.1; ./index.php?user=emailexsist');
-			return false;
 		}
 		else
 		{
@@ -265,27 +263,22 @@ function register($conn)
 			if (!$uppercase)
 			{
 				header('Refresh: 0.1; ./index.php?user=uppercase');
-				return false;
 			}
 			else if (!$lowercase)
 			{
 				header('Refresh: 0.1; ./index.php?user=lowercase');
-				return false;
 			}
 			else if (!$number)
 			{
 				header('Refresh: 0.1; ./index.php?user=number');
-				return false;
 			}
 			else if (!$specialChars)
 			{
 				header('Refresh: 0.1; ./index.php?user=special');
-				return false;
 			}
 			else if (strlen($password) < 8)
 			{
 				header('Refresh: 0.1; ./index.php?user=tooshort');
-				return false;
 			}
 			else
 			{
@@ -342,7 +335,6 @@ function deleteAccount($conn)
 	$sql = "DELETE FROM `user` WHERE `id`=?";
 	$result = $conn->prepare($sql);
 	$result->execute(array($_SESSION['id']));
-	session_destroy();
 	header('Location: index.php');
 }
 
