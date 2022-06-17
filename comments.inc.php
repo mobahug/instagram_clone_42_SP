@@ -241,6 +241,7 @@ function register($conn)
 		if ($result && $result->fetchColumn())
 		{
 			header('Refresh: 0.1; ./index.php?user=exsist');
+			return false;
 		}
 		//checks for used email
 		$sql2 = "SELECT * FROM `user` WHERE `email`=?";
@@ -249,6 +250,7 @@ function register($conn)
 		if ($result2 && $result2->fetchColumn())
 		{
 			header('Refresh: 0.1; ./index.php?user=emailexsist');
+			return false;
 		}
 		else
 		{
@@ -263,22 +265,27 @@ function register($conn)
 			if (!$uppercase)
 			{
 				header('Refresh: 0.1; ./index.php?user=uppercase');
+				return false;
 			}
 			else if (!$lowercase)
 			{
 				header('Refresh: 0.1; ./index.php?user=lowercase');
+				return false;
 			}
 			else if (!$number)
 			{
 				header('Refresh: 0.1; ./index.php?user=number');
+				return false;
 			}
 			else if (!$specialChars)
 			{
 				header('Refresh: 0.1; ./index.php?user=special');
+				return false;
 			}
 			else if (strlen($password) < 8)
 			{
 				header('Refresh: 0.1; ./index.php?user=tooshort');
+				return false;
 			}
 			else
 			{
@@ -335,6 +342,7 @@ function deleteAccount($conn)
 	$sql = "DELETE FROM `user` WHERE `id`=?";
 	$result = $conn->prepare($sql);
 	$result->execute(array($_SESSION['id']));
+	session_destroy();
 	header('Location: index.php');
 }
 

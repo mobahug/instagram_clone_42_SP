@@ -16,26 +16,32 @@
 			if (!$uppercase)
 			{
 				header('Refresh: 0.1; settings.php?password=uppercase');
+				return false;
 			}
 			else if (!$lowercase)
 			{
 				header('Refresh: 0.1; settings.php?password=lowercase');
+				return false;
 			}
 			else if (!$number)
 			{
 				header('Refresh: 0.1; settings.php?password=number');
+				return false;
 			}
 			else if (!$specialChars)
 			{
 				header('Refresh: 0.1; settings.php?password=special');
+				return false;
 			}
 			else if (strlen($change_password) < 8)
 			{
 				header('Refresh: 0.1; settings.php?password=tooshort');
+				return false;
 			}
 			else if (strlen($change_password) > 50)
 			{
 				header('Refresh: 0.1; settings.php?password=toolong');
+				return false;
 			}
 			else
 			{

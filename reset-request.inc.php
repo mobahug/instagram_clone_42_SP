@@ -2,7 +2,7 @@
 
 require_once 'config/setup.php';
 
-	if (isset($_POST['reset-request-submit']))
+	if (isset($_POST['reset-request-submit']) && !empty($_POST['email']))
 	{
 		$selector = bin2hex(random_bytes(8));
 		$token = random_bytes(32);
@@ -57,5 +57,5 @@ require_once 'config/setup.php';
 	}
 	else
 	{
-		header("Location: index.php");
+		header("Location:  reset-password.php?reset=failed");
 	}

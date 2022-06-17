@@ -5,6 +5,7 @@ require_once 'config/setup.php';
 	{
 		$selector = $_POST['selector'];
 		$validator = $_POST['validator'];
+		
 		$password = $_POST['pwd'];
 		$passwordRepeat = $_POST['pwd-repeat'];
 

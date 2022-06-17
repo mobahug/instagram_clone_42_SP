@@ -31,6 +31,17 @@
 											{
 												echo "<p class='has-text-success has-background-success-light'>Check your email!</p>";
 											}
+											if ($_GET['reset'] == "failed")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Something went wrong!</p>";
+											}
+										}
+										if (isset($_GET['newpwd']))
+										{
+											if ($_GET['newpwd'] == "empty")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Password reset error!</p>";
+											}
 										}
 									?>
 									<div class="control">
