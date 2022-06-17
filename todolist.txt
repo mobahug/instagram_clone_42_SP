@@ -1,8 +1,7 @@
 Instagram look like page
 
-create the landing page just like on Instagram
+	******list what is DONE******
 
-	registration log in enough
 
 	user registration - DONE
 	user login - DONE
@@ -50,9 +49,10 @@ create the landing page just like on Instagram
 	like feature bugfixed - DONE
 	passwords change logged in user settings - DONE
 	password reset system polished against hackers - DONE
+	polished footer - DONE
 
 
-after logged in can have access to:
+todo list:
 
 	comment section still have to fix
 
@@ -64,6 +64,12 @@ after logged in can have access to:
 	AJAX if i can make it still
 
 	another more sticker on camera
+
+
+
+******Config for MAMP bitnami server******
+
+
 
 php/etc/php.ini
 

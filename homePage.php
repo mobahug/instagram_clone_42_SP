@@ -219,17 +219,21 @@
 			}
 		?>
 	</div>
-	<div class="columns body-columns">
-		<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
-			<footer class="footer">
-				<div class="container is-fluid">
-					<div class="content has-text-centered">
-						<p>
-							<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
-						</p>
-					</div>
+	<div class="is-fullheight">
+		<div class="container">
+			<div class="columns body-columns">
+				<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+					<footer class="footer">
+						<div class="container is-fluid">
+							<div class="content has-text-centered">
+								<p>
+									<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
+								</p>
+							</div>
+						</div>
+					</footer>
 				</div>
-			</footer>
+			</div>
 		</div>
 	</div>
 </body>
