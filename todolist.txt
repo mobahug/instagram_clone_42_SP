@@ -50,16 +50,9 @@ Instagram look like page
 	passwords change logged in user settings - DONE
 	password reset system polished against hackers - DONE
 	polished footer - DONE
-
+	if logged out comment will be too long - DONE
 
 todo list:
-
-	comment section still have to fix
-
-	if i remove half-quarter from get comment section
-	will fix the problem while user logged in
-
-	if logged out comment will be too long
 
 	AJAX if i can make it still
 

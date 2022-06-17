@@ -76,30 +76,33 @@
 				foreach ($rows as $row)
 				{
 					echo '
-					<div class="columns body-columns">
-						<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
-							<div class="level">
-								<div class="level-item has-text-centered">
-									<figure class="image is-128x128">
-										<img class="is-rounded image is-128x128" src="./profile_images/'.htmlspecialchars($row['profilePicture']).'">
-									</figure>
-								</div>
-								<div class="level-item has-text-centered">
-									<div>
-										<p class="heading">Username</p>
-										<p class="title">'.htmlspecialchars($row['uid']).'</p>
-									</div>
-								</div>
-								<div class="level-item has-text-centered">
-									<div>
-										<p class="heading">Likes</p>
-										<p class="title">'.htmlspecialchars($row['likeCount']).'</p>
+					<div class="is-fullheight">
+						<div class="container">
+							<div class="columns body-columns">
+								<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+									<div class="level">
+										<div class="level-item has-text-centered">
+											<figure class="image is-128x128">
+												<img class="is-rounded image is-128x128" src="./profile_images/'.htmlspecialchars($row['profilePicture']).'">
+											</figure>
+										</div>
+										<div class="level-item has-text-centered">
+											<div>
+												<p class="heading">Username</p>
+												<p class="title">'.htmlspecialchars($row['uid']).'</p>
+											</div>
+										</div>
+										<div class="level-item has-text-centered">
+											<div>
+												<p class="heading">Likes</p>
+												<p class="title">'.htmlspecialchars($row['likeCount']).'</p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					';
+					</div>';
 				}
 			}
 		}
@@ -123,35 +126,42 @@
 						{
 							//outputting image
 							echo '
-								<div class="columns body-columns">
-									<div class="column is-half is-offset-one-quarter">
-										<div class="card">
-											<div class="card-image">
-												<figure class="image is-1by1">
-													<img src="./user_uploads/'.htmlspecialchars($row["imgFullNameGallery"]).'" alt="'.htmlspecialchars($row['titleGallery']).'">
-												</figure>
+							<div class="is-fullheight">
+								<div class="container">
+									<div class="columns body-columns">
+										<div class="column is-half is-offset-one-quarter">
+											<div class="card">
+												<div class="card-image">
+													<figure class="image is-1by1">
+														<img src="./user_uploads/'.htmlspecialchars($row["imgFullNameGallery"]).'" alt="'.htmlspecialchars($row['titleGallery']).'">
+													</figure>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>';
+								</div>
+							</div>';
 						}
 					}
 				?>
 			</div>
 		</div>
 	</div>
-
-	<div class="columns body-columns">
-		<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
-			<footer class="footer">
-				<div class="container is-fluid">
-					<div class="content has-text-centered">
-						<p>
-							<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
-						</p>
-					</div>
+	<div class="is-fullheight">
+		<div class="container">
+			<div class="columns body-columns">
+				<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+					<footer class="footer">
+						<div class="container is-fluid">
+							<div class="content has-text-centered">
+								<p>
+									<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
+								</p>
+							</div>
+						</div>
+					</footer>
 				</div>
-			</footer>
+			</div>
 		</div>
 	</div>
 </body>

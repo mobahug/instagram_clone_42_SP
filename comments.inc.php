@@ -84,7 +84,7 @@ function getComments($conn, $imgid)
 		{
 			//header('Content-type: text/plain');
 			echo "
-				<div class='columns body-columns'>
+				<div id='txtHint'class='columns body-columns'>
 					<div class='column is-half is-offset-one-quarter'>
 						<div class='card'>
 							<div class='card-content'>
@@ -109,7 +109,7 @@ function getComments($conn, $imgid)
 								</div>
 							
 								<div class='mt-4 content'>
-									<p class='subtitle is-6'>".nl2br($row['message'])."</p>
+									<p class='subtitle is-6'>".htmlspecialchars(nl2br($row['message']))."</p>
 								</div>";
 			if (isset($_SESSION['id']))
 			{

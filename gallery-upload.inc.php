@@ -81,7 +81,7 @@ if (isset($_POST['submitImage']))
 				if (isset($stamp_path))
 				{
 					$stamp = imagecreatefrompng($stamp_path);
-					$resizedStamp = imagescale( $stamp, 200, 200 );
+					$resizedStamp = imagescale($stamp, 200, 200 );
 					if ($fileActualExt == "png")
 						$img = imagecreatefrompng($fileDestination);
 					else
