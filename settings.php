@@ -136,10 +136,6 @@
 
 											if (isset($_GET['password']))
 											{
-												if ($_GET['password'] == "exsist")
-												{
-													echo "<p class='has-text-danger has-background-danger-light'>Password already in use!</p>";
-												}
 												if ($_GET['password'] == "uppercase")
 												{
 													echo "<p class='has-text-danger has-background-danger-light'>Password: Contains at least one uppercase letter!</p>";

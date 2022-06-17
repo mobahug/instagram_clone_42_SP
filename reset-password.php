@@ -42,6 +42,38 @@
 											{
 												echo "<p class='has-text-danger has-background-danger-light'>Password reset error!</p>";
 											}
+											if ($_GET['newpwd'] == "pwdnotsame")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Password not match!</p>";
+											}
+											if ($_GET['newpwd'] == "uppercase")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Password: Contains at least one uppercase letter!</p>";
+											}
+											if ($_GET['newpwd'] == "lowercase")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Password: Contains at least one lowercase letter!</p>";
+											}
+											if ($_GET['newpwd'] == "number")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Password: Need at least one number!</p>";
+											}
+											if ($_GET['newpwd'] == "special")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Password: Need at least one special character!</p>";
+											}
+											if ($_GET['newpwd'] == "tooshort")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Passwords min.: 8 characters long!</p>";
+											}
+											if ($_GET['newpwd'] == "toolong")
+											{
+												echo "<p class='has-text-danger has-background-danger-light'>Password is too long!</p>";
+											}
+											if ($_GET['newpwd'] == "success")
+											{
+												echo "<p class='has-text-success has-background-success-light'>Password sucessfully updated!</p>";
+											}
 										}
 									?>
 									<div class="control">

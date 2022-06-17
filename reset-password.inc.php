@@ -14,6 +14,41 @@ require_once 'config/setup.php';
 			header("Location: reset-password.php?newpwd=empty");
 			die();
 		}
+		$uppercase = preg_match('/[A-Z]/', $password);
+		$lowercase = preg_match('/[a-z]/', $password);
+		$number = preg_match('/[0-9]/', $password);
+		$specialChars = preg_match('/[^a-zA-Z\d]/', $password);
+	
+		if (!$uppercase)
+		{
+			header('Refresh: 0.1; reset-password.php?newpwd=uppercase');
+			return false;
+		}
+		else if (!$lowercase)
+		{
+			header('Refresh: 0.1; reset-password.php?newpwd=lowercase');
+			return false;
+		}
+		else if (!$number)
+		{
+			header('Refresh: 0.1; reset-password.php?newpwd=number');
+			return false;
+		}
+		else if (!$specialChars)
+		{
+			header('Refresh: 0.1; reset-password.php?newpwd=special');
+			return false;
+		}
+		else if (strlen($password) < 8)
+		{
+			header('Refresh: 0.1; reset-password.php?newpwd=tooshort');
+			return false;
+		}
+		else if (strlen($password) > 50)
+		{
+			header('Refresh: 0.1; reset-password.php?newpwd=toolong');
+			return false;
+		}
 		else if ($password != $passwordRepeat)
 		{
 			header("Location: reset-password.php?newpwd=pwdnotsame");

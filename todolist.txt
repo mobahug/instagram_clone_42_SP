@@ -49,6 +49,7 @@ create the landing page just like on Instagram
 	in comment section added commenters profile picture - DONE
 	like feature bugfixed - DONE
 	passwords change logged in user settings - DONE
+	password reset system polished against hackers - DONE
 
 
 after logged in can have access to:
