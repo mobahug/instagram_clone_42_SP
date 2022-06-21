@@ -158,6 +158,7 @@
 											<input class="button button-signin" type="submit" name="add" value="4.Add">
 											<input type="hidden" id="web_photo" name="new_pic" value="">
 											<input type="hidden" id="stamp" name="stamp" value="">
+											<input type="hidden" id="stamp3" name="stamp3" value="">
 											<input type="hidden" name="camera_date" value="'.date('Y-m-d H:i:s').'">
 										</form>
 
@@ -166,10 +167,10 @@
 										<br>
 										<p class="subtitle is-5">2.Choose Sticker</p>
 
-										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp6.png" width="200" height="200"></button>
-										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp5.png" width="200" height="200"></button>
-										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp3.png" width="200" height="200"></button>
-										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp4.png" width="200" height="200"></button>
+										<button><img id="sticker1" class="image is-128x128" onclick="stampPath1()" src="./stamp/stamp6.png" width="200" height="200"></button>
+										<button><img id="sticker2" class="image is-128x128" onclick="stampPath2()" src="./stamp/stamp5.png" width="200" height="200"></button>
+										<button><img id="sticker3" class="image is-128x128" onclick="stampPath3()" src="./stamp/stamp3.png" width="200" height="200"></button>
+										<button><img id="sticker4" class="image is-128x128" onclick="stampPath4()" src="./stamp/stamp4.png" width="200" height="200"></button>
 									</div>
 								</div>
 							</div>
@@ -201,14 +202,13 @@
 												<input class='input' type='text' name='filedesc' placeholder='Image description . . .'>
 												<input class='input' type='file' name='file'>
 												<input type='hidden' id='stamp2' name='stamp' value=''>
-												<input type='hidden' id='stamp3' name='stamp3' value=''>
 												<input type='hidden' name='upload_date' value='".date('Y-m-d H:i:s')."'>
 												<button class='button button-signin is-fullwidth' type='submit' name='submitImage'>Upload</button>
 											</form>
-											<button><img id='sticker1' class='image is-128x128' onclick='stampPath1(this)' src='./stamp/stamp6.png' width='200' height='200'></button>
-											<button><img id='sticker2' class='image is-128x128' onclick='stampPath2(this)' src='./stamp/stamp5.png' width='200' height='200'></button>
-											<button><img id='sticker3' class='image is-128x128' onclick='stampPath3(this)' src='./stamp/stamp3.png' width='200' height='200'></button>
-											<button><img id='sticker4' class='image is-128x128' onclick='stampPath4(this)' src='./stamp/stamp4.png' width='200' height='200'></button>
+											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp6.png' width='200' height='200'></button>
+											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp5.png' width='200' height='200'></button>
+											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp3.png' width='200' height='200'></button>
+											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp4.png' width='200' height='200'></button>
 										</div>
 									</div>
 								</div>
@@ -218,7 +218,7 @@
 				</div>";
 			}
 			?>
-		
+
 		<div>
 			<div>
 				<?php
@@ -311,24 +311,86 @@
 		stamp_auth = true;
 	}
 
+	const sticker = {sticker1, sticker2, sticker3, sticker4};
+
 	function stampPath1() {
-		final_stamp_upload.value = sticker1.src;
-		final_stamp3.value = sticker1.src;
+		final_stamp.value = sticker1.src;
+		if (final_stamp3)
+		{
+			final_stamp3.value = sticker1.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker2.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker3.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker4.src;
+		}
 		stamp_auth = true;
 	}
 	function stampPath2() {
-		final_stamp_upload.value = sticker2.src;
-		final_stamp3.value = sticker2.src;
+		final_stamp.value = sticker2.src;
+		if (final_stamp3)
+		{
+			final_stamp3.value = sticker1.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker2.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker3.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker4.src;
+		}
 		stamp_auth = true;
 	}
 	function stampPath3() {
-		final_stamp_upload.value = sticker3.src;
-		final_stamp3.value = sticker3.src;
+		final_stamp.value = sticker3.src;
+		if (final_stamp3)
+		{
+			final_stamp3.value = sticker1.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker2.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker3.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker4.src;
+		}
 		stamp_auth = true;
 	}
 	function stampPath4() {
-		final_stamp_upload.value = sticker4.src;
-		final_stamp3.value = sticker4.src;
+		final_stamp.value = sticker4.src;
+		if (final_stamp3)
+		{
+			final_stamp3.value = sticker1.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker2.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker3.src;
+		}
+		else if (final_stamp3)
+		{
+			final_stamp3.value = sticker4.src;
+		}
 		stamp_auth = true;
 	}
 
