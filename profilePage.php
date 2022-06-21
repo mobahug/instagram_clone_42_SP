@@ -167,10 +167,10 @@
 										<br>
 										<p class="subtitle is-5">2.Choose Sticker</p>
 
-										<button><img id="sticker1" class="image is-128x128" onclick="stampPath1()" src="./stamp/stamp6.png" width="200" height="200"></button>
-										<button><img id="sticker2" class="image is-128x128" onclick="stampPath2()" src="./stamp/stamp5.png" width="200" height="200"></button>
-										<button><img id="sticker3" class="image is-128x128" onclick="stampPath3()" src="./stamp/stamp3.png" width="200" height="200"></button>
-										<button><img id="sticker4" class="image is-128x128" onclick="stampPath4()" src="./stamp/stamp4.png" width="200" height="200"></button>
+										<button><img id="sticker1" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp6.png" width="200" height="200"></button>
+										<button><img id="sticker2" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp5.png" width="200" height="200"></button>
+										<button><img id="sticker3" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp3.png" width="200" height="200"></button>
+										<button><img id="sticker4" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp4.png" width="200" height="200"></button>
 									</div>
 								</div>
 							</div>
@@ -304,16 +304,27 @@
 	let sticker4 = document.querySelector("#sticker4");
 
 	let stamp_auth = false;
+	let counter = 0;
 
 	function stampPath(element) {
 		final_stamp.value = element.src;
-		final_stamp_upload.value = element.src;
+		counter++;
+		if (counter == 2)
+		{
+			final_stamp3.value = element.src;
+		}
+		//final_stamp_upload.value = element.src;
 		stamp_auth = true;
 	}
+/* 	button1.onclick=function() {
+		clickCounter++;
+		if (clickCounter==2) {
+			window.alert("Hello");
+		}
+		}; */
+	//const sticker = {sticker1, sticker2, sticker3, sticker4};
 
-	const sticker = {sticker1, sticker2, sticker3, sticker4};
-
-	function stampPath1() {
+	/* function stampPath1() {
 		final_stamp.value = sticker1.src;
 		if (final_stamp3)
 		{
@@ -392,7 +403,7 @@
 			final_stamp3.value = sticker4.src;
 		}
 		stamp_auth = true;
-	}
+	} */
 
 
 	camera_button.addEventListener('click', async function() {
