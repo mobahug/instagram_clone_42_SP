@@ -31,7 +31,7 @@ if (isset($_POST['submitImage']))
 
 
 	$stamp_path = $_POST['stamp'];
-	//$stamp_path3 =  $_POST['stamp3'];
+	$stamp_path3 =  $_POST['stamp3'];
 
 
 	if (in_array($fileActualExt, $allowed))
@@ -99,7 +99,7 @@ if (isset($_POST['submitImage']))
 					imagejpeg($img, $fileDestination, 95);
 					imagedestroy($img);
 				}
-				/* if (isset($stamp_path) && isset($stamp_path3))
+				if (isset($stamp_path) && isset($stamp_path3))
 				{
 					$stamp = imagecreatefrompng($stamp_path);
 					$stamp3 = imagecreatefrompng($stamp_path3);
@@ -133,7 +133,7 @@ if (isset($_POST['submitImage']))
 					header('Content-type: image/png');
 					imagejpeg($img, $fileDestination, 95);
 					imagedestroy($img);
-				} */
+				}
 			}
 			else
 			{

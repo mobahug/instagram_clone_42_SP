@@ -306,13 +306,21 @@
 	let stamp_auth = false;
 	let counter = 0;
 
+	const array = [];
+
 	function stampPath(element) {
-		final_stamp.value = element.src;
 		counter++;
-		if (counter == 2)
+		if (counter == 1)
+		{
+			final_stamp.value = element.src;
+		}
+		else if (counter == 2)
 		{
 			final_stamp3.value = element.src;
 		}
+		else
+			return ;
+		//array.push(element.src);
 		//final_stamp_upload.value = element.src;
 		stamp_auth = true;
 	}
@@ -322,26 +330,12 @@
 			window.alert("Hello");
 		}
 		}; */
-	//const sticker = {sticker1, sticker2, sticker3, sticker4};
+	const sticker = {sticker1, sticker2, sticker3, sticker4};
 
 	/* function stampPath1() {
+
 		final_stamp.value = sticker1.src;
-		if (final_stamp3)
-		{
-			final_stamp3.value = sticker1.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker2.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker3.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker4.src;
-		}
+		final_stamp3.value = sticker1.src;
 		stamp_auth = true;
 	}
 	function stampPath2() {
