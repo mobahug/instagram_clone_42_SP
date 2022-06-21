@@ -52,12 +52,14 @@ Instagram look like page
 	polished footer - DONE
 	if logged out comment will be too long - DONE
 	camera quality fixed, stickers palced correctly - DONE
+	another more sticker on camera, user can choose to put 1 or 2 stickers on videocamera picture - DONE
+
 
 todo list:
 
 	AJAX if i can make it still
 
-	another more sticker on camera
+	commentsection still not handling php tags
 
 
 
