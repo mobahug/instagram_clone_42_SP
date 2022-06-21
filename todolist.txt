@@ -51,6 +51,7 @@ Instagram look like page
 	password reset system polished against hackers - DONE
 	polished footer - DONE
 	if logged out comment will be too long - DONE
+	camera quality fixed, stickers palced correctly - DONE
 
 todo list:
 

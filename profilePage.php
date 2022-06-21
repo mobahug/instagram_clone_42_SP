@@ -130,16 +130,29 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div>';
+							if (isset($_GET['usage']))
+							{
+								if ($_GET['usage'] == "error")
+								{
+									echo "
+									<div class='has-text-centered'>
+										<p class='has-text-danger has-background-danger-light'>
+											Please take an image and choose a sticker for it!
+										</p>
+									</div>";
+								}
+							}
+						echo '
 						</div>
 					</div>
 					<div id="camera" style="display:none">
 							<div class="columns body-columns">
 								<div class="column is-half is-offset-one-quarter">
 									<div class="box">
-										<video id="video" width="320" height="320" autoplay></video>
+										<video id="video" width="1080" height="1080" autoplay></video>
 
-										<canvas class="output" id="canvas" width="320" height="320" value="canvas"></canvas>
+										<canvas class="output" id="canvas" width="1080" height="1080" value="canvas"></canvas>
 
 										<form class="fotoform" action="add_webcam.php" method="POST" enctype="multipart/form-data">
 											<input class="button button-signin" type="submit" name="add" value="4.Add">
@@ -188,13 +201,14 @@
 												<input class='input' type='text' name='filedesc' placeholder='Image description . . .'>
 												<input class='input' type='file' name='file'>
 												<input type='hidden' id='stamp2' name='stamp' value=''>
+												<input type='hidden' id='stamp3' name='stamp3' value=''>
 												<input type='hidden' name='upload_date' value='".date('Y-m-d H:i:s')."'>
 												<button class='button button-signin is-fullwidth' type='submit' name='submitImage'>Upload</button>
 											</form>
-											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp6.png' width='200' height='200'></button>
-											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp5.png' width='200' height='200'></button>
-											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp3.png' width='200' height='200'></button>
-											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp4.png' width='200' height='200'></button>
+											<button><img id='sticker1' class='image is-128x128' onclick='stampPath1(this)' src='./stamp/stamp6.png' width='200' height='200'></button>
+											<button><img id='sticker2' class='image is-128x128' onclick='stampPath2(this)' src='./stamp/stamp5.png' width='200' height='200'></button>
+											<button><img id='sticker3' class='image is-128x128' onclick='stampPath3(this)' src='./stamp/stamp3.png' width='200' height='200'></button>
+											<button><img id='sticker4' class='image is-128x128' onclick='stampPath4(this)' src='./stamp/stamp4.png' width='200' height='200'></button>
 										</div>
 									</div>
 								</div>
@@ -203,7 +217,8 @@
 					</div>
 				</div>";
 			}
-		?>
+			?>
+		
 		<div>
 			<div>
 				<?php
@@ -280,7 +295,13 @@
 	let canvas = document.querySelector("#canvas");
 	let new_pic = document.querySelector("#web_photo");
 	let final_stamp = document.querySelector("#stamp");
+	let final_stamp3 = document.querySelector("#stamp3");
 	let final_stamp_upload = document.querySelector("#stamp2");
+
+	let sticker1 = document.querySelector("#sticker1");
+	let sticker2 = document.querySelector("#sticker2");
+	let sticker3 = document.querySelector("#sticker3");
+	let sticker4 = document.querySelector("#sticker4");
 
 	let stamp_auth = false;
 
@@ -289,6 +310,28 @@
 		final_stamp_upload.value = element.src;
 		stamp_auth = true;
 	}
+
+	function stampPath1() {
+		final_stamp_upload.value = sticker1.src;
+		final_stamp3.value = sticker1.src;
+		stamp_auth = true;
+	}
+	function stampPath2() {
+		final_stamp_upload.value = sticker2.src;
+		final_stamp3.value = sticker2.src;
+		stamp_auth = true;
+	}
+	function stampPath3() {
+		final_stamp_upload.value = sticker3.src;
+		final_stamp3.value = sticker3.src;
+		stamp_auth = true;
+	}
+	function stampPath4() {
+		final_stamp_upload.value = sticker4.src;
+		final_stamp3.value = sticker4.src;
+		stamp_auth = true;
+	}
+
 
 	camera_button.addEventListener('click', async function() {
 		let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
