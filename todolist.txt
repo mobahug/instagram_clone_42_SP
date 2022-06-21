@@ -53,14 +53,12 @@ Instagram look like page
 	if logged out comment will be too long - DONE
 	camera quality fixed, stickers palced correctly - DONE
 	another more sticker on camera, user can choose to put 1 or 2 stickers on videocamera picture - DONE
+	commentsection still not handling php tags - DONE
 
 
 todo list:
 
 	AJAX if i can make it still
-
-	commentsection still not handling php tags
-
 
 
 ******Config for MAMP bitnami server******

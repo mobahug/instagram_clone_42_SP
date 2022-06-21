@@ -109,7 +109,7 @@ function getComments($conn, $imgid)
 								</div>
 							
 								<div class='mt-4 content'>
-									<p class='subtitle is-6'>".nl2br($row['message'])."</p>
+									<p class='subtitle is-6'>".htmlspecialchars(nl2br($row['message']))."</p>
 								</div>";
 			if (isset($_SESSION['id']))
 			{
@@ -136,13 +136,6 @@ function getComments($conn, $imgid)
 						</div>
 					</div>";
 				}
-				/*else
-				{
-					echo "<form class='edit-form' method='POST' action='".replyComments($conn)."'>
-						<input type='hidden' name='cid' value='".$row['cid']."'>
-						<button type='submit' name='replySubmit'>Reply</button>
-					</form>";
-				}*/
 			}
 			else
 			{
@@ -155,16 +148,6 @@ function getComments($conn, $imgid)
 					</div>
 				</div>";
 		}
-		/*else
-		{
-			echo "<form class='edit-form' method='POST' action='replycomment.php'>
-						<input type='hidden' name='cid' value='".$row['cid']."'>
-						<input type='hidden' name='uid' value='".$row['uid']."'>
-						<input type='hidden' name='date' value='".$row['date']."'>
-						<input type='hidden' name='message' value='".$row['message']."'>
-						<button>Reply</button>
-					</form>";
-		}*/
 	}
 }
 
@@ -196,22 +179,6 @@ function deleteComments($conn)
 		//header("Location: index.php");
 	}
 }
-
-/*function replyComments($conn)
-{
-	if (isset($_POST['replySubmit']))
-	{
-		$cid = $_POST['cid'];
-		$uid = $_POST['uid'];
-		$date = $_POST['date'];
-		$message = $_POST['message'];
-		$sql = "INSERT INTO comments (uid, date, message) VALUES ('$uid', '$date', '$message')";
-		//$sql = "UPDATE comments SET message='$message' WHERE cid='$cid'";
-		$result = $conn->query($sql);
-		header("Location: index.php");
-	}
-}*/
-
 
 function register($conn)
 {

@@ -306,8 +306,6 @@
 	let stamp_auth = false;
 	let counter = 0;
 
-	const array = [];
-
 	function stampPath(element) {
 		counter++;
 		if (counter == 1)
@@ -320,85 +318,8 @@
 		}
 		else
 			return ;
-		//array.push(element.src);
-		//final_stamp_upload.value = element.src;
 		stamp_auth = true;
 	}
-/* 	button1.onclick=function() {
-		clickCounter++;
-		if (clickCounter==2) {
-			window.alert("Hello");
-		}
-		}; */
-	const sticker = {sticker1, sticker2, sticker3, sticker4};
-
-	/* function stampPath1() {
-
-		final_stamp.value = sticker1.src;
-		final_stamp3.value = sticker1.src;
-		stamp_auth = true;
-	}
-	function stampPath2() {
-		final_stamp.value = sticker2.src;
-		if (final_stamp3)
-		{
-			final_stamp3.value = sticker1.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker2.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker3.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker4.src;
-		}
-		stamp_auth = true;
-	}
-	function stampPath3() {
-		final_stamp.value = sticker3.src;
-		if (final_stamp3)
-		{
-			final_stamp3.value = sticker1.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker2.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker3.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker4.src;
-		}
-		stamp_auth = true;
-	}
-	function stampPath4() {
-		final_stamp.value = sticker4.src;
-		if (final_stamp3)
-		{
-			final_stamp3.value = sticker1.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker2.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker3.src;
-		}
-		else if (final_stamp3)
-		{
-			final_stamp3.value = sticker4.src;
-		}
-		stamp_auth = true;
-	} */
-
 
 	camera_button.addEventListener('click', async function() {
 		let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
