@@ -302,6 +302,7 @@ function deleteAccount($conn)
 	$sql = "DELETE FROM `user` WHERE `id`=?";
 	$result = $conn->prepare($sql);
 	$result->execute(array($_SESSION['id']));
+	session_destroy();
 	header('Location: index.php');
 }
 

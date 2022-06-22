@@ -94,7 +94,7 @@
 									{
 										if ($_GET['registration'] == "success")
 										{
-											echo "<p class='has-text-success has-background-success-light'>Success! Chek your email!</p>";
+											echo "<p class='has-text-success has-background-success-light'>Success! Chek your email/spam folder!</p>";
 										}
 										if ($_GET['registration'] == "failed")
 										{

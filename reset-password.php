@@ -29,7 +29,7 @@
 										{
 											if ($_GET['reset'] == "success")
 											{
-												echo "<p class='has-text-success has-background-success-light'>Check your email!</p>";
+												echo "<p class='has-text-success has-background-success-light'>Check your email/spam folder!</p>";
 											}
 											if ($_GET['reset'] == "failed")
 											{
