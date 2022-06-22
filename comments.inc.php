@@ -107,7 +107,7 @@ function getComments($conn, $imgid)
 										</div>
 									</div>
 								</div>
-							
+
 								<div class='mt-4 content'>
 									<p class='subtitle is-6'>".nl2br(htmlspecialchars($row['message']))."</p>
 								</div>";
@@ -142,7 +142,7 @@ function getComments($conn, $imgid)
 				echo "<p class='message is-danger'>You need to be logged in to reply!</p>";
 			}
 
-			echo "			
+			echo "
 							</div>
 						</div>
 					</div>
@@ -302,6 +302,20 @@ function deleteAccount($conn)
 	$sql = "DELETE FROM `user` WHERE `id`=?";
 	$result = $conn->prepare($sql);
 	$result->execute(array($_SESSION['id']));
+
+	//here have to add later unlink too to delete from folder too the image
+	$sql_image = "DELETE FROM `galleryImages` WHERE `userid`=?";
+	$result_images = $conn->prepare($sql_image);
+	$result_images->execute(array($_SESSION['id']));
+
+	$sql_like = "DELETE FROM `like` WHERE `user`=?";
+	$result_like = $conn->prepare($sql_like);
+	$result_like->execute(array($_SESSION['id']));
+
+	$sql_comment = "DELETE FROM `comments` WHERE `uid`=?";
+	$result_comment = $conn->prepare($sql_comment);
+	$result_comment->execute(array($_SESSION['id']));
+
 	session_destroy();
 	header('Location: index.php');
 }

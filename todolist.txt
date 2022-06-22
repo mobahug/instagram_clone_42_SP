@@ -58,6 +58,7 @@ Instagram look like page
 	pagination fixed - DONE
 	UI/UX fixes with gallery uploads - DONE
 	added icon colors based on which page user are, so easier to navigate - DONE
+	added extra stuff when deleting users then deleting info from databse too - DONE
 
 todo list:
 
