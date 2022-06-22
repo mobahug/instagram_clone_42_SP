@@ -109,7 +109,7 @@ function getComments($conn, $imgid)
 								</div>
 							
 								<div class='mt-4 content'>
-									<p class='subtitle is-6'>".htmlspecialchars(nl2br($row['message']))."</p>
+									<p class='subtitle is-6'>".nl2br(htmlspecialchars($row['message']))."</p>
 								</div>";
 			if (isset($_SESSION['id']))
 			{
