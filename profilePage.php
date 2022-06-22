@@ -143,29 +143,63 @@
 									</div>";
 								}
 							}
+							if (isset($_GET['upload']))
+							{
+								if ($_GET['upload'] == "empty")
+								{
+									echo "<div class='has-text-centered'>
+											<p class='has-text-danger has-background-danger-light'>
+												Please add title and description to your picture!
+											</p>
+										</div>";
+								}
+								if ($_GET['upload'] == "toobig")
+								{
+									echo "<div class='has-text-centered'>
+											<p class='has-text-danger has-background-danger-light'>
+												Image size is too big!
+											</p>
+										</div>";
+								}
+								if ($_GET['upload'] == "error")
+								{
+									echo "<div class='has-text-centered'>
+											<p class='has-text-danger has-background-danger-light'>
+												You had an error!
+											</p>
+										</div>";
+								}
+								if ($_GET['upload'] == "need_proper_file_type")
+								{
+									echo "<div class='has-text-centered'>
+											<p class='has-text-danger has-background-danger-light'>
+												You need to add a proper file type!
+											</p>
+										</div>";
+								}
+							}
 						echo '
 						</div>
 					</div>
 					<div id="camera" style="display:none">
 							<div class="columns body-columns">
 								<div class="column is-half is-offset-one-quarter">
-									<div class="box">
+									<div class="box has-text-centered">
 										<video id="video" width="1080" height="1080" autoplay></video>
 
 										<canvas class="output" id="canvas" width="1080" height="1080" value="canvas"></canvas>
 
 										<form class="fotoform" action="add_webcam.php" method="POST" enctype="multipart/form-data">
-											<input class="button button-signin" type="submit" name="add" value="4.Add">
+											<input class="button button-signin" type="submit" name="add" value="4.Upload">
 											<input type="hidden" id="web_photo" name="new_pic" value="">
 											<input type="hidden" id="stamp" name="stamp" value="">
 											<input type="hidden" id="stamp3" name="stamp3" value="">
 											<input type="hidden" name="camera_date" value="'.date('Y-m-d H:i:s').'">
 										</form>
-
 										<button class="button is-light" id="start-camera">1.Start Camera</button>
 										<button class="button is-light" id="click-photo">3.Take Photo</button>
-										<br>
-										<p class="subtitle is-5">2.Choose Sticker</p>
+										<br><br>
+										<label class="label has-text-centered">2.Add stickers!*</label>
 
 										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp6.png" width="200" height="200"></button>
 										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp5.png" width="200" height="200"></button>
@@ -194,7 +228,7 @@
 							<div class='columns body-columns'>
 								<div class='column is-half is-offset-one-quarter'>
 									<div class='card'>
-										<div class='box gallery-upload'>
+										<div class='box has-text-centered gallery-upload'>
 											<label class='label has-text-centered'>Upload new picture</label>
 											<form action='gallery-upload.inc.php' method='POST' enctype='multipart/form-data'>
 												<input class='input' type='text' name='filename' placeholder='File name . . .'>
@@ -204,8 +238,11 @@
 												<input type='hidden' id='stamp2' name='stamp' value=''>
 												<input type='hidden' id='stamp4' name='stamp4' value=''>
 												<input type='hidden' name='upload_date' value='".date('Y-m-d H:i:s')."'>
+												<br><br>
 												<button class='button button-signin is-fullwidth' type='submit' name='submitImage'>Upload</button>
 											</form>
+											<br>
+											<label class='label has-text-centered'>Add stickers!(Optional)</label>
 											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp6.png' width='200' height='200'></button>
 											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp5.png' width='200' height='200'></button>
 											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp3.png' width='200' height='200'></button>

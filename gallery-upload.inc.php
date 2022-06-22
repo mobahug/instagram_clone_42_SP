@@ -45,7 +45,7 @@ if (isset($_POST['submitImage']))
 
 				if (empty($imageTitle) || empty($imageDesc))
 				{
-					header("Location: index.php?upload=empty");
+					header("Location: profilePage.php?upload=empty");
 					exit();
 				}
 				else
@@ -138,19 +138,19 @@ if (isset($_POST['submitImage']))
 			}
 			else
 			{
-				echo "File size too big";
+				header("Location: profilePage.php?upload=toobig");
 				exit();
 			}
 		}
 		else
 		{
-			echo "You had an error!";
+			header("Location: profilePage.php?upload=error");
 			exit();
 		}
 	}
 	else
 	{
-		echo "You need to uppload a proper filetype!";
+		header("Location: profilePage.php?upload=need_proper_file_type");
 		exit();
 	}
 }

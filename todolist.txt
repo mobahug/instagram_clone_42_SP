@@ -56,7 +56,7 @@ Instagram look like page
 	commentsection still not handling php tags - DONE
 	gallery uploads capable to add 0, 1 or max 2 stickers to the image - DONE
 	pagination fixed - DONE
-
+	UI/UX fixes with gallery uploads - DONE
 
 todo list:
 
