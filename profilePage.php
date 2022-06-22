@@ -229,7 +229,7 @@
 								<div class='column is-half is-offset-one-quarter'>
 									<div class='card'>
 										<div class='box has-text-centered gallery-upload'>
-											<label class='label has-text-centered'>Upload new picture</label>
+											<label class='label has-text-centered'>Upload new picture (max.: 2mb)</label>
 											<form action='gallery-upload.inc.php' method='POST' enctype='multipart/form-data'>
 												<input class='input' type='text' name='filename' placeholder='File name . . .'>
 												<input class='input' type='text' name='filetitle' placeholder='Image title . . .'>

@@ -227,7 +227,7 @@
 													echo "<p class='has-text-danger has-background-danger-light'>You need to uppload a proper filetype!</p>";
 												}
 											}
-										echo '<label class="label">Upload new profile picture</label>
+										echo '<label class="label">Upload new profile picture (max.: 2mb)</label>
 											<form action="profilePicture.php" method="POST" enctype="multipart/form-data">
 												<input class="input" type="text" name="filename" placeholder="Profile Picture Name">
 												<input class="input" type="file" name="file">
