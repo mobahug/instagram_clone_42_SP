@@ -292,6 +292,7 @@
 								<div class="pagination">
 									<nav class="pagination is-centered is-small" role="navigation" aria-label="pagination">
 										<ul class="pagination-list">
+											<br><br><br>
 											<?php
 												for ($k = 1; $k < ($block + 1); $k++)
 												{
