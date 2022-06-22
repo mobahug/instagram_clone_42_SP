@@ -287,42 +287,47 @@
 						?>
 					</div>
 					<div>
-						<?php
-							for ($k = 1; $k < ($block + 1); $k++)
-							{
+						<div class="columns is-multiline is-centered">
+							<div class="column is-one-quarter-desktop is-half-tablet">
+								<div class="pagination">
+									<nav class="pagination is-centered is-small" role="navigation" aria-label="pagination">
+										<ul class="pagination-list">
+											<?php
+												for ($k = 1; $k < ($block + 1); $k++)
+												{
 
-								if ($k == 1)
-								{
-									echo '
-									<div>
-										<a id="button'.$k.'" class="pagination-link is-current" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>';
-								}
-								else
-								{
-									echo '
-										<a id="button'.$k.'" class="pagination-link href="#" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>
-									</div>';
-								}
-							}
-						?>
-					</div>
+													if ($k == 1)
+													{
+														echo '<a id="button'.$k.'" class="pagination-link is-current" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>';
+													}
+													else
+													{
+														echo '<a id="button'.$k.'" class="pagination-link href="#" onclick="showPages('.$k.', '.$block.')">'.$k.'</a>';
+													}
+												}
+											?>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<div class="columns body-columns">
-					<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
-						<footer class="footer">
-							<div class="container is-fluid">
-								<div class="content has-text-centered">
-									<p>
-										<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
-									</p>
-								</div>
-							</div>
-						</footer>
+			<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
+				<footer class="footer">
+					<div class="container is-fluid">
+						<div class="content has-text-centered">
+							<p>
+								<i><strong>© Mango 2022 </strong> Created by Gabor Ulenius</i>
+							</p>
+						</div>
 					</div>
-				</div>
+				</footer>
+			</div>
+		</div>
 	<script>
 		function showPages(id, numberOfPages)
 		{
