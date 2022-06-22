@@ -233,8 +233,8 @@
 											<label class='label has-text-centered'>Upload new picture (max.: 2mb)</label>
 											<form action='gallery-upload.inc.php' method='POST' enctype='multipart/form-data'>
 												<input class='input' type='text' name='filename' placeholder='File name . . .'>
-												<input class='input' type='text' name='filetitle' placeholder='Image title . . .'>
-												<input class='input' type='text' name='filedesc' placeholder='Image description . . .'>
+												<input class='input' type='text' name='filetitle' placeholder='*Image title . . .'>
+												<input class='input' type='text' name='filedesc' placeholder='*Image description . . .'>
 												<input class='input' type='file' name='file'>
 												<input type='hidden' id='stamp2' name='stamp' value=''>
 												<input type='hidden' id='stamp4' name='stamp4' value=''>
