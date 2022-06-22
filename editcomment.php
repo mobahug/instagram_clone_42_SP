@@ -54,6 +54,8 @@
 	<div class='columns body-columns'>
 		<div class='column'>
 		<?php
+		if (isset($_SESSION['id']))
+		{
 			$cid = $_POST['cid'];
 			$uid = $_POST['uid'];
 			$date = $_POST['date'];
@@ -65,11 +67,14 @@
 							<input type='hidden' name='date' value='".htmlspecialchars($date)."'>
 							<div class='field'>
 								<div class='control'>
-									<textarea class='textarea is-large' placeholder='Edit your message' name='message'>".htmlspecialchars($message)."</textarea><br>
+									<textarea maxlength='1500' class='textarea is-large' placeholder='Edit your message' name='message'>".htmlspecialchars($message)."</textarea><br>
 								</div>
 							</div>
 							<button class='button button-signin is-fullwidth' type='submit' name='commentSubmit'>Edit</button>
 						</form>";
+		}
+		else
+			header("Location: index.php?nicetry");
 		?>
 		</div>
 	</div>

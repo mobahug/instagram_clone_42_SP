@@ -185,7 +185,7 @@
 														<input type='hidden' id='uid' name='uid' value='".$_SESSION['id']."'>
 														<input type='hidden' id='date' name='date' value='".date('Y-m-d H:i:s')."'>
 														<input type='hidden' id='imgid' name='imgid' value='".htmlspecialchars($row['idGallery'])."'>
-														<textarea class='textarea' placeholder='Add a comment . . .' name='message'></textarea><br>
+														<textarea maxlength='1500' class='textarea' placeholder='Add a comment . . .' name='message'></textarea><br>
 														<input class='button is-hovered' type='submit' name='commentSubmit' value='Comment'></input>
 													</form>
 												</div>

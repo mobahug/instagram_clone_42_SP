@@ -204,7 +204,7 @@
 											}
 										echo '
 											<form action="new-email.php" method="POST">
-												<input class="input" type="text" name="new_email" placeholder="New Email">
+												<input class="input" type="email" name="new_email" placeholder="New Email">
 												<br>
 												<input class="button button-signin is-fullwidth" type="submit" name="newEmailSubmit">
 											</form>

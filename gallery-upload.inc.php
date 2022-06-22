@@ -116,23 +116,26 @@ if (isset($_POST['submitImage']))
 				}
 				else
 				{
-					$stamp = imagecreatefrompng($stamp_path);
-					$resizedStamp = imagescale($stamp, 480, 320 );
-					if ($fileActualExt == "png")
-						$img = imagecreatefrompng($fileDestination);
-					else
-						$img = imagecreatefromjpeg($fileDestination);
-
-					$margin_r = -25;
-					$margin_b = -40;
-
-					$sx = imagesx($resizedStamp);	//add height for the image
-					$sy = imagesy($resizedStamp);	//add width for the image
-
-					imagecopy($img, $resizedStamp, imagesx($img) - $sx - $margin_r, imagesy($img) - $sy - $margin_b, 0, 0, imagesx($resizedStamp), imagesy($resizedStamp));
-					header('Content-type: image/png');
-					imagejpeg($img, $fileDestination, 95);
-					imagedestroy($img);
+					if (!empty($stamp_path))
+					{
+						$stamp = imagecreatefrompng($stamp_path);
+						$resizedStamp = imagescale($stamp, 480, 320 );
+						if ($fileActualExt == "png")
+							$img = imagecreatefrompng($fileDestination);
+						else
+							$img = imagecreatefromjpeg($fileDestination);
+						
+						$margin_r = -25;
+						$margin_b = -40;
+	
+						$sx = imagesx($resizedStamp);	//add height for the image
+						$sy = imagesy($resizedStamp);	//add width for the image
+	
+						imagecopy($img, $resizedStamp, imagesx($img) - $sx - $margin_r, imagesy($img) - $sy - $margin_b, 0, 0, imagesx($resizedStamp), imagesy($resizedStamp));
+						header('Content-type: image/png');
+						imagejpeg($img, $fileDestination, 95);
+						imagedestroy($img);
+					}
 				}
 				header('Location: profilePage.php');
 			}
