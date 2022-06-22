@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Instagram Clone</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body >
@@ -36,6 +37,16 @@
 							<i class="material-icons">person_outline</i>
 						</a>
 					';
+				}
+				else
+				{
+					echo '
+						<a class="navbar-item" href="homePage.php">
+							<i class="material-icons">home</i>
+						</a>
+						<a class="navbar-item" href="index.php?action=logout">
+							<i class="material-icons has-text-success">login</i>
+						</a>';
 				}
 			?>
 		</div>

@@ -57,6 +57,7 @@ Instagram look like page
 	gallery uploads capable to add 0, 1 or max 2 stickers to the image - DONE
 	pagination fixed - DONE
 	UI/UX fixes with gallery uploads - DONE
+	added icon colors based on which page user are, so easier to navigate - DONE
 
 todo list:
 

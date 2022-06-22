@@ -25,6 +25,9 @@
 		{
 			echo '
 			<div class="navbar-item is-flex-touch">
+				<a class="navbar-item" href="homePage.php">
+					<i class="material-icons">home</i>
+				</a>
 				<a class="navbar-item" href="index.php?action=logout">
 					<i class="material-icons">logout</i>
 				</a>

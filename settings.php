@@ -24,6 +24,9 @@
 		{
 			echo '
 			<div class="navbar-item is-flex-touch">
+				<a class="navbar-item" href="homePage.php">
+					<i class="material-icons">home</i>
+				</a>
 				<a class="navbar-item" href="index.php?action=logout">
 					<i class="material-icons">logout</i>
 				</a>
@@ -34,10 +37,9 @@
 					<i class="material-icons">person_outline</i>
 				</a>
 				<a class="navbar-item" href="settings.php">
-					<i class="material-icons">settings</i>
+					<i class="material-icons has-text-success">settings</i>
 				</a>
-			</div>
-			';
+			</div>';
 		}
 		else
 		{
@@ -46,8 +48,7 @@
 				<a class="navbar-item" href="index.php?action=login">
 					<i class="material-icons">login</i>
 				</a>
-			</div>
-			';
+			</div>';
 		}
 		?>
 	</div>

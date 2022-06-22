@@ -26,6 +26,9 @@
 				if (isset($_SESSION['id']))
 				{
 					echo '
+						<a class="navbar-item" href="homePage.php">
+							<i class="material-icons has-text-success">home</i>
+						</a>
 						<a class="navbar-item" href="index.php?action=logout">
 							<i class="material-icons">logout</i>
 						</a>
@@ -34,16 +37,17 @@
 						</a>
 						<a class="navbar-item" href="profilePage.php">
 							<i class="material-icons">person_outline</i>
-						</a>
-					';
+						</a>';
 				}
 				else
 				{
 					echo '
+						<a class="navbar-item" href="homePage.php">
+							<i class="material-icons has-text-success">home</i>
+						</a>
 						<a class="navbar-item" href="index.php?action=logout">
 							<i class="material-icons">login</i>
-						</a>
-					';
+						</a>';
 				}
 			?>
 		</div>
