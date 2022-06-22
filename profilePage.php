@@ -167,10 +167,10 @@
 										<br>
 										<p class="subtitle is-5">2.Choose Sticker</p>
 
-										<button><img id="sticker1" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp6.png" width="200" height="200"></button>
-										<button><img id="sticker2" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp5.png" width="200" height="200"></button>
-										<button><img id="sticker3" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp3.png" width="200" height="200"></button>
-										<button><img id="sticker4" class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp4.png" width="200" height="200"></button>
+										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp6.png" width="200" height="200"></button>
+										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp5.png" width="200" height="200"></button>
+										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp3.png" width="200" height="200"></button>
+										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp4.png" width="200" height="200"></button>
 									</div>
 								</div>
 							</div>
@@ -202,6 +202,7 @@
 												<input class='input' type='text' name='filedesc' placeholder='Image description . . .'>
 												<input class='input' type='file' name='file'>
 												<input type='hidden' id='stamp2' name='stamp' value=''>
+												<input type='hidden' id='stamp4' name='stamp4' value=''>
 												<input type='hidden' name='upload_date' value='".date('Y-m-d H:i:s')."'>
 												<button class='button button-signin is-fullwidth' type='submit' name='submitImage'>Upload</button>
 											</form>
@@ -297,11 +298,7 @@
 	let final_stamp = document.querySelector("#stamp");
 	let final_stamp3 = document.querySelector("#stamp3");
 	let final_stamp_upload = document.querySelector("#stamp2");
-
-	let sticker1 = document.querySelector("#sticker1");
-	let sticker2 = document.querySelector("#sticker2");
-	let sticker3 = document.querySelector("#sticker3");
-	let sticker4 = document.querySelector("#sticker4");
+	let final_stamp4 = document.querySelector("#stamp4");
 
 	let stamp_auth = false;
 	let counter = 0;
@@ -311,10 +308,12 @@
 		if (counter == 1)
 		{
 			final_stamp.value = element.src;
+			final_stamp_upload.value = element.src;
 		}
 		else if (counter == 2)
 		{
 			final_stamp3.value = element.src;
+			final_stamp4.value = element.src;
 		}
 		else
 			return ;

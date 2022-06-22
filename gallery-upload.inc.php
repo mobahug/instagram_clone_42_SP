@@ -31,7 +31,7 @@ if (isset($_POST['submitImage']))
 
 
 	$stamp_path = $_POST['stamp'];
-	$stamp_path3 =  $_POST['stamp3'];
+	$stamp_path4 =  $_POST['stamp4'];
 
 
 	if (in_array($fileActualExt, $allowed))
@@ -79,36 +79,16 @@ if (isset($_POST['submitImage']))
 						}
 					}
 				}
-				if (isset($stamp_path))
+				if (!empty($stamp_path) && !empty($stamp_path4))
 				{
 					$stamp = imagecreatefrompng($stamp_path);
-					$resizedStamp = imagescale($stamp, 480, 320 );
-					if ($fileActualExt == "png")
-						$img = imagecreatefrompng($fileDestination);
-					else
-						$img = imagecreatefromjpeg($fileDestination);
-
-					$margin_r = -25;
-					$margin_b = -40;
-
-					$sx = imagesx($resizedStamp);	//add height for the image
-					$sy = imagesy($resizedStamp);	//add width for the image
-
-					imagecopy($img, $resizedStamp, imagesx($img) - $sx - $margin_r, imagesy($img) - $sy - $margin_b, 0, 0, imagesx($resizedStamp), imagesy($resizedStamp));
-					header('Content-type: image/png');
-					imagejpeg($img, $fileDestination, 95);
-					imagedestroy($img);
-				}
-				if (isset($stamp_path) && isset($stamp_path3))
-				{
-					$stamp = imagecreatefrompng($stamp_path);
-					$stamp3 = imagecreatefrompng($stamp_path3);
+					$stamp3 = imagecreatefrompng($stamp_path4);
 
 
 					$resizedStamp = imagescale($stamp, 480, 320 );
 					$resizedStamp3 = imagescale($stamp3, 480, 320 );
 
-					var_dump($stamp_path3);
+					var_dump($stamp_path4);
 					if ($fileActualExt == "png")
 						$img = imagecreatefrompng($fileDestination);
 					else
@@ -117,8 +97,8 @@ if (isset($_POST['submitImage']))
 					$margin_r = -25;
 					$margin_b = -40;
 
-					$margin_r3 = -50;
-					$margin_b3 = -40;
+					$margin_r3 = 390;
+					$margin_b3 = 450;
 
 					$sx = imagesx($resizedStamp);	//add height for the image
 					$sy = imagesy($resizedStamp);	//add width for the image
@@ -128,12 +108,33 @@ if (isset($_POST['submitImage']))
 
 					imagecopy($img, $resizedStamp, imagesx($img) - $sx - $margin_r, imagesy($img) - $sy - $margin_b, 0, 0, imagesx($resizedStamp), imagesy($resizedStamp));
 
-					imagecopy($img, $resizedStamp2, imagesx($img) - $sx3 - $margin_r3, imagesy($img) - $sy3 - $margin_b3, 0, 0, imagesx($resizedStamp3), imagesy($resizedStamp3));
+					imagecopy($img, $resizedStamp3, imagesx($img) - $sx3 - $margin_r3, imagesy($img) - $sy3 - $margin_b3, 0, 0, imagesx($resizedStamp3), imagesy($resizedStamp3));
 
 					header('Content-type: image/png');
 					imagejpeg($img, $fileDestination, 95);
 					imagedestroy($img);
 				}
+				else
+				{
+					$stamp = imagecreatefrompng($stamp_path);
+					$resizedStamp = imagescale($stamp, 480, 320 );
+					if ($fileActualExt == "png")
+						$img = imagecreatefrompng($fileDestination);
+					else
+						$img = imagecreatefromjpeg($fileDestination);
+
+					$margin_r = -25;
+					$margin_b = -40;
+
+					$sx = imagesx($resizedStamp);	//add height for the image
+					$sy = imagesy($resizedStamp);	//add width for the image
+
+					imagecopy($img, $resizedStamp, imagesx($img) - $sx - $margin_r, imagesy($img) - $sy - $margin_b, 0, 0, imagesx($resizedStamp), imagesy($resizedStamp));
+					header('Content-type: image/png');
+					imagejpeg($img, $fileDestination, 95);
+					imagedestroy($img);
+				}
+				header('Location: profilePage.php');
 			}
 			else
 			{
