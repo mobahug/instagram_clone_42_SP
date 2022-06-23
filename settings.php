@@ -129,7 +129,7 @@
 												<input class="button button-signin is-fullwidth" type="submit" name="newUserSubmit">
 											</form>
 										</div>';
-										
+
 										echo '
 										<br>
 										<div>

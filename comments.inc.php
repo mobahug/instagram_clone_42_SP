@@ -307,6 +307,8 @@ function deleteAccount($conn)
 	$sql_image = "DELETE FROM `galleryImages` WHERE `userid`=?";
 	$result_images = $conn->prepare($sql_image);
 	$result_images->execute(array($_SESSION['id']));
+	/* if ($result->rowCount())
+		unlink("profile_images/" . $image); */	//delete image from user_uploads too
 
 	$sql_like = "DELETE FROM `like` WHERE `user`=?";
 	$result_like = $conn->prepare($sql_like);
