@@ -304,19 +304,23 @@ function deleteAccount($conn)
 	{
 		if (isset($_POST['gallery_path']))
 		{
-			$image_gallery = stripslashes($_POST['gallery_path']);		//prevent that user delete other user image
-			//by copy pasting the picture name on inspect mode
 			$userid =  $_SESSION['id'];
-			$sql_gallery = "DELETE FROM galleryImages WHERE imgFullNameGallery=? AND userid=?";
+			$sql_gallery = "SELECT * FROM `galleryImages` WHERE `userid`=?";
 			$result_gallery = $conn->prepare($sql_gallery);
-			$result_gallery->execute(array($image_gallery, $userid));
-			if ($result_gallery->rowCount())
-				unlink("user_uploads/" . $image_gallery);
+			$result_gallery->execute(array($userid));
+			$rows = $result_gallery->fetchAll();
+			foreach ($rows as $row)
+			{
+				unlink("user_uploads/" . $row['imgFullNameGallery']);
+			}
+			$sql_gallery = "DELETE FROM galleryImages WHERE userid=?";
+			$result_gallery = $conn->prepare($sql_gallery);
+			$result_gallery->execute(array($userid));
 		}
 		if (isset($_POST['profilePath']))
 		{
 			$profile_image = stripslashes($_POST['profilePath']);		//prevent that user delete other user image
-			//by copy pasting the picture name on inspect mode
+																		//by copy pasting the picture name on inspect mode
 			$username = $_SESSION['id'];
 			$defaultimage = "/128x128.png";
 
@@ -341,8 +345,8 @@ function deleteAccount($conn)
 		$result_comment->execute(array($_SESSION['id']));
 	}
 
-	session_destroy();
-	header('Location: index.php');
+	/* session_destroy();
+	header('Location: index.php'); */
 }
 
 if (isset($_GET['action']))

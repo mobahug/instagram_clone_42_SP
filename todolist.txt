@@ -61,6 +61,7 @@ Instagram look like page
 	added extra stuff when deleting users then deleting info from databse too - DONE
 	bugfixed camera, before: without start could choose sticker and take, upload photo, now user must start the camera first - DONE
 	removing account with left images likes comments - DONE
+	1 click remove images fixed fully - DONE
 
 todo list:
 

@@ -64,22 +64,6 @@
 							if (isset($_SESSION['id']))
 							{
 								$userid = $_SESSION['id'];
-								$sql = "SELECT * FROM `galleryImages` WHERE `userid`=?";
-								$result = $conn->prepare($sql);
-								$result->execute(array($userid));
-								if (!$result)
-								{
-									echo "SQL statement failed!";
-								}
-								else
-								{
-									$rows = $result->fetchAll();
-									foreach ($rows as $row)
-									{
-										echo '<input type="hidden" name="gallery_path" value="'.htmlspecialchars($row["imgFullNameGallery"]).'">';
-									}
-								}
-								$userid = $_SESSION['id'];
 								$sql = "SELECT * FROM `user` WHERE `id`=?";
 								$result = $conn->prepare($sql);
 								$result->execute(array($userid));
