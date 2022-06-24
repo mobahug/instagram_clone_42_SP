@@ -328,9 +328,9 @@ function deleteAccount($conn)
 			unlink("profile_images/" . $profile_image);	//delete image from user_uploads too
 		}
 		
-		/* $sql = "DELETE FROM `user` WHERE `id`=?";
+		$sql = "DELETE FROM `user` WHERE `id`=?";
 		$result = $conn->prepare($sql);
-		$result->execute(array($_SESSION['id'])); */
+		$result->execute(array($_SESSION['id']));
 	
 		$sql_like = "DELETE FROM `like` WHERE `user`=?";
 		$result_like = $conn->prepare($sql_like);
@@ -341,8 +341,8 @@ function deleteAccount($conn)
 		$result_comment->execute(array($_SESSION['id']));
 	}
 
-	/* session_destroy();
-	header('Location: index.php'); */
+	session_destroy();
+	header('Location: index.php');
 }
 
 if (isset($_GET['action']))
