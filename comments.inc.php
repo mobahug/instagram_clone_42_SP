@@ -302,21 +302,20 @@ function deleteAccount($conn)
 	
 	if (isset($_POST['deleteAllimg']))
 	{
-		if (isset($_POST['gallery_path']))
+		$userid =  $_SESSION['id'];
+		$sql_gallery = "SELECT * FROM `galleryImages` WHERE `userid`=?";
+		$result_gallery = $conn->prepare($sql_gallery);
+		$result_gallery->execute(array($userid));
+		$rows = $result_gallery->fetchAll();
+		print_r($rows);
+		foreach ($rows as $row)
 		{
-			$userid =  $_SESSION['id'];
-			$sql_gallery = "SELECT * FROM `galleryImages` WHERE `userid`=?";
-			$result_gallery = $conn->prepare($sql_gallery);
-			$result_gallery->execute(array($userid));
-			$rows = $result_gallery->fetchAll();
-			foreach ($rows as $row)
-			{
-				unlink("user_uploads/" . $row['imgFullNameGallery']);
-			}
-			$sql_gallery = "DELETE FROM galleryImages WHERE userid=?";
-			$result_gallery = $conn->prepare($sql_gallery);
-			$result_gallery->execute(array($userid));
+			unlink("user_uploads/" . $row['imgFullNameGallery']);
 		}
+		$sql_gallery = "DELETE FROM `galleryImages` WHERE userid=?";
+		$result_gallery = $conn->prepare($sql_gallery);
+		$result_gallery->execute(array($userid));
+
 		if (isset($_POST['profilePath']))
 		{
 			$profile_image = stripslashes($_POST['profilePath']);		//prevent that user delete other user image
