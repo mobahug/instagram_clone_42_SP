@@ -59,6 +59,8 @@ Instagram look like page
 	UI/UX fixes with gallery uploads - DONE
 	added icon colors based on which page user are, so easier to navigate - DONE
 	added extra stuff when deleting users then deleting info from databse too - DONE
+	bugfixed camera, before: without start could choose sticker and take, upload photo, now user must start the camera first - DONE
+	removing account with left images likes comments - DONE
 
 todo list:
 

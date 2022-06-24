@@ -11,7 +11,7 @@
 		$defaultimage = "/128x128.png";
 		$sql = "UPDATE `user` SET `profilePicture`=? WHERE `id`=?;";
 		$result = $conn->prepare($sql);
-		$result->execute(array($defaultimage, $_SESSION['id']));
+		$result->execute(array($defaultimage, $username));
 		if ($result->rowCount())
 			unlink("profile_images/" . $image);	//delete image from user_uploads too
 		header("Location: settings.php?deletedProfileImage");

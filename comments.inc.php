@@ -299,27 +299,50 @@ function userLogout()
 
 function deleteAccount($conn)
 {
-	$sql = "DELETE FROM `user` WHERE `id`=?";
-	$result = $conn->prepare($sql);
-	$result->execute(array($_SESSION['id']));
+	
+	if (isset($_POST['deleteAllimg']))
+	{
+		if (isset($_POST['gallery_path']))
+		{
+			$image_gallery = stripslashes($_POST['gallery_path']);		//prevent that user delete other user image
+			//by copy pasting the picture name on inspect mode
+			$userid =  $_SESSION['id'];
+			$sql_gallery = "DELETE FROM galleryImages WHERE imgFullNameGallery=? AND userid=?";
+			$result_gallery = $conn->prepare($sql_gallery);
+			$result_gallery->execute(array($image_gallery, $userid));
+			if ($result_gallery->rowCount())
+				unlink("user_uploads/" . $image_gallery);
+		}
+		if (isset($_POST['profilePath']))
+		{
+			$profile_image = stripslashes($_POST['profilePath']);		//prevent that user delete other user image
+			//by copy pasting the picture name on inspect mode
+			$username = $_SESSION['id'];
+			$defaultimage = "/128x128.png";
 
-	//here have to add later unlink too to delete from folder too the image
-	$sql_image = "DELETE FROM `galleryImages` WHERE `userid`=?";
-	$result_images = $conn->prepare($sql_image);
-	$result_images->execute(array($_SESSION['id']));
-	/* if ($result->rowCount())
-		unlink("profile_images/" . $image); */	//delete image from user_uploads too
+			$sql_profile = "UPDATE `user` SET `profilePicture`=? WHERE `id`=?;";
+			$result_profile = $conn->prepare($sql_profile);
+			$result_profile->execute(array($defaultimage, $username));
 
-	$sql_like = "DELETE FROM `like` WHERE `user`=?";
-	$result_like = $conn->prepare($sql_like);
-	$result_like->execute(array($_SESSION['id']));
+			if ($result_profile->rowCount())
+			unlink("profile_images/" . $profile_image);	//delete image from user_uploads too
+		}
+		
+		/* $sql = "DELETE FROM `user` WHERE `id`=?";
+		$result = $conn->prepare($sql);
+		$result->execute(array($_SESSION['id'])); */
+	
+		$sql_like = "DELETE FROM `like` WHERE `user`=?";
+		$result_like = $conn->prepare($sql_like);
+		$result_like->execute(array($_SESSION['id']));
+	
+		$sql_comment = "DELETE FROM `comments` WHERE `uid`=?";
+		$result_comment = $conn->prepare($sql_comment);
+		$result_comment->execute(array($_SESSION['id']));
+	}
 
-	$sql_comment = "DELETE FROM `comments` WHERE `uid`=?";
-	$result_comment = $conn->prepare($sql_comment);
-	$result_comment->execute(array($_SESSION['id']));
-
-	session_destroy();
-	header('Location: index.php');
+	/* session_destroy();
+	header('Location: index.php'); */
 }
 
 if (isset($_GET['action']))

@@ -201,6 +201,7 @@
 										<button class="button is-light" id="click-photo">3.Take Photo</button>
 										<br><br>
 										<label class="label has-text-centered">2.Add stickers!*</label>
+										<p class="has-text-centered">(max.: 2)</p>
 
 										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp6.png" width="200" height="200"></button>
 										<button><img class="image is-128x128" onclick="stampPath(this)" src="./stamp/stamp5.png" width="200" height="200"></button>
@@ -244,6 +245,7 @@
 											</form>
 											<br>
 											<label class='label has-text-centered'>Add stickers!(Optional)</label>
+											<p class='has-text-centered'>(max.: 2)</p>
 											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp6.png' width='200' height='200'></button>
 											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp5.png' width='200' height='200'></button>
 											<button><img class='image is-128x128' onclick='stampPath(this)' src='./stamp/stamp3.png' width='200' height='200'></button>
@@ -340,6 +342,7 @@
 
 	let stamp_auth = false;
 	let counter = 0;
+	let clicker = 0; //error handling that user can not choose sticker take photo and upload without start camera
 
 	function stampPath(element) {
 		counter++;
@@ -359,12 +362,13 @@
 	}
 
 	camera_button.addEventListener('click', async function() {
+		clicker = 1
 		let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 		video.srcObject = stream;
 	});
 
 	click_button.addEventListener('click', function() {
-		if (stamp_auth)
+		if (stamp_auth && clicker == 1)
 		{
 			canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 			let image_data_url = canvas.toDataURL('image/jpeg');

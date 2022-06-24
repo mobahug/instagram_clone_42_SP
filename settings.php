@@ -58,19 +58,54 @@
 				<div class="column is-half is-offset-one-quarter"> <!-- place everything to the middle -->
 					<div class="container is-fluid">
 						<?php
+							echo '
+								<div class="box has-text-centered">
+									<form class="form-control" method="POST" action="settings.php?action=delete">';
 							if (isset($_SESSION['id']))
 							{
+								$userid = $_SESSION['id'];
+								$sql = "SELECT * FROM `galleryImages` WHERE `userid`=?";
+								$result = $conn->prepare($sql);
+								$result->execute(array($userid));
+								if (!$result)
+								{
+									echo "SQL statement failed!";
+								}
+								else
+								{
+									$rows = $result->fetchAll();
+									foreach ($rows as $row)
+									{
+										echo '<input type="hidden" name="gallery_path" value="'.htmlspecialchars($row["imgFullNameGallery"]).'">';
+									}
+								}
+								$userid = $_SESSION['id'];
+								$sql = "SELECT * FROM `user` WHERE `id`=?";
+								$result = $conn->prepare($sql);
+								$result->execute(array($userid));
+								if (!$result)
+								{
+									echo "SQL statement failed!";
+								}
+								else
+								{
+									$rows = $result->fetchAll();
+									foreach ($rows as $row)
+									{
+										echo '<input type="hidden" name="profilePath" value="'.htmlspecialchars($row["profilePicture"]).'">';
+									}
+								}
 								echo '
-								<div class="box has-text-centered">
-									<button class="button button-forget is-fullwidth">
-										<a class="has-text-black" href="settings.php?action=delete">Delete Account</a>
-									</button>
-									<br>
-									<div class="field">
-										<form action="notification.php" method="POST">
-											<input class="button is-light" type="submit" name="on" value="On">
-											<input class="button is-light" type="submit" name="off" value="Off">
-										</form>';
+														<button class="button button-forget is-fullwidth" type="submit" name="deleteAllimg">
+													<p class="has-text-black">Delete Account</p>
+												</button>
+											</form>
+											<br>
+											<div class="field">
+												<form action="notification.php" method="POST">
+													<input class="button is-light" type="submit" name="on" value="On">
+													<input class="button is-light" type="submit" name="off" value="Off">
+												</form>';
 								$id = $_SESSION['id'];
 								$sql2 = "SELECT * FROM `user` WHERE `id`=?";
 								$result = $conn->prepare($sql2);
