@@ -345,8 +345,8 @@ function deleteAccount($conn)
 		$result_comment->execute(array($_SESSION['id']));
 	}
 
-	/* session_destroy();
-	header('Location: index.php'); */
+	session_destroy();
+	header('Location: index.php');
 }
 
 if (isset($_GET['action']))
