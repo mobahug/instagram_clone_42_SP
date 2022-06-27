@@ -62,6 +62,7 @@ Instagram look like page
 	bugfixed camera, before: without start could choose sticker and take, upload photo, now user must start the camera first - DONE
 	removing account with left images likes comments - DONE
 	1 click remove images fixed fully - DONE
+	added extra stuff if user just delete its own image all the likes and comments deleted from database too - DONE
 
 todo list:
 
