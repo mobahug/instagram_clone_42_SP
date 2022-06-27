@@ -154,9 +154,11 @@
 											</div>
 										</div>
 										<div class="content">
-											<p>
-												<strong>'.htmlspecialchars($row['likeCount']).' Likes</strong>
-											</p>
+											<a href="likers.php">
+												<p>
+													<strong>'.htmlspecialchars($row['likeCount']).' Likes</strong>
+												</p>
+											</a>
 											<p class="title is-5">'.htmlspecialchars($row["titleGallery"]).'</p>
 											<p class="subtitle is-6">'.htmlspecialchars($row["descGallery"]).'</p>
 											<a>@mangofruit</a>
@@ -253,7 +255,7 @@
 	}
 
 	function ajaxLike(imageId){
-		
+
 		let xml = new XMLHttpRequest();
 		let imageHeart = document.getElementById(imageId+'-heart');
 		let status = imageHeart.name;
@@ -283,7 +285,7 @@
 		var imgid = document.getElementById('imgid').value;
 
 		var params = "name="+uid + "name="+date + "name="+imgid;
-		
+
 		var xhr = new XMLHttpRequest();
 
 		xhr.open('POST', 'homePage.php?action=setComments', true);

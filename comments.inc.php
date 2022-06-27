@@ -299,7 +299,7 @@ function userLogout()
 
 function deleteAccount($conn)
 {
-	
+
 	if (isset($_POST['deleteAllimg']))
 	{
 		$userid =  $_SESSION['id'];
@@ -330,15 +330,15 @@ function deleteAccount($conn)
 			if ($result_profile->rowCount())
 			unlink("profile_images/" . $profile_image);	//delete image from user_uploads too
 		}
-		
+
 		$sql = "DELETE FROM `user` WHERE `id`=?";
 		$result = $conn->prepare($sql);
 		$result->execute(array($_SESSION['id']));
-	
+
 		$sql_like = "DELETE FROM `like` WHERE `user`=?";
 		$result_like = $conn->prepare($sql_like);
 		$result_like->execute(array($_SESSION['id']));
-	
+
 		$sql_comment = "DELETE FROM `comments` WHERE `uid`=?";
 		$result_comment = $conn->prepare($sql_comment);
 		$result_comment->execute(array($_SESSION['id']));

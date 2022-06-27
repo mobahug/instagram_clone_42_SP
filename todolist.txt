@@ -68,6 +68,7 @@ todo list:
 
 	AJAX if i can make it still
 
+	adding feature to check a user who liked their picture - in progress
 
 ******Config for MAMP bitnami server******
 
