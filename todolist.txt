@@ -63,6 +63,7 @@ Instagram look like page
 	removing account with left images likes comments - DONE
 	1 click remove images fixed fully - DONE
 	added extra stuff if user just delete its own image all the likes and comments deleted from database too - DONE
+	added maxlenght to upload file inputs to limit the text - DONE
 
 todo list:
 
