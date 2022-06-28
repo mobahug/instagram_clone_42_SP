@@ -78,6 +78,15 @@
 				$rows = $result->fetchAll();
 				foreach ($rows as $row)
 				{
+					$sql2 = "SELECT user.uid AS 'uid',
+								COUNT(galleryimages.userid) AS `postCount`
+								FROM `galleryimages`
+								INNER JOIN user ON galleryimages.userid = user.id
+								WHERE user.id=?;";
+					$result2 = $conn->prepare($sql2);
+					$result2->execute(array($id));
+					$results = $result2->fetchAll();
+					$postCount= $results[0]['postCount'];
 					echo '
 					<div class="is-fullheight">
 						<div class="container">
@@ -93,6 +102,12 @@
 											<div>
 												<p class="heading">Username</p>
 												<p class="title">'.htmlspecialchars($row['uid']).'</p>
+											</div>
+										</div>
+										<div class="level-item has-text-centered">
+											<div>
+												<p class="heading">Posts</p>
+												<p class="title">'.htmlspecialchars($postCount).'</p>
 											</div>
 										</div>
 										<div class="level-item has-text-centered">

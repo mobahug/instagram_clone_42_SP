@@ -64,12 +64,13 @@ Instagram look like page
 	1 click remove images fixed fully - DONE
 	added extra stuff if user just delete its own image all the likes and comments deleted from database too - DONE
 	added maxlenght to upload file inputs to limit the text - DONE
+	added post counter - DONE
+	added the feature to check out likers - DONE
 
 todo list:
 
 	AJAX if i can make it still
 
-	adding feature to check a user who liked their picture - in progress
 
 ******Config for MAMP bitnami server******
 

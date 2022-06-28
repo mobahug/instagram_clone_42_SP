@@ -154,7 +154,7 @@
 											</div>
 										</div>
 										<div class="content">
-											<a href="likers.php">
+											<a href="likers.php?likes='.htmlspecialchars($row['idGallery']).'">
 												<p>
 													<strong>'.htmlspecialchars($row['likeCount']).' Likes</strong>
 												</p>
