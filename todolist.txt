@@ -66,6 +66,7 @@ Instagram look like page
 	added maxlenght to upload file inputs to limit the text - DONE
 	added post counter - DONE
 	added the feature to check out likers - DONE
+	added fixes to see on phone the liker page better - DONE
 
 todo list:
 
