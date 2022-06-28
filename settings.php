@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>InstagramClone Profile</title>
+	<title>mangofruit.fi</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
@@ -249,7 +249,7 @@
 											}
 										echo '<label class="label">Upload new profile picture (max.: 2mb)</label>
 											<form action="profilePicture.php" method="POST" enctype="multipart/form-data">
-												<input class="input" type="text" name="filename" placeholder="Profile Picture Name (Optional)">
+												<input  maxlength="50" class="input" type="text" name="filename" placeholder="Profile Picture Name (Optional), max.: 50 character">
 												<input class="input" type="file" name="file">
 												<button class="button button-signin is-fullwidth" type="submit" name="submitProfile">Upload</button>
 											</form>

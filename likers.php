@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>mangofruit.fi</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
@@ -57,9 +57,9 @@
 		if (isset($_SESSION['id']))
 		{
 			$sql = "SELECT * FROM `like`
-			LEFT JOIN `galleryImages` ON `like`.`img` = galleryImages.idGallery
-			INNER JOIN user ON galleryImages.userid = user.id
-			GROUP BY `galleryImages`.`idGallery`;";
+			LEFT JOIN `galleryImages` ON `like`.`img` = `galleryImages`.`idGallery`
+			INNER JOIN `user` ON `like`.`user` = `user`.`id`
+			GROUP BY `like`.`user`;";
 			$result = $conn->prepare($sql);
 			$result->execute();
 			if (!$result)
@@ -69,16 +69,11 @@
 			else
 			{
 				$rows = $result->fetchAll();
-
+				//print_r($rows);
 				foreach ($rows as $row)
 				{
 					//print_r($row);
-					$image_id = $row['idGallery'];
-					$sql1 = "SELECT user FROM `like` WHERE img=? AND `user`=?";
-					$result1 = $conn->prepare($sql1);
-					$result1->execute(array($image_id, $id));
-					$rows1 = $result1->fetchAll();
-					foreach ($rows1 as $row1)
+					
 					{
 
 						//print_r($rows1);
