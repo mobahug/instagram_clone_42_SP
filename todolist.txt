@@ -67,6 +67,7 @@ Instagram look like page
 	added post counter - DONE
 	added the feature to check out likers - DONE
 	added fixes to see on phone the liker page better - DONE
+	small fixes in UI setttings page notification section - DONE
 
 todo list:
 

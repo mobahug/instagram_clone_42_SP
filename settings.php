@@ -106,11 +106,11 @@
 
 										if ($row['notification_status'] == 1)
 										{
-											echo "<p class='has-text-success has-background-success-light'>Notification is ON!</p>";
+											echo "<p class='has-text-success has-background-success-light'>Email notification is ON!</p>";
 										}
 										if ($row['notification_status'] == 0)
 										{
-											echo "<p class='has-text-danger has-background-danger-light'>Notification is OFF</p>";
+											echo "<p class='has-text-danger has-background-danger-light'>Email notification is OFF</p>";
 										}
 
 										echo '
