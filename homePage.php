@@ -141,7 +141,7 @@
 													{
 														echo '
 														<a href="like.php?likeButton=1&imgId='.htmlspecialchars($row['idGallery']).'">
-															<i onclick="ajaxLike('.$row['idGallery'].')" name="dislike" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-danger material-icons">favorite_border</i>
+															<i onclick="ajaxLike('.$row['idGallery'].')" name="dislike" id="'.htmlspecialchars($row['idGallery']).'-heart" class="has-text-danger material-icons">favorite</i>
 														</a>';
 													}
 													else

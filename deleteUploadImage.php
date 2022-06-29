@@ -9,13 +9,13 @@
 		$id = $_SESSION['id'];
 		$imgid = $_POST['gallery_id'];
 
-		$sql_like = "DELETE FROM `like` WHERE `user`=? AND `img`=?";
+		$sql_like = "DELETE FROM `like` WHERE `img`=?";
 		$result_like = $conn->prepare($sql_like);
-		$result_like->execute(array($id, $imgid));
+		$result_like->execute(array($imgid));
 
-		$sql_comment = "DELETE FROM `comments` WHERE `uid`=? AND `imgid`=?";
+		$sql_comment = "DELETE FROM `comments` WHERE `imgid`=?";
 		$result_comment = $conn->prepare($sql_comment);
-		$result_comment->execute(array($id, $imgid));
+		$result_comment->execute(array($imgid));
 
 
 		$sql = "DELETE FROM `galleryImages` WHERE `userid`=? AND `imgFullNameGallery`=?";
