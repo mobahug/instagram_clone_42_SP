@@ -94,8 +94,10 @@ function getComments($conn, $imgid)
 											<div class='media'>
 												<div class='media-left'>
 													<figure class='pt-2 image is-32x32'>
-														<img class='is-rounded image is-32x32' src='./profile_images/".htmlspecialchars($row2[0]["profilePicture"])."' alt='Placeholder image'>
-													</figure>
+														<a href='clicked-user-page.php?user=".htmlspecialchars($row2[0]['id'])."'>
+															<img class='is-rounded image is-32x32' src='./profile_images/".htmlspecialchars($row2[0]["profilePicture"])."' alt='Placeholder image'>
+														</a>
+														</figure>
 												</div>
 												<div class='media-content'>
 													<a href='clicked-user-page.php?user=".htmlspecialchars($row2[0]['id'])."'>

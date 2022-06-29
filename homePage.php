@@ -98,7 +98,9 @@
 										<div class="media">
 											<div class="media-left">
 												<figure class="image is-48x48">
-													<img class="is-rounded image is-48x48" src="./profile_images/'.htmlspecialchars($row['profilePicture']).'" alt="Placeholder image">
+													<a href="clicked-user-page.php?user='.htmlspecialchars($row['id']).'">
+														<img class="is-rounded image is-48x48" src="./profile_images/'.htmlspecialchars($row['profilePicture']).'" alt="Placeholder image">
+													</a>
 												</figure>
 											</div>
 											<div class="media-content">
