@@ -88,6 +88,15 @@
 					$result1 = $conn->prepare($sql1);
 					$result1->execute();
 					$rows1 = $result1->fetchAll();
+
+
+					$sql_comments = "SELECT COUNT(imgid) AS 'comments'
+									FROM `comments`
+									WHERE `imgid`=?
+									GROUP BY `comments`.`imgid`;";
+					$result_comments = $conn->prepare($sql_comments);
+					$result_comments->execute(array($image_id));
+					$rows_comments = $result_comments->fetchAll();
 					echo '
 				<div class="is-fullheight">
 					<div class="container">
@@ -161,6 +170,9 @@
 													<strong>'.htmlspecialchars($row['likeCount']).' Likes</strong>
 												</p>
 											</a>
+											<p>
+												<strong>'.htmlspecialchars($rows_comments[0]['comments']).' Comments</strong>
+											</p>
 											<p class="title is-5">'.htmlspecialchars($row["titleGallery"]).'</p>
 											<p class="subtitle is-6">'.htmlspecialchars($row["descGallery"]).'</p>
 											<a>@mangofruit</a>

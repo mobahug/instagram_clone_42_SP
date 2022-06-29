@@ -69,6 +69,7 @@ Instagram look like page
 	added fixes to see on phone the liker page better - DONE
 	small fixes in UI setttings page notification section - DONE
 	added the functionality that user could check user profile via clicking to their profilepicture on the cards/comments - DONE
+	added comment counter - DONE
 
 todo list:
 
