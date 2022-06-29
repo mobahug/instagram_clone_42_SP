@@ -73,6 +73,12 @@ todo list:
 
 	AJAX if i can make it still
 
+	adding to the heart page:
+								-terms & service,
+								-rules,
+								-short description from the creator
+								-maybe update logs
+
 
 ******Config for MAMP bitnami server******
 
