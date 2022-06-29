@@ -307,6 +307,7 @@
 												<div class="level-left">
 													<form class="form-control" method="POST" action="deleteUploadImage.php">
 														<input type="hidden" name="gallery_path" value="'.htmlspecialchars($row["imgFullNameGallery"]).'">
+														<input type="hidden" name="gallery_id" value="'.htmlspecialchars($row["idGallery"]).'">
 														<button class="button is-hovered" type="submit" name="deleteUploadImage">
 															<i class="material-icons">delete</i>
 														</button>

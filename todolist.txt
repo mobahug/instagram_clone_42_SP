@@ -70,6 +70,7 @@ Instagram look like page
 	small fixes in UI setttings page notification section - DONE
 	added the functionality that user could check user profile via clicking to their profilepicture on the cards/comments - DONE
 	added comment counter - DONE
+	found and fixed a major issue where if i deleted one of my image, its deleted all of the like and comments what had, now its only deleting from the database its deleted pictures comments and likes - DONE
 
 todo list:
 
