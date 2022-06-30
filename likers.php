@@ -100,7 +100,9 @@
 															<div class='media'>
 																<div class='media-left'>
 																	<figure class='image is-32x32'>
-																		<img class='is-rounded image is-32x32' src='./profile_images/".htmlspecialchars($row["profilePicture"])."' alt='Placeholder image'>
+																		<a href='clicked-user-page.php?user=".htmlspecialchars($row['id'])."'>
+																			<img class='is-rounded image is-32x32' src='./profile_images/".htmlspecialchars($row["profilePicture"])."' alt='Placeholder image'>
+																		</a>
 																	</figure>
 																</div>
 																<div class='media-content'>

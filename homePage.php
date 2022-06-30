@@ -157,7 +157,7 @@
 												echo '</div>
 												<div class="level-item has-text-centered">
 													<div>
-														<button class="button is-white" onclick="showcamera('.htmlspecialchars($row['idGallery']).')">
+														<button class="button is-white" onclick="showcomment('.htmlspecialchars($row['idGallery']).')">
 															<i class="has-text-grey-dark material-icons">chat_bubble_outline</i>
 														</button>
 													</div>
@@ -191,7 +191,7 @@
 					{
 
 						echo	"
-							<div id='camera".htmlspecialchars($row['idGallery'])."' style='display:none'>
+							<div id='comment".htmlspecialchars($row['idGallery'])."' style='display:none'>
 								<div class='columns body-columns'>
 									<div class='column'>
 										<div class='card'>
@@ -214,7 +214,7 @@
 					else
 					{
 						echo "
-							<div id='camera".htmlspecialchars($row['idGallery'])."' style='display:none'>
+							<div id='comment".htmlspecialchars($row['idGallery'])."' style='display:none'>
 								<div class='columns body-columns'>
 									<div class='column is-half is-offset-one-quarter'>
 										<div class='card'>
@@ -258,9 +258,9 @@
 	</div>
 </body>
 <script>
-	function showcamera(id)
+	function showcomment(id)
 	{
-		let comment = document.getElementById('camera'+id);
+		let comment = document.getElementById('comment'+id);
 		if (comment.style.display == 'block'){
 			comment.style.display = 'none';
 		} else {
