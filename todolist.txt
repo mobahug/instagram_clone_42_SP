@@ -85,6 +85,12 @@ todo list:
 								-short description from the creator
 								-maybe update logs
 
+	small bug to fix:
+
+					emoji somewhy not working now before worked
+					after registration default grey image not showing up either the username untill first upload picture made
+					also their value in the databse are NULL
+
 
 ******Config for MAMP bitnami server******
 
