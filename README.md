@@ -13,7 +13,7 @@ Important detail that Your password need to have:
       -at leasst one number
       -and at least one special character
       
- After that you will get to your email adress a verification link, and by clicking it activating your account so you can log in!
+ After that you will get to your email address a verification link, and by clicking it activating your account so you can log in!
  
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/83179142/177528663-599564f6-a682-4360-9463-652faeedf2a6.gif)
 
@@ -22,4 +22,5 @@ Important detail that Your password need to have:
 So after you logged in you can get access to your profilepage, settings page, you can like peoples images and comment them
 
 
-![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/83179142/176376643-37620fa5-b1c5-4985-9933-c2f9e6c64dfd.gif)
+
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/83179142/177530923-39022015-6697-423b-b103-f984ab478bda.gif)
