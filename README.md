@@ -1,4 +1,3 @@
-# work in progress
 # My Own social media platform what I built from skretch
 
 ## So what you can do?
@@ -75,4 +74,10 @@ On the main feed you can:
       
    
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/83179142/177535946-c30e6358-9f75-47b5-8844-ae145150f9de.gif)
+
+
+## You can also do:
+
+You can also make a reset passford in the login page if your forget and get a link to your email address to get a new password.
+The passwords rules are the same as on the registration field.
 
