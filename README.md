@@ -30,6 +30,22 @@ In the settings ppage you can:
       -change password, same rules as registration process
       -change email address, only if not in use already
       -upload your own profile picture what you can also delete
+      
+In the profile page you can:
+
+      -shows your profile picture
+      -shows your username
+      -shows your posts (uploaded images)
+      -shows as a summary how much like you got all together to all your post
+      -take pictures with camera, add to there stickers from 1 to maximum 2
+      -upload images
+            add title
+            image name
+            description (max 1500 character)
+            add stickers from 0 to maximum 2
+      -delete your camera /uploaded images
+      -check the content of each images how many likes and comments arrived by clicking SHOW button
+      
 
 
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/83179142/177530923-39022015-6697-423b-b103-f984ab478bda.gif)
