@@ -48,7 +48,7 @@ In the profile page you can:
       -delete your camera /uploaded images
       -check the content of each images how many likes and comments arrived by clicking SHOW button
       
-
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/83179142/177533552-34058390-7fae-4194-85db-89c1ec0f3faa.gif)
 
 
 
