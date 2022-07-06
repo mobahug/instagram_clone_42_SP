@@ -29,6 +29,7 @@ In the settings ppage you can:
       -change username, but only if its not used and properly set it up
       -change password, same rules as registration process
       -change email address, only if not in use already
+      -upload your own profile picture what you can also delete
 
 
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/83179142/177530923-39022015-6697-423b-b103-f984ab478bda.gif)
