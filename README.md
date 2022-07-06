@@ -81,3 +81,15 @@ On the main feed you can:
 You can also make a reset passford in the login page if your forget and get a link to your email address to get a new password.
 The passwords rules are the same as on the registration field.
 
+
+# Languages what I used:
+
+      -MySQL
+      -PHP
+      -phpmyadmin
+      -MAMP bitnammi
+      -CSS
+      -Bulma Framework
+      -JavaScript
+      -Html
+
