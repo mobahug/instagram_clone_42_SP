@@ -31,6 +31,8 @@ In the settings ppage you can:
       -change email address, only if not in use already
       -upload your own profile picture what you can also delete
       
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/83179142/177532978-5d9b36e5-7ca3-4d47-ad1e-b056b855472c.gif)
+
 In the profile page you can:
 
       -shows your profile picture
@@ -48,4 +50,5 @@ In the profile page you can:
       
 
 
-![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/83179142/177530923-39022015-6697-423b-b103-f984ab478bda.gif)
+
+
