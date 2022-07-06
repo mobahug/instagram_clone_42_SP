@@ -19,8 +19,16 @@ Important detail that Your password need to have:
 
 ## After logged in
 
-So after you logged in you can get access to your profilepage, settings page, you can like peoples images and comment them
+So after you logged in you can get access to your profilepage, settings page, you can like peoples images and comment them.
 
+In the settings ppage you can:
+
+      -delete your account
+            it's deleting the user uploaded pictures, from the folder, from the pages and from the database
+      -turn on/off email notifications what you get after someone comment to your picture
+      -change username, but only if its not used and properly set it up
+      -change password, same rules as registration process
+      -change email address, only if not in use already
 
 
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/83179142/177530923-39022015-6697-423b-b103-f984ab478bda.gif)
