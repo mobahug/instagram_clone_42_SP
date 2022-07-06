@@ -3,6 +3,7 @@
 
 ## So what you can do?
 
+### On the landing page
 
 First you need to register by clicking to the sign up button which will bring you a popup window.
 You give your credential.
@@ -21,7 +22,9 @@ Important detail that Your password need to have:
 
 So after you logged in you can get access to your profilepage, settings page, you can like peoples images and comment them.
 
-In the settings ppage you can:
+### On the settings page
+
+On the settings page you can:
 
       -delete your account
             it's deleting the user uploaded pictures, from the folder, from the pages and from the database
@@ -33,7 +36,9 @@ In the settings ppage you can:
       
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/83179142/177532978-5d9b36e5-7ca3-4d47-ad1e-b056b855472c.gif)
 
-In the profile page you can:
+### On the profile page
+
+On the profile page you can:
 
       -shows your profile picture
       -shows your username
@@ -50,5 +55,24 @@ In the profile page you can:
       
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/83179142/177533552-34058390-7fae-4194-85db-89c1ec0f3faa.gif)
 
+### On the main feed
 
+On the main feed you can:
+
+      -see an infinity scroll feature
+      -check out other users pictures what they shared
+      -comment to other pictures (or even to your own) and you can:
+            see the comment owner profilepicture
+            the comment owner name
+            the time when the comment were submitted
+            edit only your own comment
+            delete only your own comment
+      -like/dislike other people images (or your own)
+      -check who liked your/others pictures and go to their profile to check out what images they have
+      -comment counter on each post
+      -comment button to hide all comments
+      -like counter on each post
+      
+   
+![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/83179142/177535946-c30e6358-9f75-47b5-8844-ae145150f9de.gif)
 
