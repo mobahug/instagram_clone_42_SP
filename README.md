@@ -16,7 +16,7 @@ Important detail that Your password need to have:
  After that you will get to your email address a verification link, and by clicking it activating your account so you can log in!
  
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/83179142/177528663-599564f6-a682-4360-9463-652faeedf2a6.gif)
-
+<h2></h2>
 
 <br>
 <h2> After logged in</h2>
