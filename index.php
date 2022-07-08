@@ -1,5 +1,7 @@
 <?php
 	require_once 'comments.inc.php';
+	if (isset($_SESSION['id']))
+		header("Location: homePage.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,6 +39,7 @@
 							<i class="material-icons">person_outline</i>
 						</a>
 					';
+					
 				}
 				else
 				{

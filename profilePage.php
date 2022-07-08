@@ -61,11 +61,11 @@
 			//$sql = "SELECT * FROM `user` WHERE `id`=".$id.";";
 			$sql = "SELECT COUNT(`like`.`img`) AS `likeCount`, user.uid AS 'uid',
 					user.profilePicture
-					FROM `galleryImages`
+					FROM `user`
+					LEFT JOIN galleryImages ON user.id = galleryImages.userid
 					LEFT JOIN `like` ON galleryImages.idGallery = `like`.`img`
-					INNER JOIN user ON galleryImages.userid = user.id
 					WHERE user.id=?
-					ORDER BY `upload_date` DESC;";		//THIS HAVE TO CHECK OUT LATER!!!!
+					ORDER BY `upload_date` DESC";		//THIS HAVE TO CHECK OUT LATER!!!!
 			$result = $conn->prepare($sql);
 			$result->execute(array($id));
 			if (!$result)

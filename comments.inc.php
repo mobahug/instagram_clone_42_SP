@@ -19,7 +19,7 @@ function setComments($conn)
 {
 	if (isset($_POST['commentSubmit']) && !empty($_POST['message']))
 	{
-		$uid = $_POST['uid'];
+		$uid = $_SESSION['id'];
 		$date = $_POST['date'];
 		$message = $_POST['message'];
 		$imgid = $_POST['imgid'];
@@ -158,13 +158,13 @@ function editComments($conn)
 	if (isset($_POST['commentSubmit']))
 	{
 		$cid = $_POST['cid'];
-		$uid = $_POST['uid'];
+		$uid = $_SESSION['id'];
 		$date = $_POST['date'];
 		$message = $_POST['message'];
 
-		$sql = "UPDATE `comments` SET message=? WHERE cid=?";
+		$sql = "UPDATE `comments` SET message=? WHERE `cid`=? AND `uid`=?";
 		$result = $conn->prepare($sql);
-		$result->execute(array($message, $cid));
+		$result->execute(array($message, $cid, $uid));
 		header("Location: homePage.php");
 	}
 }
@@ -174,10 +174,11 @@ function deleteComments($conn)
 	if (isset($_POST['commentDelete']))
 	{
 		$cid = $_POST['cid'];
+		$uid = $_SESSION['id'];
 
-		$sql = "DELETE FROM `comments` WHERE cid=?";
+		$sql = "DELETE FROM `comments` WHERE `cid`=? AND `uid`=?";
 		$result = $conn->prepare($sql);
-		$result->execute(array($cid));
+		$result->execute(array($cid, $uid));
 		//header("Location: index.php");
 	}
 }
