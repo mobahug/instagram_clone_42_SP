@@ -17,7 +17,9 @@ Important detail that Your password need to have:
  
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/83179142/177528663-599564f6-a682-4360-9463-652faeedf2a6.gif)
 
-## After logged in
+
+<br>
+<h2> After logged in</h2>
 
 So after you logged in you can get access to your profilepage, settings page, you can like peoples images and comment them.
 
@@ -35,6 +37,8 @@ On the settings page you can:
       
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/83179142/177532978-5d9b36e5-7ca3-4d47-ad1e-b056b855472c.gif)
 
+
+<br>
 <h2> On the profile page</h2>
 
 On the profile page you can:
@@ -54,6 +58,8 @@ On the profile page you can:
       
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/83179142/177533552-34058390-7fae-4194-85db-89c1ec0f3faa.gif)
 
+
+<br>
 <h2>On the main feed</h2>
 
 On the main feed you can:
@@ -76,6 +82,7 @@ On the main feed you can:
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/83179142/177535946-c30e6358-9f75-47b5-8844-ae145150f9de.gif)
 
 
+<br>
 <h3> You can also do:</h3>
 
 You can also make a reset passford in the login page if your forget and get a link to your email address to get a new password.
