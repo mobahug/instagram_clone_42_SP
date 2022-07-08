@@ -2,7 +2,7 @@
 
 ## So what you can do?
 
-### On the landing page
+<h2> On the landing page</h2>
 
 First you need to register by clicking to the sign up button which will bring you a popup window.
 You give your credential.
