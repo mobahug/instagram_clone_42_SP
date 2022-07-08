@@ -1,4 +1,4 @@
-# My Own social media platform what I built from skretch
+<h1> My Own social media platform what I built from skretch</h1>
 
 ## So what you can do?
 
@@ -56,7 +56,7 @@ On the profile page you can:
       
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/83179142/177533552-34058390-7fae-4194-85db-89c1ec0f3faa.gif)
 
-### On the main feed
+<h2>On the main feed</h2>
 
 On the main feed you can:
 
