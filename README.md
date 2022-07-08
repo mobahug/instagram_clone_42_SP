@@ -2,6 +2,8 @@
 
 ## So what you can do?
 
+
+
 <h2> On the landing page</h2>
 
 First you need to register by clicking to the sign up button which will bring you a popup window.
@@ -21,7 +23,7 @@ Important detail that Your password need to have:
 
 So after you logged in you can get access to your profilepage, settings page, you can like peoples images and comment them.
 
-### On the settings page
+<h2>On the settings page</h2>
 
 On the settings page you can:
 
@@ -35,7 +37,7 @@ On the settings page you can:
       
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/83179142/177532978-5d9b36e5-7ca3-4d47-ad1e-b056b855472c.gif)
 
-### On the profile page
+<h2> On the profile page</h2>
 
 On the profile page you can:
 
