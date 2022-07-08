@@ -57,7 +57,7 @@ On the profile page you can:
       -check the content of each images how many likes and comments arrived by clicking SHOW button
       
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/83179142/177533552-34058390-7fae-4194-85db-89c1ec0f3faa.gif)
-
+<hr>
 
 <br>
 <h2>On the main feed</h2>
@@ -80,7 +80,7 @@ On the main feed you can:
       
    
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/83179142/177535946-c30e6358-9f75-47b5-8844-ae145150f9de.gif)
-
+<hr>
 
 <br>
 <h3> You can also do:</h3>
