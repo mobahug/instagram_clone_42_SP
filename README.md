@@ -36,7 +36,7 @@ On the settings page you can:
       -upload your own profile picture what you can also delete
       
 ![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/83179142/177532978-5d9b36e5-7ca3-4d47-ad1e-b056b855472c.gif)
-
+<hr>
 
 <br>
 <h2> On the profile page</h2>
