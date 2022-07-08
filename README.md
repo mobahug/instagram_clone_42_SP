@@ -1,8 +1,6 @@
 <h1> My Own social media platform what I built from skretch</h1>
 
-## So what you can do?
-
-
+<h2>So what you can do?</h2>
 
 <h2> On the landing page</h2>
 
@@ -78,13 +76,13 @@ On the main feed you can:
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/83179142/177535946-c30e6358-9f75-47b5-8844-ae145150f9de.gif)
 
 
-## You can also do:
+<h3> You can also do:</h3>
 
 You can also make a reset passford in the login page if your forget and get a link to your email address to get a new password.
 The passwords rules are the same as on the registration field.
 
 
-# Languages what I used:
+<h3>Languages what I used:</h3>
 
       -MySQL
       -PHP
