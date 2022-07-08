@@ -73,6 +73,7 @@ Instagram look like page
 	found and fixed a major issue where if i deleted one of my image, its deleted all of the like and comments what had, now its only deleting from the database its deleted pictures comments and likes - DONE
 	added features where user can see on profilepage their photos content (likes, comments) - DONE
 	fixed on like page that can click to profilepage too - DONE
+	security features polished - DONE
 
 
 todo list:
