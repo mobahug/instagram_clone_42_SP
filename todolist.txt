@@ -74,6 +74,7 @@ Instagram look like page
 	added features where user can see on profilepage their photos content (likes, comments) - DONE
 	fixed on like page that can click to profilepage too - DONE
 	security features polished - DONE
+	fixed on live server the emoji crash - DONE
 
 
 todo list:
