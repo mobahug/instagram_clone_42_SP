@@ -171,7 +171,7 @@
 												</p>
 											</a>
 											<p>
-												<strong>'.htmlspecialchars($rows_comments[0]['comments']).' Comments</strong>
+												<strong>'.(isset($rows_comments[0])?htmlspecialchars($rows_comments[0]['comments']):'0').' Comments</strong>
 											</p>
 											<p class="title is-5">'.htmlspecialchars($row["titleGallery"]).'</p>
 											<p class="subtitle is-6">'.htmlspecialchars($row["descGallery"]).'</p>
